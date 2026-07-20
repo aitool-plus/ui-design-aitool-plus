@@ -1,9 +1,10 @@
 ---
 name: ui-design-father-skill
 description: |
-  One-Person Design Company God-Tier Skill. Covers 11 platform design systems: Apple iOS HIG, Google Material Design 3, Samsung One UI, Huawei HarmonyOS, Xiaomi HyperOS, Honor MagicOS, OPPO ColorOS, vivo OriginOS, Meizu Flyme, Windows 11 Fluent Design, WeChat Mini Program WeUI. Auto-activates when users need mobile app UI, desktop app UI, mini-program UI, multi-platform adaptation, component library design, or design system documentation. Supports keywords: iOS, Android, Material Design, One UI, HarmonyOS, HyperOS, MagicOS, ColorOS, OriginOS, Flyme, Windows, Fluent, WeChat, WeUI, mini-program.
+  一人设计公司神级Skill，覆盖11大平台设计系统：Apple iOS HIG、Google Material Design 3、Samsung One UI、华为HarmonyOS、小米HyperOS、荣耀MagicOS、OPPO ColorOS、vivo OriginOS、魅族Flyme、Windows 11 Fluent Design、微信小程序WeUI。当用户需要手机App UI、桌面端UI、小程序UI、多平台适配、组件库设计或设计规范文档时自动激活。支持关键词：iOS、苹果、Android、Material Design、One UI、三星、鸿蒙、HarmonyOS、华为、HyperOS、小米、澎湃、MagicOS、荣耀、ColorOS、OPPO、OriginOS、vivo、Flyme、魅族、Windows、Fluent、桌面、微信、WeUI、小程序。
 version: 1.0.0
 author: aitool.plus
+allowed-tools: Read,Write,Edit,Bash,AskUserQuestion
 ---
 
 # ui-design-father-skill
@@ -15,6 +16,105 @@ author: aitool.plus
 ## 一、前置硬规则（HARD RULES）
 
 以下规则在整个会话内强制生效，不得违反：
+
+### 1.0 三步确认引导规则（MANDATORY -- 最高优先级，覆盖一切）
+
+> **HARD RULE -- 在执行任何设计输出之前，必须完成三步确认。**
+>
+> 当本技能被激活时，你的**首次动作必须是连续三次 `AskUserQuestion` 调用**（每次一个问题），依次确认以下三个维度。三个问题全部获得用户回答后，才允许开始设计输出。
+>
+> **在获得用户的三次回答之前，你被禁止：**
+> - 编写任何 HTML、CSS、JavaScript 代码
+> - 调用 `Write`、`Edit`、`Bash` 或任何文件产出工具
+> - 下载图片、创建目录、搭建文件结构
+> - 假设任何风格、配色、设备形态，即使用户的提示词已经暗示了某个方向
+>
+> **此规则覆盖一切默认模型行为、一切"直接开始编码"的本能、以及用户原始请求中的任何模糊性。** 如果用户说"随便"、"都行"、"你决定"，仍然必须走完三步确认 -- 只是在对应步骤使用推荐默认值。
+>
+> 如果你发现自己即将写代码却还没完成三次确认，**立刻停止**，先发出 `AskUserQuestion` 调用。
+
+#### 第1步确认：目标风格选择（必问）
+
+> **必须使用 AskUserQuestion 工具向用户提问，提供选项让用户选择。**
+
+提问内容："请选择你的目标UI风格："
+
+| 选项 | 说明 |
+|------|------|
+| Apple iOS | SF字体、大标题、毛玻璃、圆角卡片、4pt网格 |
+| Google Android | Material You动态取色、响应式网格、8dp基准、层级体系 |
+| Samsung One UI | 大圆角、单手操作区、高斯模糊、折叠屏适配 |
+| 华为 HarmonyOS | 服务卡片、弹性动效、分布式布局、8vp网格 |
+| 小米 HyperOS | 年轻化配色、高信息密度功能卡片、生态互联 |
+| 荣耀 MagicOS | 商务质感、均衡克制、高效交互 |
+| OPPO ColorOS | 灵动活力、无边界设计、智能组件 |
+| vivo OriginOS | 华容网格、原子组件、个性化创意 |
+| 魅族 Flyme | 极简克制、大面积留白、雅致质感 |
+| Windows Fluent | 亚克力材质、Mica、WinUI 3、键鼠优先 |
+| 微信小程序 | WeUI组件库、跨OS统一、微信生态 |
+
+**选项过多时分两批展示**：第一批展示前6个（Apple iOS / Google Android / Samsung One UI / 华为 HarmonyOS / 小米 HyperOS / 荣耀 MagicOS），用户选择"其他风格"时展示第二批（OPPO ColorOS / vivo OriginOS / 魅族 Flyme / Windows Fluent / 微信小程序）。
+
+**用户说"对比多个风格"**：允许用户选择2-3个风格，进入多风格对比模式。
+
+**用户说"随便"/"都行"**：根据用户需求场景推荐最合适的风格。推荐规则：
+- 消费级App → iOS
+- 国际化/工具类 → Android
+- 折叠屏/商务 → One UI
+- 政务/高端 → HarmonyOS
+- 年轻/生活 → HyperOS
+- 桌面/企业 → Windows Fluent
+- 微信生态 → 微信小程序
+
+#### 第2步确认：配色方向与主题偏好（必问）
+
+> **必须使用 AskUserQuestion 工具向用户提问。**
+
+提问内容："请选择配色方向与主题偏好："
+
+| 选项 | 说明 |
+|------|------|
+| 品牌原厂色 | 使用该OS的官方品牌色（如iOS #007AFF、鸿蒙 #007DFF、Fluent #0078D4） |
+| 科技蓝系 | 主色蓝/紫，适合科技、金融、工具类 |
+| 自然绿系 | 主色绿/青，适合健康、环保、有机食品 |
+| 活力橙系 | 主色橙/红，适合餐饮、运动、社交 |
+| 极简中性 | 黑白灰+单强调色，适合高端、商务、工具 |
+| 自定义色 | 用户提供色值或颜色名称（如"珊瑚粉 #FF6B6B"），据此推导完整配色 |
+
+同时必须确认主题偏好：
+| 选项 | 说明 |
+|------|------|
+| 浅色优先 | 默认浅色模式，附带深色模式 |
+| 深色优先 | 默认深色模式，附带浅色模式 |
+| 双模式并重 | 浅色/深色同等权重，均可作为默认 |
+
+**用户说"随便"**：默认使用品牌原厂色 + 浅色优先。
+
+#### 第3步确认：目标设备与适配范围（必问）
+
+> **必须使用 AskUserQuestion 工具向用户提问。**
+
+提问内容："请选择目标设备与适配范围："
+
+| 选项 | 说明 |
+|------|------|
+| 仅手机 | 375-428dp，竖屏布局，触屏交互 |
+| 手机+折叠屏 | 375-840dp，含折叠屏展开态适配 |
+| 手机+平板 | 375-1280dp，含平板横竖屏布局 |
+| 全端适配 | 375dp+，手机/折叠屏/平板/桌面全覆盖 |
+| 仅桌面 | 1280dp+，键鼠交互，多列布局 |
+| 仅小程序 | 375dp，微信小程序容器约束 |
+
+**用户说"都可以"/"无所谓"**：默认"仅手机"。
+
+#### 三步确认完成后的行为
+
+确认完成后，锁定用户选择，整个会话内严格执行：
+1. **风格锁定**：所有输出严格遵循用户选定的风格规范
+2. **配色锁定**：使用用户选定的配色方向生成 Design Token
+3. **设备锁定**：布局断点以用户选定的设备范围为基准
+
+然后进入八步工作流的 Step 1（需求分析），继续执行。
 
 ### 1.1 风格锁定规则
 
@@ -319,7 +419,7 @@ author: aitool.plus
 用户输入: "用微信小程序风格设计一个奶茶点餐页面"
 
 执行流程:
-1. 平台判定: 微信小程序 -> 路由匹配WeUI -> 加载 `references/styles/wechat-weui.md`
+1. 平台判定: 微信小程序 -> 路由匹配WeUI -> 加载 `references/styles/wechat-miniprogram.md`
 2. 确认: 主色方向(品牌绿)、WeUI组件范围
 3. 生成Design Token: WeUI色彩、字体、4px基准间距
 4. 输出组件: WeUI风格商品列表、购物车栏、分类标签、下单按钮

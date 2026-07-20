@@ -1,169 +1,167 @@
 # ui-design-father-skill
 
-**One Person, One Design Company -- The God-Tier Skill That Gives You an Entire Design Department**
+**一人，即一家设计公司 -- 赋予你整支设计团队力量的神级技能**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/aitool-plus/ui-design-father-skill)
-[![Author](https://img.shields.io/badge/author-aitool.plus-orange.svg)](https://aitool.plus)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![中文文档](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-red.svg)](README.zh.md)
-
----
-
-> What if a single person could output UI designs that rival an entire design department? What if one command could generate pixel-perfect interfaces matching the official design language of any major platform? What if switching between iOS, Android, HarmonyOS, and eight other platforms took seconds instead of weeks?
->
-> This is that skill.
->
-> ui-design-father-skill is not a template library. It is not a component kit. It is a **cognitive design system** -- 11 platform design specifications, deeply encoded and ready to execute. You describe what you want; it delivers factory-grade UI with surgical precision. No guessing. No approximations. No "close enough."
->
-> One person. Eleven platforms. Zero compromises.
+[![版本](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/aitool-plus/ui-design-father-skill)
+[![作者](https://img.shields.io/badge/author-aitool.plus-orange.svg)](https://aitool.plus)
+[![协议](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![English](https://img.shields.io/badge/README-English-blue.svg)](README.en.md)
 
 ---
 
-## Core Highlights
-
-### Why This Skill Is Called "God-Tier"
-
-1. **11 Platform Design Systems, Fully Covered** -- From Apple iOS to WeChat Mini Program, every major mobile OS plus Windows desktop. Nine mobile operating systems, one desktop system, one mini-program framework. The most comprehensive multi-platform UI skill in existence.
-
-2. **Factory-Grade 1:1 Restoration** -- Every parameter comes from official design specifications, not guesswork. Color values, font scales, corner radii, spacing grids, motion curves -- all sourced from Apple HIG, Material Design 3, One UI Design, HarmonyOS Design, and each manufacturer's official design documentation. What you see is what the platform ships.
-
-3. **One-Command Style Switching** -- The same product requirement can be instantly re-rendered in a completely different platform style. iOS today, HarmonyOS tomorrow, Material Design the day after. No re-analysis. No starting over. Switch and deliver.
-
-4. **Mobile + Desktop + Mini Program, All Domains** -- Phones, foldables, tablets, desktops, mini programs. Three device categories, one unified workflow. Every design adapts across breakpoints automatically.
-
-5. **Complete Component Library** -- Every component ships with 5 interaction states (default, hover/pressed, disabled, loading, error), 2 theme variants (light/dark), and 3 size variants per platform specification. Not a sketch. A production-ready system.
-
-6. **High-Fidelity HTML Demos** -- Every platform style has a runnable, interactive HTML demo with dual-theme switching and responsive breakpoints. Not screenshots. Not mockups. Working prototypes.
-
-7. **Cross-Platform Comparison Mode** -- Select 2-3 platforms and instantly generate a side-by-side comparison of the same requirement across different design systems. Color systems, typography scales, spacing grids, interaction paradigms -- all laid out for informed decision-making.
-
-8. **Zero Design Background Required** -- No design degree needed. No Figma skills needed. Describe what you want in plain language, and get professional-grade UI output. The skill encodes decades of platform design expertise into every response.
+> 如果一个人就能产出媲美整支设计部门的UI方案呢？如果一条指令就能生成像素级还原各大平台官方设计语言的界面呢？如果在iOS、Android、鸿蒙等11个平台间切换只需几秒而非几周呢？
+>
+> 这就是那个技能。
+>
+> ui-design-father-skill 不是模板库，不是组件包，而是一套**认知级设计系统** -- 11大平台设计规范深度编码，随时待命。你描述需求，它以手术刀般的精度输出原厂级UI。没有猜测，没有近似，没有"差不多"。
+>
+> 一个人。十一个平台。零妥协。
 
 ---
 
-## Supported Platforms
+## 核心亮点
 
-| Platform | Design System | Core Characteristics | Best For |
+### 为什么这是"一人设计公司神级Skill"
+
+1. **11大平台设计规范全覆盖** -- 从Apple iOS到微信小程序，覆盖所有主流手机操作系统加Windows桌面加小程序框架。九大手机系统、一个桌面系统、一个小程序框架，当今最全面的多平台UI技能。
+
+2. **原厂级1:1还原** -- 所有参数来自官方设计规范，不是凭感觉。色值、字号阶梯、圆角、间距网格、动效曲线 -- 全部源自Apple HIG、Material Design 3、One UI Design、HarmonyOS Design及各厂商官方设计文档。你看到的，就是平台出厂的标准。
+
+3. **一键风格切换** -- 同一份产品需求，秒切不同平台风格重新渲染。今天iOS，明天鸿蒙，后天Material Design。无需重新分析，无需从头开始，切换即交付。
+
+4. **手机+桌面+小程序三端通吃** -- 手机、折叠屏、平板、桌面、小程序，三大设备类别统一工作流，每个设计自动跨断点适配。
+
+5. **完整组件库** -- 每个组件覆盖5种交互状态（默认、悬停/按下、禁用、加载、错误）、2种主题变体（浅色/深色）、3种尺寸变体（按各平台规范）。不是草图，是生产级体系。
+
+6. **高保真HTML Demo** -- 每个平台风格都有可运行的交互式HTML Demo，含双主题切换与响应式断点。不是截图，不是Mockup，是可运行的真原型。
+
+7. **多风格横向对比** -- 选择2-3个平台，一键生成同一需求在不同设计系统下的横向对比方案。色彩体系、字体排版、间距网格、交互范式 -- 全维度展开，支撑决策。
+
+8. **零设计基础也能产出专业级UI** -- 不需要设计学位，不需要Figma技能，用自然语言描述需求即可获得专业级UI输出。数十年的平台设计专业知识，已编码进每一次响应。
+
+---
+
+## 支持的11大平台设计系统
+
+| 平台 | 设计系统 | 核心特征 | 适用场景 |
 |:---|:---|:---|:---|
-| Apple iOS | Human Interface Guidelines | SF typeface, large titles, blur materials, 4pt grid, rounded cards | Premium consumer apps, global market |
-| Google Android | Material Design 3 | Material You dynamic color, responsive grid, 8dp baseline, elevation system | International apps, cross-device experiences |
-| Samsung One UI | One UI Design Language | Large rounded corners, one-handed zone, gaussian blur, foldable optimization | Global market, foldable devices, enterprise |
-| Huawei HarmonyOS | HarmonyOS Design | Service cards, elastic dynamics, distributed layout, 8vp grid | HarmonyOS ecosystem, government, enterprise |
-| Xiaomi HyperOS | HyperOS Design System | Youthful palette, high-density info cards, ecosystem interconnection | Xiaomi ecosystem users, utility apps, lifestyle |
-| Honor MagicOS | MagicOS Design Specification | Professional texture, balanced restraint, efficient interaction | Business, enterprise services, productivity |
-| OPPO ColorOS | ColorOS Design System | Vibrant energy, borderless design, smart components, ripple effects | Young users, social, content consumption |
-| vivo OriginOS | OriginOS Design Language | Huarong grid layout, atomic components, 3D depth, personalization | Personalization-focused, creative, niche apps |
-| Meizu Flyme | Flyme Design Specification | Minimalist restraint, generous whitespace, elegant refinement, 8px grid | Refined tools, artistic, niche verticals |
-| Windows 11 | Fluent Design System | Acrylic materials, depth & layering, Mica, WinUI 3 components | Desktop applications, enterprise software |
-| WeChat Mini Program | WeUI | WeChat-native components, standardized interaction, mini-program constraints | WeChat ecosystem, lightweight services |
+| Apple iOS | Human Interface Guidelines | SF字体、大标题、毛玻璃、4pt网格、圆角卡片 | 高端消费级应用、全球市场 |
+| Google Android | Material Design 3 | Material You动态取色、响应式网格、8dp基准、层级体系 | 国际化应用、跨设备体验 |
+| Samsung One UI | One UI Design Language | 大圆角、单手操作区、高斯模糊、折叠屏适配 | 全球市场、折叠屏设备、商务办公 |
+| 华为 HarmonyOS | HarmonyOS Design | 服务卡片、弹性动效、分布式布局、8vp网格 | 鸿蒙生态、政务商务、高端品质 |
+| 小米 HyperOS | HyperOS Design System | 年轻化配色、高信息密度功能卡片、生态互联 | 小米生态用户、工具类、生活服务 |
+| 荣耀 MagicOS | MagicOS Design Specification | 商务质感、均衡克制、高效交互 | 职场办公、企业服务、效率工具 |
+| OPPO ColorOS | ColorOS Design System | 灵动活力、无边界设计、智能组件、水波纹 | 年轻用户、社交娱乐、内容消费 |
+| vivo OriginOS | OriginOS Design Language | 华容网格、原子组件、3D景深、个性化 | 个性化追求、潮流创意、小众精品 |
+| 魅族 Flyme | Flyme Design Specification | 极简克制、大面积留白、雅致质感、8px网格 | 精品工具、文艺向、小众垂类 |
+| Windows 11 | Fluent Design System | 亚克力材质、深度与分层、Mica、WinUI 3组件 | 桌面应用、企业软件 |
+| 微信小程序 | WeUI | 微信原生组件、标准化交互、小程序约束 | 微信生态、轻量服务 |
 
 ---
 
-## Quick Start
+## 快速开始
 
-### 3 Steps to Professional UI
+### 3步获得专业级UI
 
-**Step 1: Install the Skill**
+**第1步：安装技能**
 
-Add this skill to your AI coding assistant (Trae, Cursor, Windsurf, etc.) via skill marketplace or manual configuration.
+将此技能安装到你的AI编码助手（Trae、Cursor、Windsurf等），通过技能市场或手动配置均可。
 
-**Step 2: Tell AI What You Want**
+**第2步：告诉AI你想要什么**
 
-Describe your UI requirement and specify the target platform style.
+描述你的UI需求并指定目标平台风格。
 
-**Step 3: Get Factory-Grade UI**
+**第3步：获得原厂级UI方案**
 
-Receive a complete design system, component specifications, and interactive HTML prototypes matching the official design language.
+获得完整的设计系统、组件规范和匹配官方设计语言的可交互HTML原型。
 
-### Usage Examples
+### 使用示例
 
-**Example 1:**
-
-```
-"Design an e-commerce app homepage using iOS style"
-```
-
-Output: Complete iOS-style homepage with SF Pro typography, iOS system colors, 4pt grid, native navigation bar, tab bar, product cards, search field, and banner -- all matching Apple HIG specification. Includes light/dark theme and 375dp/768dp responsive breakpoints.
-
-**Example 2:**
+**示例1：**
 
 ```
-"Compare the settings page design between iOS and HarmonyOS"
+"用iOS风格设计一个电商App首页"
 ```
 
-Output: Two independent design proposals with a cross-platform comparison table covering color systems, typography, spacing grids, corner radii, component styles, interaction paradigms, and motion characteristics -- plus platform selection recommendations.
+输出：完整的iOS风格首页，包含SF Pro字体、iOS系统色、4pt网格、原生导航栏、标签栏、商品卡片、搜索框和Banner -- 全部匹配Apple HIG规范。包含浅色/深色主题及375dp/768dp响应式断点。
 
-**Example 3:**
+**示例2：**
 
 ```
-"Design a foldable note-taking app using Samsung One UI style"
+"对比iOS和鸿蒙的设置页设计"
 ```
 
-Output: Dual-state One UI prototype covering 375dp phone mode and 768dp unfolded mode, with one-handed zone components, split-pane layouts, and foldable adaptation specifications.
+输出：两套独立设计方案，附跨平台横向对比表，覆盖色彩体系、字体排版、间距网格、圆角规范、组件风格、交互范式、动效特征 -- 外加平台选型建议。
+
+**示例3：**
+
+```
+"用三星One UI风格设计一个折叠屏笔记App"
+```
+
+输出：One UI双态原型，覆盖375dp手机态和768dp展开态，包含单手操作区组件、分栏布局和折叠屏适配规范。
 
 ---
 
-## Workflow
+## 工作流程
 
-The skill follows a rigorous 8-step workflow to ensure every output meets platform-grade quality:
+本技能遵循严格的8步工作流，确保每次输出都达到平台级品质：
 
 ```
-Step 1              Step 2              Step 3              Step 4
-Requirement  -->  Style        -->  Design System  -->  Component
-Analysis          Confirmation        Generation           Specification
+第1步               第2步               第3步               第4步
+需求分析     -->   风格确认     -->   设计系统生成  -->   组件规范输出
 
-Step 5              Step 6              Step 7              Step 8
-Page          -->  Review &     -->  Final          -->  Demo
-Prototype          Iteration           Delivery             Generation
+第5步               第6步               第7步               第8步
+页面原型生成  -->   审查与迭代    -->   交付输出       -->   Demo生成
 ```
 
-**Step 1: Requirement Analysis** -- Parse target OS, page type, functional modules, user demographics, and device form factors.
+**第1步：需求分析** -- 解析目标OS、页面类型、功能模块、用户群体和设备形态。
 
-**Step 2: Style Confirmation** -- Present matched OS style summary, confirm single-style or multi-style comparison mode.
+**第2步：风格确认** -- 展示匹配的OS风格摘要，确认单风格或多风格对比模式。
 
-**Step 3: Design System Generation** -- Load OS specification, generate complete Design Token system (colors, typography, spacing, radii, shadows, motion).
+**第3步：设计系统生成** -- 加载OS规范，生成完整Design Token体系（色彩、字体、间距、圆角、阴影、动效）。
 
-**Step 4: Component Specification** -- Output component specs with 5 states, 2 themes, 3 sizes per platform requirements.
+**第4步：组件规范输出** -- 输出组件规范，按各平台要求覆盖5状态、2主题、3尺寸。
 
-**Step 5: Page Prototype** -- Assemble design system + components into interactive HTML prototype with dual-theme and responsive breakpoints.
+**第5步：页面原型生成** -- 组合设计系统与组件，生成含双主题和响应式断点的可交互HTML原型。
 
-**Step 6: Review & Iteration** -- Check restoration fidelity against official specs across 7 dimensions, output score and iteration suggestions.
+**第6步：审查与迭代** -- 对照官方规范检查7维度还原度，输出评分与迭代建议。
 
-**Step 7: Final Delivery** -- Package design spec document, component library, interactive prototype, and frontend style reference.
+**第7步：交付输出** -- 打包设计规范文档、组件库、可交互原型和前端样式参考。
 
-**Step 8: Demo Generation** -- Generate standalone HTML demo for each platform style with dual-theme switching and responsive layout.
+**第8步：Demo生成** -- 为每个平台风格生成独立的可运行HTML Demo，含双主题切换与响应式布局。
 
 ---
 
-## Demo Showcase
+## Demo展示
 
-Each platform style includes an interactive HTML demo located in the `demo/` directory:
+每个平台风格都包含一个可交互HTML Demo，位于 `demo/` 目录下：
 
-| Demo | Path | Description |
+| Demo | 路径 | 说明 |
 |:---|:---|:---|
-| Apple iOS | `demo/apple-ios/` | iOS-style homepage with SF Pro, blur materials, and iOS navigation patterns |
-| Google Android | `demo/google-android/` | Material Design 3 homepage with dynamic color and elevation system |
-| Samsung One UI | `demo/samsung-one-ui/` | One UI homepage with large corners and foldable dual-state layout |
-| Huawei HarmonyOS | `demo/huawei-harmonyos/` | HarmonyOS homepage with service cards and elastic dynamics |
-| Xiaomi HyperOS | `demo/xiaomi-hyperos/` | HyperOS homepage with youthful palette and high-density info cards |
-| Honor MagicOS | `demo/honor-magicos/` | MagicOS homepage with professional texture and balanced layout |
-| OPPO ColorOS | `demo/oppo-coloros/` | ColorOS homepage with vibrant energy and borderless design |
-| vivo OriginOS | `demo/vivo-originos/` | OriginOS homepage with Huarong grid and atomic components |
-| Meizu Flyme | `demo/meizu-flyme/` | Flyme homepage with minimalist restraint and generous whitespace |
-| Windows Fluent | `demo/windows-fluent/` | Windows 11 desktop app with Fluent Design and WinUI 3 components |
-| WeChat Mini Program | `demo/wechat-miniprogram/` | WeChat mini program with WeUI components and standardized interaction |
+| Apple iOS | `demo/apple-ios/` | iOS风格首页，SF Pro字体、毛玻璃材质、iOS导航范式 |
+| Google Android | `demo/google-android/` | Material Design 3首页，动态取色与层级体系 |
+| Samsung One UI | `demo/samsung-one-ui/` | One UI首页，大圆角与折叠屏双态布局 |
+| 华为 HarmonyOS | `demo/huawei-harmonyos/` | 鸿蒙首页，服务卡片与弹性动效 |
+| 小米 HyperOS | `demo/xiaomi-hyperos/` | 澎湃OS首页，年轻化配色与高信息密度卡片 |
+| 荣耀 MagicOS | `demo/honor-magicos/` | MagicOS首页，商务质感与均衡布局 |
+| OPPO ColorOS | `demo/oppo-coloros/` | ColorOS首页，灵动活力与无边界设计 |
+| vivo OriginOS | `demo/vivo-originos/` | OriginOS首页，华容网格与原子组件 |
+| 魅族 Flyme | `demo/meizu-flyme/` | Flyme首页，极简克制与大面积留白 |
+| Windows Fluent | `demo/windows-fluent/` | Windows 11桌面应用，Fluent Design与WinUI 3组件 |
+| 微信小程序 | `demo/wechat-miniprogram/` | 微信小程序，WeUI组件与标准化交互 |
 
 ---
 
-## Directory Structure
+## 目录结构
 
 ```
 ui-design-father-skill/
-├── SKILL.md                    # Skill master control file
-├── README.md                   # Project documentation (English)
-├── README.zh.md                # Project documentation (Chinese)
+├── SKILL.md                    # 技能主控文件
+├── README.md                   # 项目说明（中文）
+├── README.en.md                # 项目说明（English）
 ├── references/
-│   ├── styles/                 # 11 platform design specifications
+│   ├── styles/                 # 11大平台设计规范
 │   │   ├── apple-ios.md
 │   │   ├── google-android.md
 │   │   ├── samsung-one-ui.md
@@ -175,26 +173,26 @@ ui-design-father-skill/
 │   │   ├── meizu-flyme.md
 │   │   ├── windows-fluent.md
 │   │   └── wechat-miniprogram.md
-│   ├── components/             # Universal component specifications
-│   │   ├── navigation.md       # Navigation components
-│   │   ├── input-controls.md   # Buttons, inputs, switches, sliders
-│   │   ├── data-display.md     # Lists, cards, chips, tables, avatars
-│   │   ├── feedback.md         # Dialogs, toast, progress, empty state
-│   │   └── media.md            # Images, icons, illustrations, banners
-│   ├── workflow/               # Workflow & confirmation templates
+│   ├── components/             # 通用组件规范
+│   │   ├── navigation.md       # 导航组件
+│   │   ├── input-controls.md   # 输入控件（按钮/输入框/开关/滑块）
+│   │   ├── data-display.md     # 数据展示（列表/卡片/标签/表格/头像）
+│   │   ├── feedback.md         # 反馈组件（弹窗/Toast/进度条/空状态）
+│   │   └── media.md            # 媒体组件（图片/图标/插画/横幅）
+│   ├── workflow/               # 工作流与确认模板
 │   │   ├── analysis-framework.md
 │   │   ├── confirmation.md
 │   │   ├── output-template.md
 │   │   └── iteration-guide.md
-│   ├── design-tokens/          # Design token architecture
+│   ├── design-tokens/          # 设计令牌体系
 │   │   ├── token-architecture.md
 │   │   ├── color-system.md
 │   │   ├── typography-system.md
 │   │   └── spacing-layout.md
-│   └── config/                 # Configuration & preferences
+│   └── config/                 # 配置与偏好
 │       ├── preferences-schema.md
 │       └── first-time-setup.md
-├── demo/                       # Interactive HTML demos per style
+├── demo/                       # 每个风格的Demo页面
 │   ├── apple-ios/
 │   ├── google-android/
 │   ├── samsung-one-ui/
@@ -206,30 +204,30 @@ ui-design-father-skill/
 │   ├── meizu-flyme/
 │   ├── windows-fluent/
 │   └── wechat-miniprogram/
-└── memory/                     # Work logs
+└── memory/                     # 工作日志
 ```
 
 ---
 
-## Who Is This For
+## 适用人群
 
-- **UI/UX Designers** -- Stop manually checking official specs for every parameter. Output platform-accurate designs in minutes, not hours.
-- **Product Managers** -- Generate high-fidelity prototypes for requirement reviews, user research, and stakeholder presentations without waiting for design team bandwidth.
-- **Frontend Developers** -- Get pixel-accurate style references and CSS variables that match platform conventions, improving implementation fidelity and development speed.
-- **Solo Developers & Entrepreneurs** -- Zero design background? No problem. Describe your app, get professional-grade UI that looks like a dedicated design team built it.
-- **Design Team Leads** -- Standardize your team's output across platforms. Ensure consistency and platform compliance at scale.
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+- **UI/UX设计师** -- 不再逐个参数查阅官方规范，分钟级输出平台精准设计方案，而非小时级。
+- **产品经理** -- 无需等待设计排期，直接生成高保真原型用于需求评审、用户调研和方案演示。
+- **前端开发者** -- 获取像素级精准的样式参考和CSS变量，匹配平台规范，提升还原度与开发效率。
+- **独立开发者/创业者** -- 零设计基础也不是问题，描述你的应用即可获得专业级UI，像整支设计团队产出的一样。
+- **设计团队负责人** -- 标准化团队的多平台输出，规模化保证一致性与平台合规性。
 
 ---
 
-## Acknowledgments & References
+## 开源协议
 
-This skill is built upon the official design specifications and documentation from the following organizations. All design parameters are sourced from these authoritative references:
+本项目基于 [MIT License](LICENSE) 开源协议发布。
+
+---
+
+## 致谢与参考
+
+本技能基于以下组织的官方设计规范和文档构建，所有设计参数均源自这些权威参考：
 
 - [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 - [Google Material Design 3](https://m3.material.io/)
@@ -243,8 +241,8 @@ This skill is built upon the official design specifications and documentation fr
 - [Microsoft Fluent Design System](https://fluent2.microsoft.design/)
 - [WeChat WeUI](https://weui.io/)
 
-Special thanks to the open-source community and all contributors who make design knowledge accessible.
+特别感谢开源社区和所有让设计知识触手可及的贡献者。
 
 ---
 
-> *One person. Eleven platforms. Factory-grade UI. No compromises.*
+> *一个人。十一个平台。原厂级UI。零妥协。*

@@ -6,304 +6,646 @@
   <title>Material Design 3 Demo - ui-design-father-skill</title>
   <style>
     :root {
-      --color-primary: #6750A4;
-      --color-on-primary: #FFFFFF;
-      --color-primary-container: #EADDFF;
-      --color-background: #FFFBFE;
-      --color-surface: #FFFBFE;
-      --color-surface-variant: #E7E0EC;
-      --color-text-primary: #1C1B1F;
-      --color-text-secondary: #625B71;
-      --color-outline: #79747E;
-      --color-success: #4CAF50;
+      --md-primary: #6750A4;
+      --md-on-primary: #FFFFFF;
+      --md-primary-container: #EADDFF;
+      --md-on-primary-container: #21005D;
+      --md-secondary: #625B71;
+      --md-secondary-container: #E8DEF8;
+      --md-tertiary: #7D5260;
+      --md-tertiary-container: #FFD8E4;
+      --md-surface: #FFFBFE;
+      --md-surface-variant: #E7E0EC;
+      --md-on-surface: #1C1B1F;
+      --md-on-surface-variant: #49454F;
+      --md-outline: #79747E;
+      --md-outline-variant: #CAC4D0;
+      --md-error: #B3261E;
+      --md-background: #FFFBFE;
+      --md-success: #4CAF50;
       --font-family: 'Roboto', 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-size-title: 28px;
-      --font-size-subtitle: 18px;
-      --font-size-body: 16px;
-      --font-size-small: 14px;
+      --font-size-headline: 24px;
+      --font-size-subtitle: 16px;
+      --font-size-body: 14px;
+      --font-size-small: 12px;
       --spacing-xs: 4px;
       --spacing-sm: 8px;
       --spacing-md: 16px;
       --spacing-lg: 24px;
-      --radius-sm: 4px;
+      --radius-xs: 4px;
+      --radius-sm: 8px;
       --radius-md: 12px;
-      --radius-lg: 20px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-      --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+      --radius-lg: 16px;
+      --radius-xl: 20dp;
+      --radius-full: 9999px;
+      --elevation-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+      --elevation-2: 0 2px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.14);
+      --elevation-3: 0 4px 12px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.12);
     }
     [data-theme="dark"] {
-      --color-primary: #D0BCFF;
-      --color-on-primary: #381E72;
-      --color-primary-container: #4F378B;
-      --color-background: #1C1B1F;
-      --color-surface: #1C1B1F;
-      --color-surface-variant: #49454F;
-      --color-text-primary: #E6E1E5;
-      --color-text-secondary: #CAC4D0;
-      --color-outline: #938F99;
+      --md-primary: #D0BCFF;
+      --md-on-primary: #381E72;
+      --md-primary-container: #4F378B;
+      --md-on-primary-container: #EADDFF;
+      --md-secondary: #CCC2DC;
+      --md-secondary-container: #4A4458;
+      --md-tertiary: #EFB8C8;
+      --md-tertiary-container: #633B48;
+      --md-surface: #1C1B1F;
+      --md-surface-variant: #49454F;
+      --md-on-surface: #E6E1E5;
+      --md-on-surface-variant: #CAC4D0;
+      --md-outline: #938F99;
+      --md-outline-variant: #49454F;
+      --md-error: #F2B8B5;
+      --md-background: #1C1B1F;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-family);
-      background: var(--color-background);
-      color: var(--color-text-primary);
+      background: var(--md-background);
+      color: var(--md-on-surface);
       min-height: 100vh;
-      padding-bottom: 100px;
+      padding-bottom: 96px;
     }
-    /* 导航栏 */
-    .navbar {
+    /* TopAppBar 64dp */
+    .top-app-bar {
       height: 64px;
-      background: var(--color-surface);
+      background: var(--md-surface);
       display: flex;
       align-items: center;
       padding: 0 var(--spacing-md);
-      box-shadow: var(--shadow-sm);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .navbar-menu { cursor: pointer; margin-right: var(--spacing-md); }
-    .navbar-menu svg { width: 24px; height: 24px; fill: var(--color-text-primary); }
-    .navbar-title {
-      font-size: var(--font-size-subtitle);
-      font-weight: 500;
-      flex: 1;
-    }
-    .navbar-actions { display: flex; gap: var(--spacing-sm); }
-    .navbar-actions svg { width: 24px; height: 24px; cursor: pointer; fill: var(--color-text-primary); }
-    /* 内容区 */
-    .content { padding: var(--spacing-md); }
-    .page-title {
-      font-size: var(--font-size-title);
-      font-weight: 400;
-      margin-bottom: var(--spacing-lg);
-    }
-    /* 卡片 */
-    .card {
-      background: var(--color-surface-variant);
-      border-radius: var(--radius-md);
-      padding: var(--spacing-md);
-      margin-bottom: var(--spacing-md);
-    }
-    .card-title {
-      font-size: var(--font-size-body);
-      font-weight: 500;
-      margin-bottom: var(--spacing-sm);
-    }
-    .card-text {
-      font-size: var(--font-size-small);
-      color: var(--color-text-secondary);
-      line-height: 1.5;
-    }
-    /* 按钮 */
-    .btn-group { display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-wrap: wrap; }
-    .btn {
-      padding: 10px 24px;
-      border-radius: var(--radius-lg);
-      border: none;
-      font-size: var(--font-size-body);
-      font-weight: 500;
-      cursor: pointer;
-      transition: box-shadow 0.2s, transform 0.1s;
-      font-family: var(--font-family);
-      letter-spacing: 0.5px;
-    }
-    .btn:active { transform: scale(0.97); }
-    .btn-primary {
-      background: var(--color-primary);
-      color: var(--color-on-primary);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--color-primary);
-      border: 1px solid var(--color-outline);
-    }
-    /* 输入框 */
-    .input-group { margin-bottom: var(--spacing-md); }
-    .input {
-      width: 100%;
-      padding: 12px var(--spacing-md);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-outline);
-      background: var(--color-surface);
-      color: var(--color-text-primary);
-      font-size: var(--font-size-body);
-      font-family: var(--font-family);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .input:focus { border-color: var(--color-primary); border-width: 2px; }
-    /* 列表 */
-    .list { background: var(--color-surface-variant); border-radius: var(--radius-md); overflow: hidden; }
-    .list-item {
-      display: flex;
-      align-items: center;
-      padding: 14px var(--spacing-md);
-      border-bottom: 1px solid var(--color-outline);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .list-item:last-child { border-bottom: none; }
-    .list-item:hover { background: rgba(103,80,164,0.05); }
-    .list-item-icon {
-      width: 40px; height: 40px;
+    .top-app-bar-nav { cursor: pointer; margin-right: var(--spacing-md); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); }
+    .top-app-bar-nav:hover { background: rgba(103,80,164,0.08); }
+    .top-app-bar-nav svg { width: 24px; height: 24px; fill: var(--md-on-surface); }
+    .top-app-bar-title { font-size: var(--font-size-subtitle); font-weight: 500; flex: 1; }
+    .top-app-bar-actions { display: flex; gap: var(--spacing-xs); }
+    .top-app-bar-action { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); cursor: pointer; position: relative; overflow: hidden; }
+    .top-app-bar-action:hover { background: rgba(103,80,164,0.08); }
+    .top-app-bar-action svg { width: 24px; height: 24px; fill: var(--md-on-surface-variant); }
+    /* 涟漪效果 */
+    .ripple { position: relative; overflow: hidden; }
+    .ripple::after {
+      content: '';
+      position: absolute;
       border-radius: 50%;
-      background: var(--color-primary-container);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: var(--spacing-md);
-      color: var(--color-primary);
-      font-size: 18px;
-      font-weight: 500;
+      background: rgba(103,80,164,0.2);
+      width: 100px;
+      height: 100px;
+      margin-top: -50px;
+      margin-left: -50px;
+      top: 0;
+      left: 0;
+      transform: scale(0);
+      opacity: 1;
     }
-    .list-item-content { flex: 1; }
-    .list-item-title { font-size: var(--font-size-body); font-weight: 500; }
-    .list-item-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
-    /* FAB */
-    .fab {
-      position: fixed;
-      bottom: 90px;
-      right: var(--spacing-md);
-      width: 56px; height: 56px;
-      border-radius: 16px;
-      background: var(--color-primary-container);
-      color: var(--color-primary);
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-md);
-      font-size: 24px;
-      z-index: 101;
+    .ripple:active::after {
+      animation: rippleAnim 0.6s ease-out;
     }
-    /* 标签栏 */
-    .tabbar {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      height: 80px;
-      background: var(--color-surface);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 100;
-      padding-bottom: 8px;
+    @keyframes rippleAnim {
+      to { transform: scale(4); opacity: 0; }
     }
-    .tabbar-item {
-      display: flex; flex-direction: column; align-items: center;
-      color: var(--color-text-secondary); font-size: 12px;
-      cursor: pointer; padding: 4px 16px;
+    /* 搜索栏 */
+    .search-bar {
+      margin: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
       position: relative;
     }
-    .tabbar-item.active { color: var(--color-primary); }
-    .tabbar-item svg { width: 24px; height: 24px; margin-bottom: 4px; }
-    .tabbar-indicator {
+    .search-bar input {
+      width: 100%;
+      height: 56px;
+      border-radius: 28px;
+      border: none;
+      background: var(--md-surface-variant);
+      color: var(--md-on-surface);
+      font-size: var(--font-size-body);
+      font-family: var(--font-family);
+      padding: 0 48px 0 48px;
+      outline: none;
+      transition: background 0.2s;
+    }
+    .search-bar input:focus { background: var(--md-secondary-container); }
+    .search-bar input::placeholder { color: var(--md-on-surface-variant); }
+    .search-bar .search-icon {
       position: absolute;
-      bottom: 0;
-      width: 40px;
-      height: 4px;
-      background: var(--color-primary);
-      border-radius: 2px;
-      opacity: 0;
-      transition: opacity 0.2s;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
     }
-    .tabbar-item.active .tabbar-indicator { opacity: 1; }
+    .search-bar .search-icon svg { width: 24px; height: 24px; fill: var(--md-on-surface-variant); }
+    .search-bar .search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      display: none;
+    }
+    .search-bar .search-clear svg { width: 24px; height: 24px; fill: var(--md-on-surface-variant); }
+    .search-bar input:not(:placeholder-shown) ~ .search-clear { display: block; }
+    /* 轮播 */
+    .carousel { margin: 0 var(--spacing-md) var(--spacing-md); border-radius: var(--radius-lg); overflow: hidden; position: relative; height: 160px; }
+    .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1); height: 100%; }
+    .carousel-slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 500; padding: var(--spacing-lg); }
+    .carousel-slide:nth-child(1) { background: linear-gradient(135deg, #6750A4, #9A82DB); }
+    .carousel-slide:nth-child(2) { background: linear-gradient(135deg, #7D5260, #FFD8E4); color: #7D5260; }
+    .carousel-slide:nth-child(3) { background: linear-gradient(135deg, #625B71, #E8DEF8); color: #625B71; }
+    .carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.3); cursor: pointer; transition: all 0.3s; }
+    .carousel-dot.active { background: var(--md-primary); width: 24px; border-radius: 4px; }
+    /* 功能网格 */
+    .grid-section { margin: 0 var(--spacing-md) var(--spacing-md); }
+    .grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-sm); }
+    .grid-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; padding: var(--spacing-sm); border-radius: var(--radius-md); transition: background 0.2s; }
+    .grid-item:hover { background: rgba(103,80,164,0.08); }
+    .grid-item:active { background: rgba(103,80,164,0.12); }
+    .grid-icon { width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--md-primary-container); display: flex; align-items: center; justify-content: center; color: var(--md-on-primary-container); font-size: 24px; }
+    .grid-label { font-size: var(--font-size-small); color: var(--md-on-surface); text-align: center; }
+    /* 卡片 */
+    .card-row { display: flex; gap: var(--spacing-md); margin: 0 var(--spacing-md) var(--spacing-md); overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+    .md-card { min-width: 260px; background: var(--md-surface-variant); border-radius: var(--radius-md); overflow: hidden; flex-shrink: 0; }
+    .md-card-img { height: 140px; background: linear-gradient(135deg, var(--md-primary), var(--md-tertiary)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 500; }
+    .md-card-body { padding: var(--spacing-md); }
+    .md-card-title { font-size: var(--font-size-body); font-weight: 500; margin-bottom: 4px; }
+    .md-card-desc { font-size: var(--font-size-small); color: var(--md-on-surface-variant); line-height: 1.4; margin-bottom: var(--spacing-sm); }
+    .md-card-tags { display: flex; gap: var(--spacing-xs); margin-bottom: var(--spacing-sm); }
+    .md-card-tag { font-size: 11px; padding: 2px 8px; border-radius: var(--radius-xs); background: var(--md-secondary-container); color: var(--md-secondary); }
+    .md-card-time { font-size: 11px; color: var(--md-outline); }
+    /* 列表 */
+    .section-label { font-size: var(--font-size-small); font-weight: 500; color: var(--md-on-surface-variant); padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm); text-transform: uppercase; letter-spacing: 0.5px; }
+    .md-list { background: var(--md-surface); border-radius: var(--radius-md); margin: 0 var(--spacing-md) var(--spacing-md); overflow: hidden; }
+    .md-list-item { display: flex; align-items: center; padding: 12px var(--spacing-md); border-bottom: 1px solid var(--md-outline-variant); cursor: pointer; transition: background 0.15s; min-height: 56px; }
+    .md-list-item:last-child { border-bottom: none; }
+    .md-list-item:hover { background: rgba(103,80,164,0.08); }
+    .md-list-item:active { background: rgba(103,80,164,0.12); }
+    .md-list-icon { width: 40px; height: 40px; border-radius: var(--radius-full); background: var(--md-primary-container); display: flex; align-items: center; justify-content: center; margin-right: var(--spacing-md); color: var(--md-on-primary-container); font-size: 18px; font-weight: 500; flex-shrink: 0; }
+    .md-list-content { flex: 1; }
+    .md-list-title { font-size: var(--font-size-body); font-weight: 500; }
+    .md-list-subtitle { font-size: var(--font-size-small); color: var(--md-on-surface-variant); margin-top: 2px; }
+    .md-list-trailing { font-size: var(--font-size-small); color: var(--md-on-surface-variant); margin-left: var(--spacing-sm); }
+    /* 药丸按钮 */
+    .btn-section { margin: 0 var(--spacing-md) var(--spacing-md); }
+    .btn-row { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; margin-bottom: var(--spacing-sm); }
+    .md-btn { padding: 10px 24px; border-radius: 20px; border: none; font-size: var(--font-size-body); font-weight: 500; cursor: pointer; font-family: var(--font-family); letter-spacing: 0.5px; transition: box-shadow 0.2s, transform 0.1s; position: relative; overflow: hidden; }
+    .md-btn:active { transform: scale(0.97); }
+    .md-btn-filled { background: var(--md-primary); color: var(--md-on-primary); box-shadow: var(--elevation-1); }
+    .md-btn-outlined { background: transparent; color: var(--md-primary); border: 1px solid var(--md-outline); }
+    .md-btn-tonal { background: var(--md-secondary-container); color: var(--md-secondary); }
+    .md-btn-text { background: none; color: var(--md-primary); padding: 10px 12px; }
+    .md-btn-disabled { background: rgba(28,27,31,0.12); color: rgba(28,27,31,0.38); cursor: not-allowed; }
+    /* 输入框 */
+    .input-section { margin: 0 var(--spacing-md) var(--spacing-md); }
+    .md-input-group { margin-bottom: var(--spacing-md); }
+    .md-input-group:last-child { margin-bottom: 0; }
+    .md-input-label { font-size: var(--font-size-small); color: var(--md-on-surface-variant); margin-bottom: var(--spacing-xs); display: block; }
+    .md-input { width: 100%; height: 56px; border-radius: var(--radius-xs); border: 1px solid var(--md-outline); background: transparent; color: var(--md-on-surface); font-size: var(--font-size-body); font-family: var(--font-family); padding: 0 var(--spacing-md); outline: none; transition: border-color 0.2s, border-width 0.1s; }
+    .md-input:focus { border-color: var(--md-primary); border-width: 2px; padding: 0 15px; }
+    .md-input::placeholder { color: var(--md-on-surface-variant); }
+    .md-input-icon-wrap { position: relative; }
+    .md-input-icon-wrap .md-input { padding-left: 44px; }
+    .md-input-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); }
+    .md-input-icon svg { width: 20px; height: 20px; fill: var(--md-on-surface-variant); }
+    /* 开关 */
+    .switch-section { background: var(--md-surface); border-radius: var(--radius-md); margin: 0 var(--spacing-md) var(--spacing-md); overflow: hidden; }
+    .md-switch-item { display: flex; align-items: center; justify-content: space-between; padding: 14px var(--spacing-md); border-bottom: 1px solid var(--md-outline-variant); }
+    .md-switch-item:last-child { border-bottom: none; }
+    .md-switch-label { font-size: var(--font-size-body); color: var(--md-on-surface); }
+    .md-switch { width: 52px; height: 32px; border-radius: 16px; background: var(--md-outline); position: relative; cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
+    .md-switch.active { background: var(--md-primary); }
+    .md-switch::after { content: ''; position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; border-radius: 50%; background: var(--md-surface); box-shadow: var(--elevation-1); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .md-switch.active::after { transform: translateX(20px); background: var(--md-on-primary); }
+    /* 进度条 */
+    .progress-section { margin: 0 var(--spacing-md) var(--spacing-md); }
+    .progress-row { display: flex; align-items: center; gap: var(--spacing-md); margin-bottom: var(--spacing-md); }
+    .progress-row:last-child { margin-bottom: 0; }
+    .md-progress { flex: 1; height: 4px; background: var(--md-surface-variant); border-radius: 2px; overflow: hidden; }
+    .md-progress-fill { height: 100%; border-radius: 2px; background: var(--md-primary); transition: width 0.6s; }
+    .progress-label { font-size: var(--font-size-small); color: var(--md-on-surface-variant); min-width: 36px; }
+    .circular-progress { width: 64px; height: 64px; position: relative; }
+    .circular-progress svg { transform: rotate(-90deg); }
+    .circular-progress-value { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: var(--font-size-small); font-weight: 500; }
+    /* FAB */
+    .fab { position: fixed; bottom: 96px; right: var(--spacing-md); width: 56px; height: 56px; border-radius: 16px; background: var(--md-primary-container); color: var(--md-on-primary-container); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--elevation-3); font-size: 24px; z-index: 101; transition: box-shadow 0.2s; }
+    .fab:active { box-shadow: var(--elevation-1); }
+    /* NavigationBar 80dp */
+    .nav-bar { position: fixed; bottom: 0; left: 0; right: 0; height: 80px; background: var(--md-surface); display: flex; justify-content: space-around; align-items: center; z-index: 100; padding-bottom: 8px; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--md-on-surface-variant); font-size: var(--font-size-small); cursor: pointer; padding: 4px 0; gap: 4px; position: relative; }
+    .nav-item.active { color: var(--md-on-surface); }
+    .nav-item .nav-icon-wrap { width: 64px; height: 32px; border-radius: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .nav-item.active .nav-icon-wrap { background: var(--md-secondary-container); }
+    .nav-item svg { width: 24px; height: 24px; }
+    /* 弹窗 */
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; align-items: center; justify-content: center; padding: var(--spacing-lg); }
+    .modal-overlay.show { display: flex; }
+    .md-dialog { background: var(--md-surface); border-radius: var(--radius-xl); width: 100%; max-width: 320px; padding: var(--spacing-lg); animation: dialogIn 0.2s cubic-bezier(0.2, 0, 0, 1); }
+    @keyframes dialogIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .md-dialog-title { font-size: var(--font-size-headline); font-weight: 400; margin-bottom: var(--spacing-sm); }
+    .md-dialog-text { font-size: var(--font-size-body); color: var(--md-on-surface-variant); line-height: 1.5; margin-bottom: var(--spacing-lg); }
+    .md-dialog-actions { display: flex; justify-content: flex-end; gap: var(--spacing-sm); }
+    /* Toast */
+    .snackbar { position: fixed; bottom: 88px; left: var(--spacing-md); right: var(--spacing-md); background: var(--md-on-surface); color: var(--md-surface); padding: 14px var(--spacing-md); border-radius: var(--radius-xs); font-size: var(--font-size-body); z-index: 300; transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); display: flex; align-items: center; justify-content: space-between; box-shadow: var(--elevation-3); }
+    .snackbar.show { transform: translateY(0); opacity: 1; }
+    .snackbar-action { color: var(--md-primary); background: none; border: none; font-size: var(--font-size-small); font-weight: 500; cursor: pointer; font-family: var(--font-family); text-transform: uppercase; letter-spacing: 0.5px; }
+    /* 下拉刷新 */
+    .pull-refresh { position: relative; }
+    .pull-indicator { position: absolute; top: -48px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--md-surface); box-shadow: var(--elevation-2); display: flex; align-items: center; justify-content: center; transition: top 0.3s; z-index: 10; }
+    .pull-indicator.refreshing { top: 8px; }
+    .pull-indicator svg { width: 24px; height: 24px; fill: var(--md-primary); }
+    .pull-indicator.refreshing svg { animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
     /* 主题切换 */
-    .theme-toggle {
-      position: fixed; bottom: 150px; right: var(--spacing-md);
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: var(--color-surface-variant);
-      border: 1px solid var(--color-outline);
-      box-shadow: var(--shadow-md);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; z-index: 101;
-      font-size: 20px;
-    }
+    .theme-toggle { position: fixed; bottom: 96px; right: 80px; width: 48px; height: 48px; border-radius: var(--radius-full); background: var(--md-surface-variant); border: 1px solid var(--md-outline); box-shadow: var(--elevation-1); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 101; }
+    .theme-toggle svg { width: 24px; height: 24px; fill: var(--md-on-surface-variant); }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-menu">
+  <!-- TopAppBar -->
+  <nav class="top-app-bar">
+    <div class="top-app-bar-nav ripple" onclick="showSnackbar('导航菜单')">
       <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
     </div>
-    <div class="navbar-title">Material Design 3</div>
-    <div class="navbar-actions">
-      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+    <div class="top-app-bar-title">Material Design 3</div>
+    <div class="top-app-bar-actions">
+      <div class="top-app-bar-action ripple" onclick="showSnackbar('搜索')">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </div>
+      <div class="top-app-bar-action ripple" onclick="showSnackbar('更多')">
+        <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      </div>
     </div>
   </nav>
-  <main class="content">
-    <h1 class="page-title">Material Design 3</h1>
-    <div class="card">
-      <div class="card-title">功能卡片</div>
-      <div class="card-text">Material Design 3 卡片组件，采用大圆角和柔和阴影，展示 Material You 设计语言的典型特征。</div>
+
+  <!-- 下拉刷新 -->
+  <div class="pull-refresh" id="pullRefresh">
+    <div class="pull-indicator" id="pullIndicator">
+      <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0.31 0 5.7 2.69 5.7 6s-2.69 6-5.7 6-5.7-2.69-5.7-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
     </div>
-    <div class="btn-group">
-      <button class="btn btn-primary">主要按钮</button>
-      <button class="btn btn-secondary">次要按钮</button>
-    </div>
-    <div class="input-group">
-      <input class="input" type="text" placeholder="请输入内容...">
-    </div>
-    <div class="list">
-      <div class="list-item">
-        <div class="list-item-icon">A</div>
-        <div class="list-item-content">
-          <div class="list-item-title">列表项一</div>
-          <div class="list-item-subtitle">描述信息</div>
-        </div>
-      </div>
-      <div class="list-item">
-        <div class="list-item-icon">B</div>
-        <div class="list-item-content">
-          <div class="list-item-title">列表项二</div>
-          <div class="list-item-subtitle">描述信息</div>
-        </div>
-      </div>
-      <div class="list-item">
-        <div class="list-item-icon">C</div>
-        <div class="list-item-content">
-          <div class="list-item-title">列表项三</div>
-          <div class="list-item-subtitle">描述信息</div>
-        </div>
+
+    <!-- 搜索栏 -->
+    <div class="search-bar">
+      <div class="search-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+      <input type="text" placeholder="搜索" id="searchInput">
+      <div class="search-clear" onclick="document.getElementById('searchInput').value=''">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
       </div>
     </div>
-  </main>
-  <button class="fab">+</button>
-  <nav class="tabbar">
-    <div class="tabbar-item active">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+
+    <!-- 轮播 -->
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">Material You 个性化</div>
+        <div class="carousel-slide">动态色彩主题</div>
+        <div class="carousel-slide">自适应布局</div>
+      </div>
+      <div class="carousel-dots" id="carouselDots">
+        <div class="carousel-dot active" onclick="goSlide(0)"></div>
+        <div class="carousel-dot" onclick="goSlide(1)"></div>
+        <div class="carousel-dot" onclick="goSlide(2)"></div>
+      </div>
+    </div>
+
+    <!-- 功能网格 -->
+    <div class="grid-section">
+      <div class="grid-container">
+        <div class="grid-item ripple" onclick="showSnackbar('相册')">
+          <div class="grid-icon">P</div>
+          <span class="grid-label">相册</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('文件')">
+          <div class="grid-icon" style="background:var(--md-tertiary-container);color:var(--md-tertiary)">F</div>
+          <span class="grid-label">文件</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('地图')">
+          <div class="grid-icon" style="background:var(--md-secondary-container);color:var(--md-secondary)">M</div>
+          <span class="grid-label">地图</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('日历')">
+          <div class="grid-icon">C</div>
+          <span class="grid-label">日历</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('时钟')">
+          <div class="grid-icon" style="background:var(--md-tertiary-container);color:var(--md-tertiary)">K</div>
+          <span class="grid-label">时钟</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('天气')">
+          <div class="grid-icon" style="background:var(--md-secondary-container);color:var(--md-secondary)">W</div>
+          <span class="grid-label">天气</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('设置')">
+          <div class="grid-icon">S</div>
+          <span class="grid-label">设置</span>
+        </div>
+        <div class="grid-item ripple" onclick="showSnackbar('商店')">
+          <div class="grid-icon" style="background:var(--md-tertiary-container);color:var(--md-tertiary)">G</div>
+          <span class="grid-label">商店</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 信息卡片 -->
+    <div class="section-label">推荐内容</div>
+    <div class="card-row">
+      <div class="md-card">
+        <div class="md-card-img" style="background:linear-gradient(135deg,#6750A4,#9A82DB)">Material 3</div>
+        <div class="md-card-body">
+          <div class="md-card-title">Material Design 3</div>
+          <div class="md-card-desc">探索全新的 Material You 设计系统</div>
+          <div class="md-card-tags"><span class="md-card-tag">设计</span><span class="md-card-tag">UI</span></div>
+          <div class="md-card-time">3小时前</div>
+        </div>
+      </div>
+      <div class="md-card">
+        <div class="md-card-img" style="background:linear-gradient(135deg,#7D5260,#FFD8E4)">Compose</div>
+        <div class="md-card-body">
+          <div class="md-card-title">Jetpack Compose</div>
+          <div class="md-card-desc">声明式UI框架快速开发指南</div>
+          <div class="md-card-tags"><span class="md-card-tag">开发</span><span class="md-card-tag">Android</span></div>
+          <div class="md-card-time">1天前</div>
+        </div>
+      </div>
+      <div class="md-card">
+        <div class="md-card-img" style="background:linear-gradient(135deg,#625B71,#E8DEF8)">Kotlin</div>
+        <div class="md-card-body">
+          <div class="md-card-title">Kotlin Multiplatform</div>
+          <div class="md-card-desc">跨平台开发最佳实践</div>
+          <div class="md-card-tags"><span class="md-card-tag">跨平台</span><span class="md-card-tag">KMP</span></div>
+          <div class="md-card-time">2天前</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 列表 -->
+    <div class="section-label">设置</div>
+    <div class="md-list">
+      <div class="md-list-item ripple" onclick="showSnackbar('网络')">
+        <div class="md-list-icon">N</div>
+        <div class="md-list-content"><div class="md-list-title">网络和互联网</div><div class="md-list-subtitle">Wi-Fi、移动网络、热点</div></div>
+        <span class="md-list-trailing">›</span>
+      </div>
+      <div class="md-list-item ripple" onclick="showSnackbar('蓝牙')">
+        <div class="md-list-icon" style="background:var(--md-tertiary-container);color:var(--md-tertiary)">B</div>
+        <div class="md-list-content"><div class="md-list-title">已连接的设备</div><div class="md-list-subtitle">蓝牙、NFC</div></div>
+        <span class="md-list-trailing">›</span>
+      </div>
+      <div class="md-list-item ripple" onclick="showSnackbar('电池')">
+        <div class="md-list-icon" style="background:var(--md-secondary-container);color:var(--md-secondary)">E</div>
+        <div class="md-list-content"><div class="md-list-title">电池</div><div class="md-list-subtitle">85% - 预计可用12小时</div></div>
+        <span class="md-list-trailing">›</span>
+      </div>
+      <div class="md-list-item ripple" onclick="showSnackbar('存储')">
+        <div class="md-list-icon">S</div>
+        <div class="md-list-content"><div class="md-list-title">存储</div><div class="md-list-subtitle">已用 68% - 45.2 GB / 64 GB</div></div>
+        <span class="md-list-trailing">›</span>
+      </div>
+      <div class="md-list-item ripple" onclick="showSnackbar('显示')">
+        <div class="md-list-icon" style="background:var(--md-tertiary-container);color:var(--md-tertiary)">D</div>
+        <div class="md-list-content"><div class="md-list-title">显示</div><div class="md-list-subtitle">亮度、深色模式、字体大小</div></div>
+        <span class="md-list-trailing">›</span>
+      </div>
+    </div>
+
+    <!-- 按钮组 -->
+    <div class="section-label">按钮样式</div>
+    <div class="btn-section">
+      <div class="btn-row">
+        <button class="md-btn md-btn-filled ripple" onclick="showDialog()">Filled</button>
+        <button class="md-btn md-btn-outlined ripple" onclick="showSnackbar('Outlined按钮')">Outlined</button>
+        <button class="md-btn md-btn-tonal ripple" onclick="showSnackbar('Tonal按钮')">Tonal</button>
+      </div>
+      <div class="btn-row">
+        <button class="md-btn md-btn-text ripple" onclick="showSnackbar('Text按钮')">Text</button>
+        <button class="md-btn md-btn-filled ripple" style="background:var(--md-error);color:#fff" onclick="showDialog('error')">Error</button>
+        <button class="md-btn md-btn-disabled" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <!-- 输入框 -->
+    <div class="section-label">输入框</div>
+    <div class="input-section">
+      <div class="md-input-group">
+        <label class="md-input-label">用户名</label>
+        <input class="md-input" type="text" placeholder="请输入用户名">
+      </div>
+      <div class="md-input-group">
+        <label class="md-input-label">搜索</label>
+        <div class="md-input-icon-wrap">
+          <div class="md-input-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+          <input class="md-input" type="text" placeholder="搜索内容" style="padding-left:44px">
+        </div>
+      </div>
+      <div class="md-input-group">
+        <label class="md-input-label">邮箱</label>
+        <input class="md-input" type="email" placeholder="example@email.com">
+      </div>
+    </div>
+
+    <!-- 开关 -->
+    <div class="section-label">开关控件</div>
+    <div class="switch-section">
+      <div class="md-switch-item">
+        <span class="md-switch-label">Wi-Fi</span>
+        <div class="md-switch active" onclick="this.classList.toggle('active')"></div>
+      </div>
+      <div class="md-switch-item">
+        <span class="md-switch-label">蓝牙</span>
+        <div class="md-switch active" onclick="this.classList.toggle('active')"></div>
+      </div>
+      <div class="md-switch-item">
+        <span class="md-switch-label">飞行模式</span>
+        <div class="md-switch" onclick="this.classList.toggle('active')"></div>
+      </div>
+    </div>
+
+    <!-- 进度条 -->
+    <div class="section-label">进度指示</div>
+    <div class="progress-section">
+      <div class="progress-row">
+        <span class="progress-label">存储</span>
+        <div class="md-progress"><div class="md-progress-fill" style="width:68%"></div></div>
+        <span class="progress-label">68%</span>
+      </div>
+      <div class="progress-row">
+        <span class="progress-label">电量</span>
+        <div class="md-progress"><div class="md-progress-fill" style="width:85%;background:var(--md-success)"></div></div>
+        <span class="progress-label">85%</span>
+      </div>
+      <div class="progress-row">
+        <span class="progress-label">同步</span>
+        <div class="md-progress"><div class="md-progress-fill" id="syncProgress" style="width:0%"></div></div>
+        <span class="progress-label" id="syncLabel">0%</span>
+      </div>
+      <div class="progress-row" style="justify-content:center;gap:var(--spacing-lg)">
+        <div class="circular-progress">
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="var(--md-surface-variant)" stroke-width="4"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="var(--md-primary)" stroke-width="4" stroke-dasharray="163.4" stroke-dashoffset="49" stroke-linecap="round"/>
+          </svg>
+          <span class="circular-progress-value">70%</span>
+        </div>
+        <div class="circular-progress">
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="var(--md-surface-variant)" stroke-width="4"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="var(--md-success)" stroke-width="4" stroke-dasharray="163.4" stroke-dashoffset="24.5" stroke-linecap="round"/>
+          </svg>
+          <span class="circular-progress-value">85%</span>
+        </div>
+      </div>
+    </div>
+    <div style="height:16px"></div>
+  </div>
+
+  <!-- FAB -->
+  <button class="fab ripple" onclick="showSnackbar('新建')">+</button>
+
+  <!-- NavigationBar -->
+  <nav class="nav-bar" id="navBar">
+    <div class="nav-item active" onclick="switchNav(this)">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
       首页
-      <div class="tabbar-indicator"></div>
     </div>
-    <div class="tabbar-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    <div class="nav-item" onclick="switchNav(this)">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
       发现
-      <div class="tabbar-indicator"></div>
     </div>
-    <div class="tabbar-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <div class="nav-item" onclick="switchNav(this)">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
       消息
-      <div class="tabbar-indicator"></div>
     </div>
-    <div class="tabbar-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    <div class="nav-item" onclick="switchNav(this)">
+      <div class="nav-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
       我的
-      <div class="tabbar-indicator"></div>
-    </div>
-    <div class="tabbar-item">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L3.16 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.58 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-      设置
-      <div class="tabbar-indicator"></div>
     </div>
   </nav>
-  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+  <!-- 主题切换 -->
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+    <svg viewBox="0 0 24 24" id="themeIcon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- 弹窗 -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeDialog(event)">
+    <div class="md-dialog" id="dialog">
+      <div class="md-dialog-title" id="dialogTitle">确认操作</div>
+      <div class="md-dialog-text" id="dialogText">您确定要执行此操作吗？此操作无法撤销。</div>
+      <div class="md-dialog-actions">
+        <button class="md-btn md-btn-text" onclick="closeDialog()">取消</button>
+        <button class="md-btn md-btn-filled" id="dialogConfirm" onclick="closeDialog();showSnackbar('已确认')">确认</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Snackbar -->
+  <div class="snackbar" id="snackbar">
+    <span id="snackbarText"></span>
+    <button class="snackbarAction" onclick="hideSnackbar()">关闭</button>
+  </div>
+
   <script>
+    /* 主题切换 */
     function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+      var html = document.documentElement;
+      var current = html.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      var icon = document.getElementById('themeIcon');
+      icon.innerHTML = next === 'dark'
+        ? '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
     }
+
+    /* 轮播 */
+    var currentSlide = 0;
+    var autoPlayTimer;
+    function goSlide(n) {
+      currentSlide = n;
+      document.getElementById('carouselTrack').style.transform = 'translateX(-' + (n * 100) + '%)';
+      document.querySelectorAll('.carousel-dot').forEach(function(d, i) { d.classList.toggle('active', i === n); });
+    }
+    function nextSlide() { goSlide((currentSlide + 1) % 3); }
+    autoPlayTimer = setInterval(nextSlide, 3000);
+
+    /* NavigationBar */
+    function switchNav(el) {
+      document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+      el.classList.add('active');
+      showSnackbar(el.textContent.trim());
+    }
+
+    /* Snackbar */
+    var snackbarTimer;
+    function showSnackbar(msg) {
+      var el = document.getElementById('snackbar');
+      document.getElementById('snackbarText').textContent = msg;
+      el.classList.add('show');
+      clearTimeout(snackbarTimer);
+      snackbarTimer = setTimeout(function() { el.classList.remove('show'); }, 3000);
+    }
+    function hideSnackbar() { document.getElementById('snackbar').classList.remove('show'); }
+
+    /* Dialog */
+    function showDialog(type) {
+      var overlay = document.getElementById('modalOverlay');
+      var title = document.getElementById('dialogTitle');
+      var text = document.getElementById('dialogText');
+      var confirm = document.getElementById('dialogConfirm');
+      if (type === 'error') {
+        title.textContent = '删除确认';
+        text.textContent = '此操作将永久删除该数据，无法恢复。';
+        confirm.style.background = 'var(--md-error)';
+        confirm.textContent = '删除';
+      } else {
+        title.textContent = '确认操作';
+        text.textContent = '您确定要执行此操作吗？此操作无法撤销。';
+        confirm.style.background = 'var(--md-primary)';
+        confirm.textContent = '确认';
+      }
+      overlay.classList.add('show');
+    }
+    function closeDialog(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('modalOverlay').classList.remove('show');
+    }
+
+    /* 下拉刷新 */
+    var pullStartY = 0, pulling = false;
+    var refreshEl = document.getElementById('pullRefresh');
+    var indicator = document.getElementById('pullIndicator');
+    refreshEl.addEventListener('touchstart', function(e) {
+      if (refreshEl.scrollTop === 0) { pullStartY = e.touches[0].clientY; pulling = true; }
+    });
+    refreshEl.addEventListener('touchmove', function(e) {
+      if (!pulling) return;
+      var diff = e.touches[0].clientY - pullStartY;
+      if (diff > 60) { indicator.style.top = '8px'; }
+      else if (diff > 0) { indicator.style.top = (diff - 48) + 'px'; }
+    });
+    refreshEl.addEventListener('touchend', function() {
+      if (!pulling) return;
+      pulling = false;
+      if (parseInt(indicator.style.top || '-48') > -20) {
+        indicator.classList.add('refreshing');
+        setTimeout(function() {
+          indicator.classList.remove('refreshing');
+          indicator.style.top = '-48px';
+          showSnackbar('刷新成功');
+        }, 1500);
+      } else { indicator.style.top = '-48px'; }
+    });
+
+    /* 进度条动画 */
+    var syncVal = 0;
+    setInterval(function() {
+      syncVal = (syncVal + 5) % 105;
+      if (syncVal > 100) syncVal = 0;
+      document.getElementById('syncProgress').style.width = syncVal + '%';
+      document.getElementById('syncLabel').textContent = syncVal + '%';
+    }, 300);
   </script>
 </body>
 </html>
