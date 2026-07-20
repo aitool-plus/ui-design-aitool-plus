@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HarmonyOS Demo - ui-design-father-skill</title>
+  <style>
+    :root {
+      --color-primary: #007DFF;
+      --color-background: #F5F7FA;
+      --color-surface: #FFFFFF;
+      --color-text-primary: #000000;
+      --color-text-secondary: #999999;
+      --color-border: #E8E8E8;
+      --color-success: #00C853;
+      --font-family: 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-size-title: 30px;
+      --font-size-subtitle: 18px;
+      --font-size-body: 16px;
+      --font-size-small: 14px;
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    [data-theme="dark"] {
+      --color-background: #0A0A0A;
+      --color-surface: #1A1A1A;
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #888888;
+      --color-border: #2A2A2A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-family);
+      background: var(--color-background);
+      color: var(--color-text-primary);
+      min-height: 100vh;
+      padding-bottom: 100px;
+    }
+    /* 导航栏 */
+    .navbar {
+      background: var(--color-surface);
+      padding: 16px var(--spacing-md);
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .navbar-title {
+      font-size: var(--font-size-subtitle);
+      font-weight: 600;
+    }
+    /* 内容区 */
+    .content { padding: var(--spacing-md); }
+    .page-title {
+      font-size: var(--font-size-title);
+      font-weight: 700;
+      margin-bottom: var(--spacing-lg);
+    }
+    /* 服务卡片 */
+    .service-card {
+      background: linear-gradient(135deg, var(--color-primary), #00B4FF);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+    .service-card-title {
+      font-size: var(--font-size-body);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+    .service-card-text {
+      font-size: var(--font-size-small);
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+    /* 卡片 */
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .card-title {
+      font-size: var(--font-size-body);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+    .card-text {
+      font-size: var(--font-size-small);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    /* 按钮 */
+    .btn-group { display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-wrap: wrap; }
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      border: none;
+      font-size: var(--font-size-body);
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: var(--font-family);
+    }
+    .btn:active { transform: scale(0.95); }
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-primary);
+      border: 1px solid var(--color-border);
+    }
+    /* 输入框 */
+    .input-group { margin-bottom: var(--spacing-md); }
+    .input {
+      width: 100%;
+      padding: 14px var(--spacing-md);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      font-size: var(--font-size-body);
+      font-family: var(--font-family);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input:focus { border-color: var(--color-primary); }
+    /* 列表 */
+    .list { background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden; }
+    .list-item {
+      display: flex;
+      align-items: center;
+      padding: 14px var(--spacing-md);
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .list-item:last-child { border-bottom: none; }
+    .list-item:hover { background: rgba(0,125,255,0.04); }
+    .list-item-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--color-primary), #00B4FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--spacing-md);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .list-item-content { flex: 1; }
+    .list-item-title { font-size: var(--font-size-body); font-weight: 500; }
+    .list-item-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+    .list-item-arrow { color: var(--color-text-secondary); font-size: 18px; }
+    /* 标签栏 */
+    .tabbar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 56px;
+      background: var(--color-surface);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    }
+    .tabbar-item {
+      display: flex; flex-direction: column; align-items: center;
+      color: var(--color-text-secondary); font-size: 11px;
+      cursor: pointer; padding: 4px 16px;
+    }
+    .tabbar-item.active { color: var(--color-primary); }
+    .tabbar-item svg { width: 24px; height: 24px; margin-bottom: 2px; }
+    /* 主题切换 */
+    .theme-toggle {
+      position: fixed; bottom: 70px; right: var(--spacing-md);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 101;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-title">HarmonyOS 风格</div>
+  </nav>
+  <main class="content">
+    <h1 class="page-title">HarmonyOS</h1>
+    <div class="service-card">
+      <div class="service-card-title">服务卡片</div>
+      <div class="service-card-text">HarmonyOS 特色服务卡片，支持跨设备流转和弹性动效。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">功能卡片</div>
+      <div class="card-text">HarmonyOS 风格卡片，采用大圆角和渐变色彩，展示鸿蒙设计语言的独特魅力。</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary">主要按钮</button>
+      <button class="btn btn-secondary">次要按钮</button>
+    </div>
+    <div class="input-group">
+      <input class="input" type="text" placeholder="请输入内容...">
+    </div>
+    <div class="list">
+      <div class="list-item">
+        <div class="list-item-icon">A</div>
+        <div class="list-item-content">
+          <div class="list-item-title">列表项一</div>
+          <div class="list-item-subtitle">描述信息</div>
+        </div>
+        <div class="list-item-arrow">›</div>
+      </div>
+      <div class="list-item">
+        <div class="list-item-icon">B</div>
+        <div class="list-item-content">
+          <div class="list-item-title">列表项二</div>
+          <div class="list-item-subtitle">描述信息</div>
+        </div>
+        <div class="list-item-arrow">›</div>
+      </div>
+      <div class="list-item">
+        <div class="list-item-icon">C</div>
+        <div class="list-item-content">
+          <div class="list-item-title">列表项三</div>
+          <div class="list-item-subtitle">描述信息</div>
+        </div>
+        <div class="list-item-arrow">›</div>
+      </div>
+    </div>
+  </main>
+  <nav class="tabbar">
+    <div class="tabbar-item active">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      首页
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      发现
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      消息
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      我的
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L3.16 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.58 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      设置
+    </div>
+  </nav>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>

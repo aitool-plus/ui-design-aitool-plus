@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微信小程序 Demo - ui-design-father-skill</title>
+  <style>
+    :root {
+      --color-primary: #07C160;
+      --color-background: #F5F5F5;
+      --color-surface: #FFFFFF;
+      --color-text-primary: #000000;
+      --color-text-secondary: #999999;
+      --color-border: #E5E5E5;
+      --color-success: #07C160;
+      --font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+      --font-size-title: 24px;
+      --font-size-subtitle: 16px;
+      --font-size-body: 14px;
+      --font-size-small: 12px;
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    [data-theme="dark"] {
+      --color-background: #111111;
+      --color-surface: #1E1E1E;
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #888888;
+      --color-border: #2A2A2A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-family);
+      background: var(--color-background);
+      color: var(--color-text-primary);
+      min-height: 100vh;
+      padding-bottom: 100px;
+    }
+    /* 小程序容器 */
+    .miniprogram-container {
+      max-width: 375px;
+      margin: 0 auto;
+      background: var(--color-background);
+      min-height: 100vh;
+      position: relative;
+    }
+    /* 导航栏 - 微信风格 */
+    .navbar {
+      height: 44px;
+      background: var(--color-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .navbar-title {
+      font-size: var(--font-size-subtitle);
+      font-weight: 500;
+    }
+    /* 内容区 */
+    .content { padding: var(--spacing-md); }
+    .page-title {
+      font-size: var(--font-size-title);
+      font-weight: 700;
+      margin-bottom: var(--spacing-lg);
+    }
+    /* 卡片 */
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .card-title {
+      font-size: var(--font-size-body);
+      font-weight: 500;
+      margin-bottom: var(--spacing-sm);
+    }
+    .card-text {
+      font-size: var(--font-size-small);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    /* 按钮 */
+    .btn-group { display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-wrap: wrap; }
+    .btn {
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      font-size: var(--font-size-body);
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: var(--font-family);
+    }
+    .btn:active { opacity: 0.7; }
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #F2F2F2;
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+    [data-theme="dark"] .btn-secondary {
+      background: #2A2A2A;
+      color: var(--color-text-primary);
+    }
+    /* 输入框 */
+    .input-group { margin-bottom: var(--spacing-md); }
+    .input {
+      width: 100%;
+      padding: 10px var(--spacing-md);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      font-size: var(--font-size-body);
+      font-family: var(--font-family);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input:focus { border-color: var(--color-primary); }
+    /* 列表 */
+    .list { background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden; }
+    .list-item {
+      display: flex;
+      align-items: center;
+      padding: 12px var(--spacing-md);
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .list-item:last-child { border-bottom: none; }
+    .list-item:active { background: rgba(7,193,96,0.05); }
+    .list-item-icon {
+      width: 28px; height: 28px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--color-primary), #5CD68A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--spacing-md);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .list-item-content { flex: 1; }
+    .list-item-title { font-size: var(--font-size-body); font-weight: 400; }
+    .list-item-subtitle { font-size: var(--font-size-small); color: var(--color-text-secondary); margin-top: 2px; }
+    .list-item-arrow { color: var(--color-text-secondary); font-size: 16px; }
+    /* 标签栏 */
+    .tabbar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 50px;
+      background: var(--color-surface);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .tabbar-item {
+      display: flex; flex-direction: column; align-items: center;
+      color: var(--color-text-secondary); font-size: 10px;
+      cursor: pointer; padding: 4px 12px;
+    }
+    .tabbar-item.active { color: var(--color-primary); }
+    .tabbar-item svg { width: 20px; height: 20px; margin-bottom: 2px; }
+    /* 主题切换 */
+    .theme-toggle {
+      position: fixed; bottom: 65px; right: var(--spacing-md);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 101;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="miniprogram-container">
+    <nav class="navbar">
+      <div class="navbar-title">微信小程序</div>
+    </nav>
+    <main class="content">
+      <h1 class="page-title">小程序 Demo</h1>
+      <div class="card">
+        <div class="card-title">功能卡片</div>
+        <div class="card-text">微信小程序风格卡片，简洁实用，展示微信生态的设计规范。</div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary">主要按钮</button>
+        <button class="btn btn-secondary">次要按钮</button>
+      </div>
+      <div class="input-group">
+        <input class="input" type="text" placeholder="请输入内容...">
+      </div>
+      <div class="list">
+        <div class="list-item">
+          <div class="list-item-icon">A</div>
+          <div class="list-item-content">
+            <div class="list-item-title">列表项一</div>
+            <div class="list-item-subtitle">描述信息</div>
+          </div>
+          <div class="list-item-arrow">›</div>
+        </div>
+        <div class="list-item">
+          <div class="list-item-icon">B</div>
+          <div class="list-item-content">
+            <div class="list-item-title">列表项二</div>
+            <div class="list-item-subtitle">描述信息</div>
+          </div>
+          <div class="list-item-arrow">›</div>
+        </div>
+        <div class="list-item">
+          <div class="list-item-icon">C</div>
+          <div class="list-item-content">
+            <div class="list-item-title">列表项三</div>
+            <div class="list-item-subtitle">描述信息</div>
+          </div>
+          <div class="list-item-arrow">›</div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <nav class="tabbar">
+    <div class="tabbar-item active">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      首页
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      发现
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      消息
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      我的
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L3.16 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.58 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      设置
+    </div>
+  </nav>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS Demo - ui-design-father-skill</title>
+  <style>
+    :root {
+      --color-primary: #007AFF;
+      --color-background: #F2F2F7;
+      --color-surface: #FFFFFF;
+      --color-text-primary: #000000;
+      --color-text-secondary: #8E8E93;
+      --color-border: #C6C6C8;
+      --color-success: #34C759;
+      --color-danger: #FF3B30;
+      --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      --font-size-title: 34px;
+      --font-size-subtitle: 20px;
+      --font-size-body: 16px;
+      --font-size-small: 14px;
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    [data-theme="dark"] {
+      --color-background: #000000;
+      --color-surface: #1C1C1E;
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #8E8E93;
+      --color-border: #38383A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-family);
+      background: var(--color-background);
+      color: var(--color-text-primary);
+      min-height: 100vh;
+      padding-bottom: 100px;
+    }
+    /* 导航栏 */
+    .navbar {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--color-border);
+      padding: 12px var(--spacing-md);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    [data-theme="dark"] .navbar {
+      background: rgba(28,28,30,0.85);
+    }
+    .navbar-back {
+      display: flex;
+      align-items: center;
+      color: var(--color-primary);
+      font-size: var(--font-size-body);
+      cursor: pointer;
+    }
+    .navbar-back svg { width: 20px; height: 20px; margin-right: 4px; }
+    .navbar-title {
+      font-size: var(--font-size-subtitle);
+      font-weight: 600;
+      flex: 1;
+      text-align: center;
+    }
+    .navbar-actions { width: 60px; text-align: right; }
+    /* 内容区 */
+    .content { padding: var(--spacing-md); }
+    .page-title {
+      font-size: var(--font-size-title);
+      font-weight: 700;
+      margin-bottom: var(--spacing-lg);
+      padding: 0 var(--spacing-sm);
+    }
+    /* 卡片 */
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .card-title {
+      font-size: var(--font-size-body);
+      font-weight: 600;
+      margin-bottom: var(--spacing-sm);
+    }
+    .card-text {
+      font-size: var(--font-size-small);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    /* 按钮 */
+    .btn-group { display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-wrap: wrap; }
+    .btn {
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      border: none;
+      font-size: var(--font-size-body);
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: var(--font-family);
+    }
+    .btn:active { opacity: 0.7; }
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-primary);
+      border: 1px solid var(--color-border);
+    }
+    /* 输入框 */
+    .input-group { margin-bottom: var(--spacing-md); }
+    .input {
+      width: 100%;
+      padding: 14px var(--spacing-md);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      font-size: var(--font-size-body);
+      font-family: var(--font-family);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input:focus { border-color: var(--color-primary); }
+    /* 列表 */
+    .list { background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden; }
+    .list-item {
+      display: flex;
+      align-items: center;
+      padding: 14px var(--spacing-md);
+      border-bottom: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .list-item:last-child { border-bottom: none; }
+    .list-item:active { background: rgba(0,122,255,0.05); }
+    .list-item-icon {
+      width: 32px; height: 32px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--color-primary), #5AC8FA);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--spacing-md);
+      color: #fff;
+      font-size: 14px;
+    }
+    .list-item-content { flex: 1; }
+    .list-item-title { font-size: var(--font-size-body); font-weight: 500; }
+    .list-item-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+    .list-item-arrow { color: var(--color-text-secondary); font-size: 18px; }
+    /* 开关 */
+    .switch-container { display: flex; align-items: center; justify-content: space-between; padding: 14px var(--spacing-md); }
+    .switch-label { font-size: var(--font-size-body); }
+    .switch {
+      width: 51px; height: 31px;
+      background: var(--color-border);
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .switch.active { background: var(--color-success); }
+    .switch::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 27px; height: 27px; background: #fff;
+      border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .switch.active::after { transform: translateX(20px); }
+    /* 标签栏 */
+    .tabbar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 49px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+    [data-theme="dark"] .tabbar { background: rgba(28,28,30,0.9); }
+    .tabbar-item {
+      display: flex; flex-direction: column; align-items: center;
+      color: var(--color-text-secondary); font-size: 10px;
+      cursor: pointer; padding: 4px 12px;
+    }
+    .tabbar-item.active { color: var(--color-primary); }
+    .tabbar-item svg { width: 22px; height: 22px; margin-bottom: 2px; }
+    /* 主题切换 */
+    .theme-toggle {
+      position: fixed; bottom: 65px; right: var(--spacing-md);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 101;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+      返回
+    </div>
+    <div class="navbar-title">iOS 风格</div>
+    <div class="navbar-actions"></div>
+  </nav>
+  <main class="content">
+    <h1 class="page-title">iOS 风格 Demo</h1>
+    <div class="card">
+      <div class="card-title">功能卡片</div>
+      <div class="card-text">这是 iOS 风格的卡片组件，采用圆角设计和毛玻璃效果，展示典型的 iOS 视觉风格。</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary">主要按钮</button>
+      <button class="btn btn-secondary">次要按钮</button>
+    </div>
+    <div class="input-group">
+      <input class="input" type="text" placeholder="请输入内容...">
+    </div>
+    <div class="list">
+      <div class="list-item">
+        <div class="list-item-icon">A</div>
+        <div class="list-item-content">
+          <div class="list-item-title">列表项一</div>
+          <div class="list-item-subtitle">描述信息</div>
+        </div>
+        <div class="list-item-arrow">›</div>
+      </div>
+      <div class="list-item">
+        <div class="list-item-icon">B</div>
+        <div class="list-item-content">
+          <div class="list-item-title">列表项二</div>
+          <div class="list-item-subtitle">描述信息</div>
+        </div>
+        <div class="list-item-arrow">›</div>
+      </div>
+      <div class="list-item">
+        <div class="list-item-icon">C</div>
+        <div class="list-item-content">
+          <div class="list-item-title">列表项三</div>
+          <div class="list-item-subtitle">描述信息</div>
+        </div>
+        <div class="list-item-arrow">›</div>
+      </div>
+    </div>
+    <div style="margin-top:var(--spacing-md);"></div>
+    <div class="list">
+      <div class="switch-container">
+        <span class="switch-label">通知开关</span>
+        <div class="switch active" onclick="this.classList.toggle('active')"></div>
+      </div>
+      <div class="switch-container">
+        <span class="switch-label">深色模式</span>
+        <div class="switch" onclick="this.classList.toggle('active')"></div>
+      </div>
+    </div>
+  </main>
+  <nav class="tabbar">
+    <div class="tabbar-item active">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      首页
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      发现
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      消息
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      我的
+    </div>
+    <div class="tabbar-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L3.16 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.58 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      设置
+    </div>
+  </nav>
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>
