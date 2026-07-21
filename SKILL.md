@@ -194,6 +194,15 @@ disable: false
 
 所有组件必须满足WCAG 2.1 AA级标准：文本对比度不低于4.5:1，大文本对比度不低于3:1，交互元素最小触控区域44x44pt，必须提供无障碍标签。
 
+### 1.7 图标拟真规则
+
+Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真原生系统应用图标**，禁止用字母、emoji 或纯色块占位。具体要求：
+
+- 图标字形使用内联 SVG 绘制真实感的系统 App 图标（相机、照片、地图、天气、联系人、时钟、备忘录、计算器、设置等），完整 SVG 规范见 `references/components/app-icons.md`
+- 真实渐变背景由图标容器提供（如 iOS 相机为深灰 `#54545A→#2C2C2E`、照片为白底、时钟为纯黑、备忘录为黄色、设置为灰色），**不得**套用平台主色统一染色——系统 App 图标有独立视觉身份
+- 图标圆角随平台规范：iOS squircle≈12px、Android 16-20dp、One UI/HarmonyOS/OriginOS 16dp、Flyme 8px、Windows 4px、小程序 8px；容器需 `overflow:hidden` 以裁剪 SVG 方角
+- 深色模式下背景与字形按平台规范微调，保持可识别（如时钟黑底在深色模式可降对比为深灰描边）
+
 ---
 
 ## 二、风格路由表
@@ -329,6 +338,7 @@ disable: false
 - 必须包含浅色/深色主题切换
 - 必须展示该风格的核心组件和视觉特征
 - 手机端Demo默认375dp视口，Windows端Demo默认1280dp视口，小程序Demo默认375dp视口
+- 功能入口网格必须使用拟真原生应用图标（相机/照片/地图/天气/联系人/时钟/备忘录/计算器/设置），禁止字母或 emoji 占位，图标 SVG 规范见 `references/components/app-icons.md`
 
 ---
 
@@ -365,6 +375,7 @@ disable: false
 | references/components/data-display.md | 数据展示组件规范（列表/卡片/标签/表格/头像） | Step 4，涉及展示组件时加载 |
 | references/components/feedback.md | 反馈组件规范（弹窗/Toast/进度条/空状态/骨架屏） | Step 4，涉及反馈组件时加载 |
 | references/components/media.md | 媒体组件规范（图片/头像组/图标/插画/横幅） | Step 4，涉及媒体组件时加载 |
+| references/components/app-icons.md | 拟真原生应用图标库（9 个系统 App 图标 SVG 规范） | Step 8，生成 Demo 功能网格时加载 |
 
 ### 4.4 工作流辅助
 
