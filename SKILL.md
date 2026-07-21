@@ -1,10 +1,45 @@
 ---
 name: ui-design-father-skill
-description: |
-  一人设计公司神级Skill，覆盖11大平台设计系统：Apple iOS HIG、Google Material Design 3、Samsung One UI、华为HarmonyOS、小米HyperOS、荣耀MagicOS、OPPO ColorOS、vivo OriginOS、魅族Flyme、Windows 11 Fluent Design、微信小程序WeUI。当用户需要手机App UI、桌面端UI、小程序UI、多平台适配、组件库设计或设计规范文档时自动激活。支持关键词：iOS、苹果、Android、Material Design、One UI、三星、鸿蒙、HarmonyOS、华为、HyperOS、小米、澎湃、MagicOS、荣耀、ColorOS、OPPO、OriginOS、vivo、Flyme、魅族、Windows、Fluent、桌面、微信、WeUI、小程序。
+display_name: 一人设计公司神级Skill（11大平台UI设计系统）
 version: 1.0.0
+description: >
+  一人设计公司神级Skill -- 一个人完成原本需要整支设计团队才能完成的UI设计工作。
+  覆盖11大平台设计系统：Apple iOS HIG、Google Material Design 3、Samsung One UI、
+  华为HarmonyOS、小米HyperOS、荣耀MagicOS、OPPO ColorOS、vivo OriginOS、魅族Flyme、
+  Windows 11 Fluent Design、微信小程序WeUI。
+  支持手机App、桌面端、小程序三端，一条指令输出原厂级高保真UI方案。
+  适用场景：电商首页、设置页、个人中心、表单页、列表页等多端适配设计，
+  多风格横向对比，设计规范文档，组件库，可交互HTML原型。
+  触发词：iOS、苹果、Android、Material Design、One UI、三星、鸿蒙、HarmonyOS、
+  华为、HyperOS、小米、澎湃、MagicOS、荣耀、ColorOS、OPPO、OriginOS、vivo、
+  Flyme、魅族、Windows、Fluent、桌面、微信、WeUI、小程序、UI设计、界面设计、
+  App设计、组件库、设计规范、毛玻璃、服务卡片、多平台适配。
 author: aitool.plus
+license: MIT
+category: design
+tags:
+  - UI设计
+  - iOS
+  - Android
+  - Material Design
+  - HarmonyOS
+  - HyperOS
+  - One UI
+  - MagicOS
+  - ColorOS
+  - OriginOS
+  - Flyme
+  - Windows Fluent
+  - 微信小程序
+  - WeUI
+  - 设计规范
+  - 组件库
+  - 多平台适配
+  - Design Token
+  - 高保真原型
+language: zh-CN
 allowed-tools: Read,Write,Edit,Bash,AskUserQuestion
+disable: false
 ---
 
 # ui-design-father-skill
@@ -429,14 +464,3 @@ allowed-tools: Read,Write,Edit,Bash,AskUserQuestion
 8. Demo: 生成 `demo/wechat-miniprogram/index.html`
 
 ---
-
-## 八、Demo生成规则
-
-1. 每个风格必须生成独立的HTML Demo页面
-2. Demo存放路径: `demo/{style-name}/index.html`（style-name见路由表风格名称列对应英文标识）
-3. Demo必须是单文件HTML（含内联CSS/JS），可直接浏览器打开
-4. Demo必须包含浅色/深色主题切换按钮
-5. Demo必须展示该风格的核心组件和视觉特征
-6. 手机端Demo默认375dp视口，Windows桌面端Demo默认1280dp视口
-7. 微信小程序Demo需模拟小程序顶部导航栏和底部安全区域
-8. Demo中使用的所有Design Token必须与Step 3生成的Token体系完全一致

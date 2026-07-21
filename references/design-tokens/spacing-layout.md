@@ -398,3 +398,341 @@
 --safe-area-bottom-default: 0px;
 --safe-area-bottom-nav: 48px;
 ```
+
+---
+
+## 11大平台间距阶梯对照表
+
+### 基准网格与间距阶梯
+
+| 间距Token | iOS(4pt) | Android(4dp) | One UI(4px) | HarmonyOS(4px/8vp) | HyperOS(4px) | MagicOS(4px) | ColorOS(4px) | OriginOS(4px) | Flyme(4px) | Fluent(4px) | WeUI(4px) |
+|-----------|----------|--------------|-------------|---------------------|--------------|--------------|--------------|---------------|------------|-------------|-----------|
+| space-0.5 | 2px | 2dp | 2px | 2px/4vp | 2px | 2px | 2px | 2px | 2px | 2px | 2px |
+| space-1 | 4px | 4dp | 4px | 4px/8vp | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+| space-1.5 | 6px | 6dp | 6px | 6px/12vp | 6px | 6px | 6px | 6px | 6px | 6px | 6px |
+| space-2 | 8px | 8dp | 8px | 8px/16vp | 8px | 8px | 8px | 8px | 8px | 8px | 8px |
+| space-2.5 | 10px | 10dp | 10px | 10px/20vp | 10px | 10px | 10px | 10px | 10px | 10px | 10px |
+| space-3 | 12px | 12dp | 12px | 12px/24vp | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| space-3.5 | 14px | 14dp | 14px | 14px/28vp | 14px | 14px | 14px | 14px | 14px | 14px | 14px |
+| space-4 | 16px | 16dp | 16px | 16px/32vp | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+| space-5 | 20px | 20dp | 20px | 20px/40vp | 20px | 20px | 20px | 20px | 20px | 20px | 20px |
+| space-6 | 24px | 24dp | 24px | 24px/48vp | 24px | 24px | 24px | 24px | 24px | 24px | 24px |
+| space-7 | 28px | 28dp | 28px | 28px/56vp | 28px | 28px | 28px | 28px | 28px | 28px | 28px |
+| space-8 | 32px | 32dp | 32px | 32px/64vp | 32px | 32px | 32px | 32px | 32px | 32px | 32px |
+| space-9 | 36px | 36dp | 36px | 36px/72vp | 36px | 36px | 36px | 36px | 36px | 36px | 36px |
+| space-10 | 40px | 40dp | 40px | 40px/80vp | 40px | 40px | 40px | 40px | 40px | 40px | 40px |
+| space-12 | 48px | 48dp | 48px | 48px/96vp | 48px | 48px | 48px | 48px | 48px | 48px | 48px |
+| space-14 | 56px | 56dp | 56px | 56px/112vp | 56px | 56px | 56px | 56px | 56px | 56px | 56px |
+| space-16 | 64px | 64dp | 64px | 64px/128vp | 64px | 64px | 64px | 64px | 64px | 64px | 64px |
+| space-20 | 80px | 80dp | 80px | 80px/160vp | 80px | 80px | 80px | 80px | 80px | 80px | 80px |
+| space-24 | 96px | 96dp | 96px | 96px/192vp | 96px | 96px | 96px | 96px | 96px | 96px | 96px |
+| space-32 | 128px | 128dp | 128px | 128px/256vp | 128px | 128px | 128px | 128px | 128px | 128px | 128px |
+
+### HarmonyOS vp单位换算表
+
+HarmonyOS使用vp(virtual pixel)作为独立间距单位，基准为8vp网格：
+
+| vp值 | px值(基准密度) | 换算公式 |
+|------|---------------|---------|
+| 1vp | 0.5px | px = vp * (屏幕密度/160) |
+| 2vp | 1px | 基准密度下1vp=0.5px |
+| 4vp | 2px | |
+| 8vp | 4px | HarmonyOS最小间距单位 |
+| 12vp | 6px | |
+| 16vp | 8px | |
+| 20vp | 10px | |
+| 24vp | 12px | |
+| 32vp | 16px | |
+| 40vp | 20px | |
+| 48vp | 24px | |
+| 56vp | 28px | |
+| 64vp | 32px | |
+| 80vp | 40px | |
+| 96vp | 48px | |
+
+---
+
+## 组件内间距规范
+
+### 按钮组件间距
+
+| 间距属性 | iOS | Android | One UI | HarmonyOS | HyperOS | MagicOS | ColorOS | OriginOS | Flyme | Fluent | WeUI |
+|----------|-----|---------|--------|-----------|---------|---------|---------|----------|-------|--------|------|
+| button-sm-padding-h | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| button-sm-padding-v | 4px | 4dp | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+| button-sm-height | 32px | 32dp | 32px | 32px | 32px | 32px | 32px | 32px | 32px | 28px | 30px |
+| button-sm-icon-gap | 4px | 4dp | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+| button-md-padding-h | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 12px | 16px |
+| button-md-padding-v | 8px | 8dp | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 6px | 8px |
+| button-md-height | 44px | 40dp | 44px | 44px | 44px | 44px | 44px | 44px | 44px | 32px | 44px |
+| button-md-icon-gap | 8px | 8dp | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px |
+| button-lg-padding-h | 24px | 24dp | 24px | 24px | 24px | 24px | 24px | 24px | 24px | 20px | 20px |
+| button-lg-padding-v | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 8px | 10px |
+| button-lg-height | 52px | 48dp | 52px | 52px | 52px | 52px | 52px | 52px | 52px | 40px | 48px |
+| button-lg-icon-gap | 8px | 8dp | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px |
+| button-full-width-padding-h | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+
+### 卡片组件间距
+
+| 间距属性 | iOS | Android | One UI | HarmonyOS | HyperOS | MagicOS | ColorOS | OriginOS | Flyme | Fluent | WeUI |
+|----------|-----|---------|--------|-----------|---------|---------|---------|----------|-------|--------|------|
+| card-padding | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+| card-padding-sm | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| card-padding-lg | 20px | 20dp | 20px | 20px | 20px | 20px | 20px | 20px | 20px | 20px | 20px |
+| card-gap | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| card-header-padding-b | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| card-footer-padding-t | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| card-media-padding | 0px | 0dp | 0px | 0px | 0px | 0px | 0px | 0px | 0px | 0px | 0px |
+| card-media-gap | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+
+### 列表项间距
+
+| 间距属性 | iOS | Android | One UI | HarmonyOS | HyperOS | MagicOS | ColorOS | OriginOS | Flyme | Fluent | WeUI |
+|----------|-----|---------|--------|-----------|---------|---------|---------|----------|-------|--------|------|
+| list-item-padding-h | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+| list-item-padding-v | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| list-item-height | 48px | 48dp | 48px | 48px | 48px | 48px | 48px | 48px | 48px | 48px | 48px |
+| list-item-height-dense | 36px | 36dp | 36px | 36px | 36px | 36px | 36px | 36px | 36px | 36px | 36px |
+| list-item-height-three | 72px | 72dp | 72px | 72px | 72px | 72px | 72px | 72px | 72px | 72px | 72px |
+| list-item-icon-gap | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+| list-item-avatar-gap | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 12px |
+| list-item-divider-inset | 56px | 56dp | 56px | 56px | 56px | 56px | 56px | 56px | 56px | 56px | 56px |
+| list-section-gap | 24px | 24dp | 24px | 24px | 24px | 24px | 24px | 24px | 24px | 24px | 24px |
+
+### 输入框间距
+
+| 间距属性 | iOS | Android | One UI | HarmonyOS | HyperOS | MagicOS | ColorOS | OriginOS | Flyme | Fluent | WeUI |
+|----------|-----|---------|--------|-----------|---------|---------|---------|----------|-------|--------|------|
+| input-padding-h | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 12px | 12px |
+| input-padding-v | 12px | 12dp | 12px | 12px | 12px | 12px | 12px | 12px | 12px | 8px | 10px |
+| input-height | 44px | 48dp | 44px | 44px | 44px | 44px | 44px | 44px | 44px | 32px | 44px |
+| input-label-gap | 4px | 4dp | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+| input-icon-gap | 8px | 8dp | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px |
+| input-error-gap | 4px | 4dp | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+| input-helper-gap | 4px | 4dp | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+
+### 导航栏/标签栏间距
+
+| 间距属性 | iOS | Android | One UI | HarmonyOS | HyperOS | MagicOS | ColorOS | OriginOS | Flyme | Fluent | WeUI |
+|----------|-----|---------|--------|-----------|---------|---------|---------|----------|-------|--------|------|
+| navbar-height | 44px | 56dp | 56px | 56px | 56px | 56px | 56px | 56px | 56px | 48px | 44px |
+| navbar-padding-h | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+| navbar-icon-gap | 8px | 8dp | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 8px |
+| tabbar-height | 49px | 56dp | 56px | 56px | 56px | 56px | 56px | 56px | 56px | 48px | 50px |
+| tabbar-padding-h | 0px | 0dp | 0px | 0px | 0px | 0px | 0px | 0px | 0px | 0px | 0px |
+| tabbar-padding-v | 8px | 8dp | 8px | 8px | 8px | 8px | 8px | 8px | 8px | 4px | 6px |
+| tabbar-icon-gap | 4px | 4dp | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px | 4px |
+
+---
+
+## 页面布局间距
+
+### 页面边距对照
+
+| 间距属性 | iOS | Android | One UI | HarmonyOS | HyperOS | MagicOS | ColorOS | OriginOS | Flyme | Fluent | WeUI |
+|----------|-----|---------|--------|-----------|---------|---------|---------|----------|-------|--------|------|
+| page-margin-phone | 16px | 16dp | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px | 16px |
+| page-margin-fold | 24px | 24dp | 24px | 24px | 24px | 24px | 24px | 24px | 24px | 24px | 24px |
+| page-margin-tablet | 32px | 32dp | 32px | 32px | 32px | 32px | 32px | 32px | 32px | 32px | 32px |
+| page-margin-desktop | 48px | 48dp | 48px | 48px | 48px | 48px | 48px | 48px | 48px | 48px | 48px |
+| page-max-width | 960px | 840dp | 840px | 840px | 840px | 840px | 840px | 840px | 840px | 1200px | 750px |
+
+### 内容区间距
+
+| 间距属性 | 手机 | 折叠屏 | 平板 | 桌面 | 说明 |
+|----------|------|--------|------|------|------|
+| section-gap | 32px | 36px | 40px | 48px | 页面主区块间距 |
+| group-gap | 16px | 20px | 24px | 32px | 分组间距 |
+| element-gap | 8px | 12px | 16px | 20px | 元素间距 |
+| inline-gap | 4px | 4px | 8px | 8px | 行内元素间距 |
+| card-content-padding | 16px | 20px | 24px | 32px | 卡片内容区内边距 |
+| form-content-padding | 16px | 20px | 24px | 32px | 表单内容区内边距 |
+| dialog-content-padding | 20px | 24px | 32px | 40px | 弹窗内容区内边距 |
+| bottom-action-padding | 16px | 20px | 24px | 32px | 底部操作区内边距 |
+
+### iOS特殊布局间距
+
+| 场景 | 间距值 | 说明 |
+|------|--------|------|
+| 大标题页面顶部间距 | 0px | 大标题紧贴导航栏 |
+| 普通页面顶部间距 | 20px | 导航栏下方内容起始 |
+| 搜索栏下方间距 | 12px | 搜索栏与内容区间距 |
+| Section Header | 32px | 分组标题上方间距 |
+| Section Footer | 32px | 分组底部间距 |
+| TableView Grouped间距 | 20px | 分组表格左右边距 |
+| TableView Inset Grouped间距 | 20px | 圆角分组表格边距 |
+
+### Android特殊布局间距
+
+| 场景 | 间距值 | 说明 |
+|------|--------|------|
+| TopAppBar下方间距 | 16dp | 应用栏与内容区间距 |
+| FAB距边缘 | 16dp | 浮动按钮距屏幕边缘 |
+| BottomSheet顶部圆角 | 28dp | 底部抽屉圆角半径 |
+| Navigation Rail宽度 | 80dp | 侧边导航栏宽度 |
+| Navigation Drawer宽度 | 360dp | 侧边抽屉宽度 |
+| Snackbar距底部 | 16dp | 消息条距底部导航栏 |
+
+---
+
+## 栅格系统
+
+### 各平台栅格详细参数
+
+| 平台 | 手机列数 | 平板列数 | 桌面列数 | 槽宽(手机) | 槽宽(平板) | 槽宽(桌面) | 边距(手机) | 边距(平板) | 边距(桌面) |
+|------|---------|---------|---------|-----------|-----------|-----------|-----------|-----------|-----------|
+| iOS | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| Android | 4列 | 8列 | 12列 | 16dp | 20dp | 24dp | 16dp | 24dp | 48dp |
+| One UI | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| HarmonyOS | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| HyperOS | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| MagicOS | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| ColorOS | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| OriginOS | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| Flyme | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| Fluent | 4列 | 8列 | 12列 | 16px | 20px | 24px | 16px | 24px | 48px |
+| WeUI | 4列 | 8列 | 8列 | 16px | 20px | 24px | 16px | 24px | 48px |
+
+### 栅格CSS实现
+
+```css
+/* 栅格Token */
+--grid-columns-phone: 4;
+--grid-columns-tablet: 8;
+--grid-columns-desktop: 12;
+--grid-gutter-phone: 16px;
+--grid-gutter-tablet: 20px;
+--grid-gutter-desktop: 24px;
+--grid-margin-phone: 16px;
+--grid-margin-tablet: 24px;
+--grid-margin-desktop: 48px;
+
+/* 栅格布局 */
+.grid {
+  display: grid;
+  gap: var(--grid-gutter-phone);
+  grid-template-columns: repeat(var(--grid-columns-phone), 1fr);
+  padding: 0 var(--grid-margin-phone);
+}
+
+@media (min-width: 840px) {
+  .grid {
+    gap: var(--grid-gutter-tablet);
+    grid-template-columns: repeat(var(--grid-columns-tablet), 1fr);
+    padding: 0 var(--grid-margin-tablet);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid {
+    gap: var(--grid-gutter-desktop);
+    grid-template-columns: repeat(var(--grid-columns-desktop), 1fr);
+    padding: 0 var(--grid-margin-desktop);
+  }
+}
+```
+
+---
+
+## 安全区域间距
+
+### 刘海屏/挖孔屏避让间距
+
+| 区域 | iOS(刘海屏) | iOS(Dynamic Island) | Android(挖孔屏) | HarmonyOS(挖孔屏) | 说明 |
+|------|------------|--------------------|-----------------|--------------------|------|
+| 顶部安全区高度 | 44px | 59px | 24px-48px | 24px-48px | 状态栏+刘海/挖孔 |
+| 刘海宽度 | 209px | 126px | 80px-120px | 80px-120px | 横屏时左右避让宽度 |
+| 横屏左侧避让 | 44px | 59px | 0px-24px | 0px-24px | 横屏时刘海侧避让 |
+| 横屏右侧避让 | 44px | 59px | 0px-24px | 0px-24px | 横屏时对侧避让 |
+
+### 底部Home Indicator避让
+
+| 区域 | iOS | Android(手势导航) | HarmonyOS(手势) | 说明 |
+|------|-----|-------------------|-----------------|------|
+| Home指示器高度 | 34px | 48px | 48px | 底部手势区域高度 |
+| Home指示器条高度 | 5px | - | - | 底部小横条高度 |
+| Home指示器条宽度 | 134px | - | - | 底部小横条宽度 |
+| 内容底部最小避让 | 34px | 0px | 0px | iOS强制避让34px |
+
+### 各机型安全区域详细数值
+
+#### iOS机型安全区域
+
+| 机型 | 顶部安全区 | 底部安全区 | 左侧安全区(横屏) | 右侧安全区(横屏) |
+|------|-----------|-----------|-----------------|-----------------|
+| iPhone 15 Pro Max | 59px | 34px | 59px | 59px |
+| iPhone 15 Pro | 59px | 34px | 59px | 59px |
+| iPhone 15 | 59px | 34px | 59px | 59px |
+| iPhone 14 Pro Max | 59px | 34px | 59px | 59px |
+| iPhone 14 Pro | 59px | 34px | 59px | 59px |
+| iPhone 14 | 44px | 34px | 44px | 44px |
+| iPhone SE (3rd) | 20px | 0px | 0px | 0px |
+| iPad Pro 12.9" | 24px | 20px | 24px | 24px |
+| iPad Pro 11" | 24px | 20px | 24px | 24px |
+| iPad Air | 20px | 0px | 0px | 0px |
+
+#### Android主流机型安全区域
+
+| 机型 | 顶部安全区 | 底部安全区 | 说明 |
+|------|-----------|-----------|------|
+| Samsung S24 Ultra | 40px | 48px | 挖孔屏+手势导航 |
+| Samsung S24 | 36px | 48px | 挖孔屏+手势导航 |
+| Pixel 8 Pro | 32px | 48px | 挖孔屏+手势导航 |
+| Xiaomi 14 Pro | 36px | 48px | 挖孔屏+手势导航 |
+| Huawei Mate 60 Pro | 36px | 48px | 挖孔屏+手势导航 |
+| OPPO Find X7 | 36px | 48px | 挖孔屏+手势导航 |
+| vivo X100 Pro | 36px | 48px | 挖孔屏+手势导航 |
+
+### 安全区域CSS实现
+
+```css
+/* iOS安全区域 - env()函数 */
+--safe-area-inset-top: env(safe-area-inset-top, 0px);
+--safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+--safe-area-inset-left: env(safe-area-inset-left, 0px);
+--safe-area-inset-right: env(safe-area-inset-right, 0px);
+
+/* 顶部导航栏适配 */
+.navbar {
+  padding-top: var(--safe-area-inset-top);
+  height: calc(44px + var(--safe-area-inset-top));
+}
+
+/* 底部操作区适配 */
+.bottom-action {
+  padding-bottom: var(--safe-area-inset-bottom);
+  min-height: calc(49px + var(--safe-area-inset-bottom));
+}
+
+/* 横屏适配 */
+@media (orientation: landscape) {
+  .page-content {
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+  }
+}
+
+/* 全屏内容适配 */
+.fullscreen-content {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+}
+
+/* Android安全区域 - windowInsets */
+/* Android通过ViewCompat.setOnApplyWindowInsetsListener实现 */
+/* Web端通过viewport-fit=cover + env()实现 */
+
+/* viewport设置 */
+/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> */
+
+/* 微信小程序安全区域 */
+.wx-safe-area-top {
+  padding-top: calc(var(--status-bar-height, 20px) + 44px);
+}
+
+.wx-safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+```
