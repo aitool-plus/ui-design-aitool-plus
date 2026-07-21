@@ -653,7 +653,89 @@
       color: var(--color-text-primary);
     }
     .theme-toggle svg { width: 20px; height: 20px; }
-  </style>
+  
+/* ===== 新增交互组件（跨平台通用，变量回退自动适配深浅色） ===== */
+:root{
+  --pc: var(--c-primary, var(--color-primary, #007AFF));
+  --surf: var(--c-surface, var(--color-surface, #ffffff));
+  --bd: var(--c-border, var(--color-border, #e5e5ea));
+  --txt: var(--c-text, var(--color-text, #1c1c1e));
+  --txt2: var(--c-text2, var(--color-text-secondary, #8e8e93));
+  --bg: var(--c-bg, #f2f2f7);
+}
+/* 弹窗关闭按钮（平台拟真 + 无障碍） */
+.modal, .md-dialog { position: relative; }
+.modal-close {
+  position: absolute; top: 6px; right: 6px;
+  width: 30px; height: 30px; padding: 0;
+  border: none; border-radius: 50%;
+  background: var(--close-bg, rgba(120,120,128,0.16));
+  color: var(--close-fg, #3a3a3c);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 6;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s ease, transform .1s ease;
+}
+.modal-close svg { width: 15px; height: 15px; display: block; }
+.modal-close:hover { background: rgba(120,120,128,0.26); }
+.modal-close:active { transform: scale(0.9); }
+.modal-close:focus-visible { outline: 2px solid var(--pc); outline-offset: 2px; }
+@media (pointer: coarse){
+  .modal-close{ width:38px; height:38px; top:4px; right:4px; }
+  .modal-close svg{ width:18px; height:18px; }
+}
+/* 更多交互组件容器 */
+.more-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px 8px; }
+.card-block{ background:var(--surf); border:1px solid var(--bd); border-radius:14px; padding:14px; }
+.block-title{ font-size:14px; font-weight:600; color:var(--txt); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; }
+.block-val{ color:var(--pc); font-weight:700; }
+.block-hint{ font-size:12px; color:var(--txt2); margin-top:8px; }
+/* 分段控件 */
+.segmented{ display:flex; background:var(--bg); border-radius:10px; padding:3px; gap:2px; }
+.seg-item{ flex:1; border:none; background:none; padding:7px 0; font-size:13px; font-family:inherit; color:var(--txt2); border-radius:8px; cursor:pointer; transition:all .18s; }
+.seg-item.active{ background:var(--surf); color:var(--txt); font-weight:600; box-shadow:0 1px 3px rgba(0,0,0,.12); }
+/* 滑块 */
+.slider{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:3px; background:var(--bd); outline:none; margin:8px 0; }
+.slider::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--pc); border:3px solid var(--surf); box-shadow:0 1px 4px rgba(0,0,0,.25); cursor:pointer; }
+.slider::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:var(--pc); border:3px solid var(--surf); cursor:pointer; }
+/* 步进器 */
+.stepper{ display:inline-flex; align-items:center; border:1px solid var(--bd); border-radius:10px; overflow:hidden; }
+.step-btn{ width:40px; height:36px; border:none; background:var(--surf); color:var(--pc); font-size:20px; cursor:pointer; font-family:inherit; }
+.step-btn:active{ background:var(--bg); }
+.step-val{ min-width:42px; text-align:center; font-size:15px; font-weight:600; color:var(--txt); border-left:1px solid var(--bd); border-right:1px solid var(--bd); height:36px; line-height:36px; }
+/* 提示气泡 */
+.tooltip{ position:relative; display:inline-block; }
+.tip-bubble{ position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(4px); background:#1c1c1e; color:#fff; font-size:12px; padding:6px 10px; border-radius:8px; white-space:nowrap; opacity:0; pointer-events:none; transition:all .18s; z-index:50; }
+.tip-bubble::after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:#1c1c1e; }
+.tooltip:hover .tip-bubble, .tooltip:focus-within .tip-bubble{ opacity:1; transform:translateX(-50%) translateY(0); }
+/* 菜单 */
+.menu-wrap{ position:relative; display:inline-block; }
+.ctx-menu{ position:absolute; top:calc(100% + 6px); left:0; min-width:160px; background:var(--surf); border:1px solid var(--bd); border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.16); padding:6px; display:none; z-index:120; }
+.ctx-menu.show{ display:block; animation:ctxIn .16s ease; }
+@keyframes ctxIn{ from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:translateY(0);} }
+.ctx-item{ padding:10px 12px; font-size:14px; color:var(--txt); border-radius:8px; cursor:pointer; font-family:inherit; }
+.ctx-item:hover{ background:var(--bg); }
+.ctx-item.danger{ color:#ff3b30; }
+/* 实时搜索 */
+.live-search{ margin-bottom:10px; }
+.ls-input{ width:100%; box-sizing:border-box; padding:9px 12px; border:1px solid var(--bd); border-radius:10px; font-size:14px; font-family:inherit; background:var(--bg); color:var(--txt); outline:none; }
+.ls-input:focus{ border-color:var(--pc); }
+.filter-list{ display:flex; flex-direction:column; gap:6px; max-height:160px; overflow:auto; }
+.fl-item{ padding:9px 12px; background:var(--bg); border-radius:8px; font-size:13px; color:var(--txt); }
+/* 动作面板（底部上滑） */
+.sheet-mask{ position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:250; opacity:0; pointer-events:none; transition:opacity .25s; }
+.sheet-mask.show{ opacity:1; pointer-events:auto; }
+.action-sheet{ position:fixed; left:0; right:0; bottom:0; z-index:260; background:var(--surf); border-radius:18px 18px 0 0; padding:10px 12px calc(12px + env(safe-area-inset-bottom)); transform:translateY(100%); transition:transform .3s cubic-bezier(0.3,0.8,0.3,1); max-width:480px; margin:0 auto; }
+.action-sheet.show{ transform:translateY(0); }
+.sheet-handle{ width:38px; height:5px; border-radius:3px; background:var(--bd); margin:6px auto 12px; }
+.sheet-title{ text-align:center; font-size:13px; color:var(--txt2); margin-bottom:8px; }
+.sheet-item{ display:block; width:100%; border:none; background:none; padding:15px; font-size:17px; color:var(--txt); text-align:center; border-radius:12px; cursor:pointer; font-family:inherit; }
+.sheet-item:active{ background:var(--bg); }
+.sheet-item.destructive{ color:#ff3b30; }
+.sheet-cancel{ margin-top:6px; font-weight:600; border-top:1px solid var(--bd); }
+
+.modal-close{--close-bg:rgba(118,118,128,0.12);--close-fg:#1c1c1e;}[data-theme="dark"] .modal-close{--close-bg:rgba(120,120,128,0.30);--close-fg:#ebebf5;}
+</style>
 </head>
 <body>
   <!-- 导航栏 -->
@@ -939,8 +1021,82 @@
   </button>
 
   <!-- 弹窗 -->
+  
+  <!-- 更多交互组件 -->
+  <div class="section-header">更多交互组件</div>
+  <div class="more-grid" id="moreGrid">
+
+    <div class="card-block">
+      <div class="block-title">分段控件 <span class="block-val">Segmented</span></div>
+      <div class="segmented" id="seg">
+        <button class="seg-item active" onclick="setSeg(this,'日')">日</button>
+        <button class="seg-item" onclick="setSeg(this,'周')">周</button>
+        <button class="seg-item" onclick="setSeg(this,'月')">月</button>
+      </div>
+      <div class="block-hint" id="segHint">当前视图：日</div>
+    </div>
+
+    <div class="card-block">
+      <div class="block-title">滑块 <span class="block-val" id="sliderVal">50</span></div>
+      <input type="range" class="slider" min="0" max="100" value="50" oninput="updSlider(this)" aria-label="数值滑块">
+    </div>
+
+    <div class="card-block">
+      <div class="block-title">步进器 <span class="block-val">Stepper</span></div>
+      <div class="stepper">
+        <button class="step-btn" aria-label="减少" onclick="step(-1)">&minus;</button>
+        <span class="step-val" id="stepVal">1</span>
+        <button class="step-btn" aria-label="增加" onclick="step(1)">+</button>
+      </div>
+    </div>
+
+    <div class="card-block">
+      <div class="block-title">提示气泡 <span class="block-val">Tooltip</span></div>
+      <span class="tooltip">
+        <button class="btn btn-secondary" onclick="safeToast('已复制链接')">悬停 / 聚焦我</button>
+        <span class="tip-bubble" role="tooltip">这是一段提示气泡</span>
+      </span>
+    </div>
+
+    <div class="card-block">
+      <div class="block-title">动作面板 <span class="block-val">Sheet</span></div>
+      <button class="btn btn-primary" style="width:100%" onclick="openSheet()">显示操作面板</button>
+    </div>
+
+    <div class="card-block">
+      <div class="block-title">菜单 <span class="block-val">Menu</span></div>
+      <div class="menu-wrap">
+        <button class="btn btn-secondary" id="menuBtn" style="width:100%" onclick="toggleMenu()">显示菜单 &#9662;</button>
+        <div class="ctx-menu" id="ctxMenu" role="menu">
+          <div class="ctx-item" role="menuitem" onclick="pickMenu('编辑')">编辑</div>
+          <div class="ctx-item" role="menuitem" onclick="pickMenu('分享')">分享</div>
+          <div class="ctx-item danger" role="menuitem" onclick="pickMenu('删除')">删除</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-block" style="grid-column:1 / -1">
+      <div class="block-title">实时搜索 <span class="block-val">Live Search</span></div>
+      <div class="live-search">
+        <input class="ls-input" id="lsInput" placeholder="输入文字过滤下方列表…" oninput="filterList(this)" aria-label="实时搜索">
+      </div>
+      <div class="filter-list" id="filterList">
+        <div class="fl-item">相机 Camera</div>
+        <div class="fl-item">照片 Photos</div>
+        <div class="fl-item">地图 Maps</div>
+        <div class="fl-item">天气 Weather</div>
+        <div class="fl-item">时钟 Clock</div>
+        <div class="fl-item">备忘录 Notes</div>
+        <div class="fl-item">计算器 Calculator</div>
+        <div class="fl-item">设置 Settings</div>
+      </div>
+    </div>
+
+  </div>
+
   <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
     <div class="modal" id="modal">
+      <button class="modal-close" aria-label="关闭弹窗" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <div class="modal-body">
         <div class="modal-title" id="modalTitle">确认操作</div>
         <div class="modal-text" id="modalText">您确定要执行此操作吗？此操作无法撤销。</div>
@@ -1075,5 +1231,85 @@
       document.getElementById('syncLabel').textContent = syncVal + '%';
     }, 300);
   </script>
+
+  <!-- 动作面板 -->
+  <div class="sheet-mask" id="sheetMask" onclick="closeSheet()"></div>
+  <div class="action-sheet" id="actionSheet" role="dialog" aria-label="操作面板">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">请选择操作</div>
+    <button class="sheet-item" onclick="closeSheet();safeToast('已选择：拍照')">拍照</button>
+    <button class="sheet-item" onclick="closeSheet();safeToast('已选择：从相册选择')">从相册选择</button>
+    <button class="sheet-item" onclick="closeSheet();safeToast('已选择：扫描文档')">扫描文档</button>
+    <button class="sheet-item destructive" onclick="closeSheet();safeToast('已选择：删除')">删除</button>
+    <button class="sheet-item sheet-cancel" onclick="closeSheet()">取消</button>
+  </div>
+
+  <script>
+  /* ===== 新增交互组件逻辑 ===== */
+  // 兼容 Android(showSnackbar) 与其它(showToast)
+  if (typeof showToast !== 'function' && typeof showSnackbar === 'function') {
+    window.showToast = function(m){ showSnackbar(m); };
+  }
+  function safeToast(m){ if (typeof showToast === 'function') showToast(m); }
+
+  function setSeg(el, label){
+    var items = document.querySelectorAll('#seg .seg-item');
+    for (var i=0;i<items.length;i++) items[i].classList.remove('active');
+    el.classList.add('active');
+    document.getElementById('segHint').textContent = '当前视图：' + label;
+  }
+  function updSlider(el){ document.getElementById('sliderVal').textContent = el.value; }
+  var _step = 1;
+  function step(d){
+    _step = Math.max(0, Math.min(99, _step + d));
+    document.getElementById('stepVal').textContent = _step;
+  }
+  function openSheet(){
+    document.getElementById('sheetMask').classList.add('show');
+    document.getElementById('actionSheet').classList.add('show');
+  }
+  function closeSheet(){
+    document.getElementById('sheetMask').classList.remove('show');
+    document.getElementById('actionSheet').classList.remove('show');
+  }
+  function toggleMenu(){ document.getElementById('ctxMenu').classList.toggle('show'); }
+  function pickMenu(v){
+    document.getElementById('ctxMenu').classList.remove('show');
+    safeToast('已选择：' + v);
+  }
+  document.addEventListener('click', function(e){
+    var m = document.getElementById('ctxMenu');
+    if (m && m.classList.contains('show') && !e.target.closest('.menu-wrap')) m.classList.remove('show');
+  });
+  function filterList(el){
+    var q = el.value.trim().toLowerCase();
+    var items = document.querySelectorAll('#filterList .fl-item');
+    for (var i=0;i<items.length;i++){
+      var t = items[i].textContent.toLowerCase();
+      items[i].style.display = (t.indexOf(q) > -1) ? '' : 'none';
+    }
+  }
+  /* Esc 关闭弹窗 / 面板 / 菜单（无障碍） */
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      closeSheet();
+      var cm = document.getElementById('ctxMenu'); if (cm) cm.classList.remove('show');
+      if (document.getElementById('modalOverlay')) {
+        if (typeof closeModal === 'function') closeModal();
+        else if (typeof closeDialog === 'function') closeDialog();
+      }
+    }
+  });
+  /* 弹窗打开时自动聚焦关闭按钮 */
+  if (typeof showModal === 'function') {
+    var _sm = showModal;
+    showModal = function(t){ _sm(t); var c = document.querySelector('.modal-close'); if (c) setTimeout(function(){ c.focus(); }, 60); };
+  }
+  if (typeof showDialog === 'function') {
+    var _sd = showDialog;
+    showDialog = function(t){ _sd(t); var c = document.querySelector('.modal-close'); if (c) setTimeout(function(){ c.focus(); }, 60); };
+  }
+  </script>
+
 </body>
 </html>
