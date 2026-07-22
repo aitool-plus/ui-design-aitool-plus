@@ -142,19 +142,19 @@
 
 每个平台风格都包含一个可交互HTML Demo，位于 `demo/` 目录下：
 
-| Demo           | 路径                         | 说明                                     |
-| :------------- | :------------------------- | :------------------------------------- |
-| Apple iOS      | `demo/apple-ios/`          | iOS风格首页，SF Pro字体、毛玻璃材质、iOS导航范式         |
-| Google Android | `demo/google-android/`     | Material Design 3首页，动态取色与层级体系          |
-| Samsung One UI | `demo/samsung-one-ui/`     | One UI首页，大圆角与折叠屏双态布局                   |
-| 华为 HarmonyOS   | `demo/huawei-harmonyos/`   | 鸿蒙首页，服务卡片与弹性动效                         |
-| 小米 HyperOS     | `demo/xiaomi-hyperos/`     | 澎湃OS首页，年轻化配色与高信息密度卡片                   |
-| 荣耀 MagicOS     | `demo/honor-magicos/`      | MagicOS首页，商务质感与均衡布局                    |
-| OPPO ColorOS   | `demo/oppo-coloros/`       | ColorOS首页，灵动活力与无边界设计                   |
-| vivo OriginOS  | `demo/vivo-originos/`      | OriginOS首页，华容网格与原子组件                   |
-| 魅族 Flyme       | `demo/meizu-flyme/`        | Flyme首页，极简克制与大面积留白                     |
-| Windows Fluent | `demo/windows-fluent/`     | Windows 11桌面应用，Fluent Design与WinUI 3组件 |
-| 微信小程序          | `demo/wechat-miniprogram/` | 微信小程序，WeUI组件与标准化交互                     |
+| Demo           | 在线预览 | 路径                         | 说明                                     |
+| :------------- | :------- | :------------------------- | :------------------------------------- |
+| Apple iOS      | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/apple-ios/index.html) | `demo/apple-ios/`          | iOS风格首页，SF Pro字体、毛玻璃材质、iOS导航范式         |
+| Google Android | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/google-android/index.html) | `demo/google-android/`     | Material Design 3首页，动态取色与层级体系          |
+| Samsung One UI | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/samsung-one-ui/index.html) | `demo/samsung-one-ui/`     | One UI首页，大圆角与折叠屏双态布局                   |
+| 华为 HarmonyOS   | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/huawei-harmonyos/index.html) | `demo/huawei-harmonyos/`   | 鸿蒙首页，服务卡片与弹性动效                         |
+| 小米 HyperOS     | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/xiaomi-hyperos/index.html) | `demo/xiaomi-hyperos/`     | 澎湃OS首页，年轻化配色与高信息密度卡片                   |
+| 荣耀 MagicOS     | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/honor-magicos/index.html) | `demo/honor-magicos/`      | MagicOS首页，商务质感与均衡布局                    |
+| OPPO ColorOS   | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/oppo-coloros/index.html) | `demo/oppo-coloros/`       | ColorOS首页，灵动活力与无边界设计                   |
+| vivo OriginOS  | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/vivo-originos/index.html) | `demo/vivo-originos/`      | OriginOS首页，华容网格与原子组件                   |
+| 魅族 Flyme       | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/meizu-flyme/index.html) | `demo/meizu-flyme/`        | Flyme首页，极简克制与大面积留白                     |
+| Windows Fluent | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/windows-fluent/index.html) | `demo/windows-fluent/`     | Windows 11桌面应用，Fluent Design与WinUI 3组件 |
+| 微信小程序          | [预览](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/wechat-miniprogram/index.html) | `demo/wechat-miniprogram/` | 微信小程序，WeUI组件与标准化交互                     |
 
 ***
 

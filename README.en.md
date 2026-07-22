@@ -156,19 +156,19 @@ Prototype          Iteration           Delivery             Generation
 
 Each platform style includes an interactive HTML demo located in the `demo/` directory:
 
-| Demo | Path | Description |
-|:---|:---|:---|
-| Apple iOS | `demo/apple-ios/` | iOS-style homepage with SF Pro, blur materials, and iOS navigation patterns |
-| Google Android | `demo/google-android/` | Material Design 3 homepage with dynamic color and elevation system |
-| Samsung One UI | `demo/samsung-one-ui/` | One UI homepage with large corners and foldable dual-state layout |
-| Huawei HarmonyOS | `demo/huawei-harmonyos/` | HarmonyOS homepage with service cards and elastic dynamics |
-| Xiaomi HyperOS | `demo/xiaomi-hyperos/` | HyperOS homepage with youthful palette and high-density info cards |
-| Honor MagicOS | `demo/honor-magicos/` | MagicOS homepage with professional texture and balanced layout |
-| OPPO ColorOS | `demo/oppo-coloros/` | ColorOS homepage with vibrant energy and borderless design |
-| vivo OriginOS | `demo/vivo-originos/` | OriginOS homepage with Huarong grid and atomic components |
-| Meizu Flyme | `demo/meizu-flyme/` | Flyme homepage with minimalist restraint and generous whitespace |
-| Windows Fluent | `demo/windows-fluent/` | Windows 11 desktop app with Fluent Design and WinUI 3 components |
-| WeChat Mini Program | `demo/wechat-miniprogram/` | WeChat mini program with WeUI components and standardized interaction |
+| Demo | Preview | Path | Description |
+|:---|:---|:---|:---|
+| Apple iOS | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/apple-ios/index.html) | `demo/apple-ios/` | iOS-style homepage with SF Pro, blur materials, and iOS navigation patterns |
+| Google Android | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/google-android/index.html) | `demo/google-android/` | Material Design 3 homepage with dynamic color and elevation system |
+| Samsung One UI | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/samsung-one-ui/index.html) | `demo/samsung-one-ui/` | One UI homepage with large corners and foldable dual-state layout |
+| Huawei HarmonyOS | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/huawei-harmonyos/index.html) | `demo/huawei-harmonyos/` | HarmonyOS homepage with service cards and elastic dynamics |
+| Xiaomi HyperOS | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/xiaomi-hyperos/index.html) | `demo/xiaomi-hyperos/` | HyperOS homepage with youthful palette and high-density info cards |
+| Honor MagicOS | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/honor-magicos/index.html) | `demo/honor-magicos/` | MagicOS homepage with professional texture and balanced layout |
+| OPPO ColorOS | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/oppo-coloros/index.html) | `demo/oppo-coloros/` | ColorOS homepage with vibrant energy and borderless design |
+| vivo OriginOS | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/vivo-originos/index.html) | `demo/vivo-originos/` | OriginOS homepage with Huarong grid and atomic components |
+| Meizu Flyme | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/meizu-flyme/index.html) | `demo/meizu-flyme/` | Flyme homepage with minimalist restraint and generous whitespace |
+| Windows Fluent | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/windows-fluent/index.html) | `demo/windows-fluent/` | Windows 11 desktop app with Fluent Design and WinUI 3 components |
+| WeChat Mini Program | [Preview](https://raw.githack.com/aitool-plus/ui-design-aitool-plus/main/demo/wechat-miniprogram/index.html) | `demo/wechat-miniprogram/` | WeChat mini program with WeUI components and standardized interaction |
 
 ---
 
