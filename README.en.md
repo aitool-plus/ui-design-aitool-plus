@@ -1,8 +1,8 @@
-# ui-design-father-skill
+# ui-design-aitool-plus
 
 **One Person, One Design Company -- The God-Tier Skill That Gives You an Entire Design Department**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/aitool-plus/ui-design-father-skill)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/aitool-plus/ui-design-aitool-plus)
 [![Author](https://img.shields.io/badge/author-aitool.plus-orange.svg)](https://aitool.plus)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![中文文档](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-red.svg)](README.md)
@@ -13,7 +13,24 @@
 >
 > This is that skill.
 >
-> ui-design-father-skill is not a template library. It is not a component kit. It is a **cognitive design system** -- 11 platform design specifications, deeply encoded and ready to execute. You describe what you want; it delivers factory-grade UI with surgical precision. No guessing. No approximations. No "close enough."
+> **Why you need this Skill instead of asking AI to "just design something":**
+>
+> Common pitfalls of letting AI design products directly:
+> - **Style Frankenstein**: iOS rounded cards mixed with Material Design FABs, HarmonyOS service cards paired with Windows acrylic -- a Frankenstein "design" that fits nowhere
+> - **Made-up parameters**: 16px or 8px corner radius? 16dp or 24dp spacing? AI "guesses" values that deviate massively from official specs, making them impossible for developers to implement
+> - **Platform ignorance**: Unaware of iOS's 4pt grid, Material Design's 8dp baseline, or HarmonyOS's 8vp grid -- designs that feel alien on their target platforms
+> - **Missing component states**: Only default states rendered, ignoring hover/pressed/disabled/loading/error states -- front-end developers receive unusable mockups
+> - **Accessibility blind spots**: Insufficient contrast ratios, undersized touch targets, missing accessibility labels -- leading to post-launch user complaints
+> - **Exploding multi-platform costs**: Same requirement redesigned repeatedly for different platforms with inconsistent styles, doubling maintenance overhead
+>
+> **How this Skill solves these problems:**
+> - **Official specs, deeply encoded**: Complete internalization of 11 platform design specifications -- colors, type scales, radii, spacing, motion curves sourced directly from Apple HIG, Material Design 3, and other authoritative documents. No "close enough"
+> - **Strict style locking**: Choose iOS and you will never see a Material Design element. 100% style purity guaranteed
+> - **Complete component coverage**: 5 interaction states × 2 themes × 3 sizes per platform. Production-ready out of the box
+> - **Automatic accessibility compliance**: WCAG 2.1 AA standards built-in -- contrast ratios, touch targets, and labels handled automatically
+> - **One-click multi-platform switching**: Same requirement rendered in 11 platform styles in seconds, with side-by-side comparison for informed decisions. Development costs don't multiply
+>
+> ui-design-aitool-plus is not a template library. It is not a component kit. It is a **cognitive design system** -- 11 platform design specifications, deeply encoded and ready to execute. You describe what you want; it delivers factory-grade UI with surgical precision. No guessing. No approximations. No "close enough."
 >
 > One person. Eleven platforms. Zero compromises.
 
@@ -158,7 +175,7 @@ Each platform style includes an interactive HTML demo located in the `demo/` dir
 ## Directory Structure
 
 ```
-ui-design-father-skill/
+ui-design-aitool-plus/
 ├── SKILL.md                    # Skill master control file
 ├── README.md                   # Project documentation (Chinese)
 ├── README.en.md                # Project documentation (English)

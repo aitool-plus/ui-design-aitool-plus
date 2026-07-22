@@ -2,7 +2,7 @@
 name: ui-design-father-skill
 display_name: 一人设计公司神级Skill（11大平台UI设计系统）
 version: 1.0.0
-description: >
+description: 
   一人设计公司神级Skill -- 一个人完成原本需要整支设计团队才能完成的UI设计工作。
   覆盖11大平台设计系统：Apple iOS HIG、Google Material Design 3、Samsung One UI、
   华为HarmonyOS、小米HyperOS、荣耀MagicOS、OPPO ColorOS、vivo OriginOS、魅族Flyme、
@@ -10,6 +10,22 @@ description: >
   支持手机App、桌面端、小程序三端，一条指令输出原厂级高保真UI方案。
   适用场景：电商首页、设置页、个人中心、表单页、列表页等多端适配设计，
   多风格横向对比，设计规范文档，组件库，可交互HTML原型。
+
+  【痛点与价值】
+  直接让AI做产品设计的常见弊端：
+  - 风格混搭：iOS圆角卡片配Material Design FAB，HarmonyOS服务卡片配Windows亚克力，产出"四不像"
+  - 参数编造：圆角/间距/字号凭感觉写，与官方规范偏差大，开发者无法落地
+  - 平台特性缺失：不知道iOS 4pt网格、Material Design 8dp基准、鸿蒙8vp网格，设计"水土不服"
+  - 组件状态不全：只画默认态，缺悬停/按下/禁用/加载/错误态，前端拿到用不了
+  - 无障碍盲区：对比度不达标、触控区域过小、缺少无障碍标签，上线后被投诉
+  - 多平台成本爆炸：同一需求重复设计，风格不统一，维护成本翻倍
+
+  本Skill的核心价值：
+  - 原厂规范深度编码：11大平台官方设计规范完整内化，色值/字号/圆角/间距/动效全部源自权威文档
+  - 风格严格锁定：选定iOS绝不出现Material Design元素，纯净度100%
+  - 组件完整覆盖：5种交互状态×2种主题×3种尺寸，生产级可用
+  - 无障碍自动合规：WCAG 2.1 AA级标准内建，一步到位
+  - 一键多平台切换：同一份需求秒切11种风格，横向对比选型，成本不翻倍
   触发词：iOS、苹果、Android、Material Design、One UI、三星、鸿蒙、HarmonyOS、
   华为、HyperOS、小米、澎湃、MagicOS、荣耀、ColorOS、OPPO、OriginOS、vivo、
   Flyme、魅族、Windows、Fluent、桌面、微信、WeUI、小程序、UI设计、界面设计、
