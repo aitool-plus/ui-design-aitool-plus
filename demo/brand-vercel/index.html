@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Vercel Style Demo</title>
+<style>
+:root {
+  --brand-primary: #000000;
+  --brand-bg: #FFFFFF;
+  --brand-surface: #FAFAFA;
+  --brand-text: #000000;
+  --brand-text-secondary: #666666;
+  --brand-radius: 8px;
+  --brand-border: #EAEAEA;
+  --brand-code-bg: #F5F5F5;
+  --brand-success: #0070F3;
+  --brand-error: #EE0000;
+}
+[data-theme="dark"] {
+  --brand-primary: #FFFFFF;
+  --brand-bg: #000000;
+  --brand-surface: #111111;
+  --brand-text: #EDEDED;
+  --brand-text-secondary: #888888;
+  --brand-border: #333333;
+  --brand-code-bg: #1A1A1A;
+  --brand-success: #3291FF;
+  --brand-error: #FF4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Geist, Inter, system-ui, sans-serif; background: var(--brand-bg); color: var(--brand-text); min-height: 100vh; padding-bottom: 80px; }
+.brand-badge { background: var(--brand-primary); color: var(--brand-bg); text-align: center; padding: 6px 0; font-size: 11px; letter-spacing: 0.5px; }
+.nav-bar { position: sticky; top: 0; z-index: 100; background: var(--brand-bg); border-bottom: 1px solid var(--brand-border); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+.nav-bar .logo { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+.nav-bar .logo .triangle { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 17px solid var(--brand-text); }
+.nav-bar .actions { display: flex; gap: 12px; align-items: center; font-size: 13px; color: var(--brand-text-secondary); }
+.search-bar { padding: 12px 16px; }
+.search-bar input { width: 100%; padding: 10px 14px; border: 1px solid var(--brand-border); border-radius: 6px; background: var(--brand-surface); font-size: 14px; color: var(--brand-text); outline: none; font-family: inherit; }
+.search-bar input:focus { border-color: var(--brand-text); }
+.search-bar input::placeholder { color: var(--brand-text-secondary); }
+.deploy-list { padding: 0 16px 12px; }
+.deploy-card { background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: var(--brand-radius); padding: 16px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.2s; }
+.deploy-card:hover { border-color: var(--brand-text); }
+.deploy-card .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.deploy-card .card-top .project { font-size: 15px; font-weight: 600; }
+.deploy-card .card-top .status { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.deploy-card .card-top .status .dot { width: 8px; height: 8px; border-radius: 50%; }
+.deploy-card .card-top .status .dot.ready { background: var(--brand-success); }
+.deploy-card .card-top .status .dot.building { background: #F5A623; animation: pulse 1.5s infinite; }
+.deploy-card .card-top .status .dot.error { background: var(--brand-error); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.deploy-card .card-meta { display: flex; gap: 16px; font-size: 12px; color: var(--brand-text-secondary); }
+.deploy-card .card-meta span { display: flex; align-items: center; gap: 4px; }
+.code-block { background: var(--brand-code-bg); border: 1px solid var(--brand-border); border-radius: var(--brand-radius); padding: 14px; margin: 0 16px 12px; font-family: "SF Mono", "Fira Code", monospace; font-size: 12px; line-height: 1.6; overflow-x: auto; }
+.code-block .line { display: flex; }
+.code-block .line .num { color: var(--brand-text-secondary); width: 24px; text-align: right; margin-right: 12px; user-select: none; }
+.code-block .line .code { color: var(--brand-text); }
+.code-block .line .code .keyword { color: var(--brand-success); }
+.code-block .line .code .string { color: #E25C5C; }
+.section-title { font-size: 13px; font-weight: 500; color: var(--brand-text-secondary); text-transform: uppercase; letter-spacing: 1px; padding: 0 16px; margin-bottom: 12px; }
+.btn-primary { background: var(--brand-text); color: var(--brand-bg); border: none; border-radius: 6px; padding: 10px 24px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; }
+.btn-primary:hover { opacity: 0.85; }
+.tab-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--brand-bg); border-top: 1px solid var(--brand-border); display: flex; padding: 8px 0 22px; }
+.tab-bar .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; }
+.tab-bar .tab-item .icon { font-size: 20px; }
+.tab-bar .tab-item .label { font-size: 10px; color: var(--brand-text-secondary); }
+.tab-bar .tab-item.active .label { color: var(--brand-text); font-weight: 500; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; display: none; align-items: center; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--brand-bg); border: 1px solid var(--brand-border); border-radius: 12px; width: 88%; max-width: 340px; padding: 28px 24px; }
+.modal .modal-title { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+.modal .modal-body { font-size: 14px; color: var(--brand-text-secondary); line-height: 1.6; margin-bottom: 20px; }
+.modal .modal-deploy { background: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: 8px; padding: 14px; margin-bottom: 20px; }
+.modal .modal-deploy .row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; }
+.modal .modal-deploy .row .val { font-weight: 500; }
+.modal .modal-actions { display: flex; gap: 10px; }
+.modal .modal-actions button { flex: 1; padding: 12px; border-radius: 6px; border: 1px solid var(--brand-border); font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; }
+.modal .btn-cancel { background: var(--brand-bg); color: var(--brand-text); }
+.modal .btn-confirm { background: var(--brand-text); color: var(--brand-bg); border-color: var(--brand-text); }
+.theme-toggle { position: fixed; right: 12px; bottom: 90px; z-index: 150; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--brand-border); background: var(--brand-bg); box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="brand-badge">Designed with Vercel Design Language</div>
+<nav class="nav-bar">
+  <div class="logo"><div class="triangle"></div>Vercel</div>
+  <div class="actions"><span>Docs</span><span>Support</span></div>
+</nav>
+<div class="search-bar"><input type="text" placeholder="Search projects..."></div>
+<div class="section-title">Projects</div>
+<div class="deploy-list">
+  <div class="deploy-card" onclick="showModal()">
+    <div class="card-top"><div class="project">my-portfolio</div><div class="status"><div class="dot ready"></div>Ready</div></div>
+    <div class="card-meta"><span>⏱ 12s</span><span>🔗 my-portfolio.vercel.app</span><span>📅 2h ago</span></div>
+  </div>
+  <div class="deploy-card">
+    <div class="card-top"><div class="project">api-server</div><div class="status"><div class="dot building"></div>Building</div></div>
+    <div class="card-meta"><span>⏱ 45s</span><span>🔗 api-server.vercel.app</span><span>📅 now</span></div>
+  </div>
+  <div class="deploy-card">
+    <div class="card-top"><div class="project">docs-site</div><div class="status"><div class="dot error"></div>Error</div></div>
+    <div class="card-meta"><span>⏱ 8s</span><span>🔗 docs-site.vercel.app</span><span>📅 5h ago</span></div>
+  </div>
+</div>
+<div class="section-title">Latest Deploy Log</div>
+<div class="code-block">
+  <div class="line"><span class="num">1</span><span class="code"><span class="keyword">$</span> npm run build</span></div>
+  <div class="line"><span class="num">2</span><span class="code">Creating an optimized production build...</span></div>
+  <div class="line"><span class="num">3</span><span class="code">Compiled successfully in <span class="string">2.1s</span></span></div>
+  <div class="line"><span class="num">4</span><span class="code">Generating static pages (4/4)</span></div>
+  <div class="line"><span class="num">5</span><span class="code">Finalizing page optimization...</span></div>
+  <div class="line"><span class="num">6</span><span class="code"><span class="keyword">✓</span> Build completed</span></div>
+</div>
+<nav class="tab-bar">
+  <div class="tab-item active"><span class="icon">🏠</span><span class="label">Projects</span></div>
+  <div class="tab-item"><span class="icon">🚀</span><span class="label">Deployments</span></div>
+  <div class="tab-item"><span class="icon">📊</span><span class="label">Analytics</span></div>
+  <div class="tab-item"><span class="icon">⚙️</span><span class="label">Settings</span></div>
+</nav>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">Deploy my-portfolio</div>
+    <div class="modal-body">Confirm deployment to production environment.</div>
+    <div class="modal-deploy">
+      <div class="row"><span>Branch</span><span class="val">main</span></div>
+      <div class="row"><span>Commit</span><span class="val">a3f2c1d</span></div>
+      <div class="row"><span>Region</span><span class="val">hkg1</span></div>
+      <div class="row"><span>Framework</span><span class="val">Next.js</span></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-confirm" onclick="closeModal()">Deploy</button>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+<script>
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme');h.setAttribute('data-theme',d==='dark'?'light':'dark');}
+function showModal(){document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+</script>
+</body>
+</html>

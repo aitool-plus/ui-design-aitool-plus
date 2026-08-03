@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ByteDance Style Demo</title>
+<style>
+:root {
+  --brand-primary: #161823;
+  --brand-bg: #F5F5F5;
+  --brand-surface: #FFFFFF;
+  --brand-text: #161823;
+  --brand-text-secondary: #999999;
+  --brand-radius: 8px;
+  --brand-border: #E8E8E8;
+  --brand-tag-red: #FF4D4F;
+  --brand-tag-blue: #1890FF;
+  --brand-tag-orange: #FF6A00;
+  --brand-tag-green: #07C160;
+  --brand-tag-purple: #722ED1;
+}
+[data-theme="dark"] {
+  --brand-bg: #0D0D0D;
+  --brand-surface: #1A1A1A;
+  --brand-text: #E5E5E5;
+  --brand-text-secondary: #777777;
+  --brand-border: #2A2A2A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "PingFang SC", sans-serif; background: var(--brand-bg); color: var(--brand-text); min-height: 100vh; padding-bottom: 80px; }
+.brand-badge { background: var(--brand-primary); color: #fff; text-align: center; padding: 6px 0; font-size: 11px; letter-spacing: 0.5px; }
+.nav-bar { position: sticky; top: 0; z-index: 100; background: var(--brand-primary); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+.nav-bar .title { font-size: 18px; font-weight: 700; color: #fff; }
+.nav-bar .actions { display: flex; gap: 16px; color: #fff; font-size: 20px; }
+.tag-scroll { background: var(--brand-surface); padding: 10px 0; border-bottom: 0.5px solid var(--brand-border); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+.tag-scroll::-webkit-scrollbar { display: none; }
+.tag-scroll .tag { display: inline-block; padding: 6px 16px; margin: 0 4px; border-radius: 16px; font-size: 13px; color: var(--brand-text-secondary); cursor: pointer; }
+.tag-scroll .tag.active { background: var(--brand-primary); color: #fff; }
+.tag-scroll .tag:first-child { margin-left: 12px; }
+.search-bar { padding: 8px 12px; background: var(--brand-surface); }
+.search-bar input { width: 100%; padding: 10px 14px; border: none; border-radius: 20px; background: var(--brand-bg); font-size: 14px; color: var(--brand-text); outline: none; }
+.feed-list { padding: 10px 12px; }
+.feed-card { background: var(--brand-surface); border-radius: var(--brand-radius); margin-bottom: 10px; overflow: hidden; }
+.feed-card .feed-img { width: 100%; height: 180px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 40px; }
+.feed-card .feed-content { padding: 12px; }
+.feed-card .feed-title { font-size: 15px; font-weight: 600; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.feed-card .feed-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.feed-card .feed-tags .tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; color: #fff; }
+.feed-card .feed-tags .tag-red { background: var(--brand-tag-red); }
+.feed-card .feed-tags .tag-blue { background: var(--brand-tag-blue); }
+.feed-card .feed-tags .tag-orange { background: var(--brand-tag-orange); }
+.feed-card .feed-tags .tag-green { background: var(--brand-tag-green); }
+.feed-card .feed-tags .tag-purple { background: var(--brand-tag-purple); }
+.feed-card .feed-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 0.5px solid var(--brand-border); }
+.feed-card .feed-footer .author { display: flex; align-items: center; gap: 6px; }
+.feed-card .feed-footer .author .avatar { width: 22px; height: 22px; border-radius: 50%; background: var(--brand-primary); }
+.feed-card .feed-footer .author .name { font-size: 12px; color: var(--brand-text-secondary); }
+.feed-card .feed-footer .stats { display: flex; gap: 12px; font-size: 12px; color: var(--brand-text-secondary); }
+.tab-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--brand-surface); border-top: 0.5px solid var(--brand-border); display: flex; padding: 6px 0 20px; }
+.tab-bar .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; }
+.tab-bar .tab-item .icon { font-size: 22px; }
+.tab-bar .tab-item .label { font-size: 10px; color: var(--brand-text-secondary); }
+.tab-bar .tab-item.active .label { color: var(--brand-primary); }
+.tab-bar .tab-item.center .icon { background: var(--brand-primary); color: #fff; width: 40px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; display: none; align-items: flex-end; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--brand-surface); border-radius: 14px 14px 0 0; width: 100%; max-height: 60vh; padding: 20px 16px 30px; }
+.modal .modal-handle { width: 36px; height: 4px; background: var(--brand-border); border-radius: 2px; margin: 0 auto 16px; }
+.modal .modal-title { font-size: 17px; font-weight: 600; text-align: center; margin-bottom: 16px; }
+.modal .modal-body { font-size: 14px; color: var(--brand-text-secondary); line-height: 1.6; text-align: center; }
+.modal .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+.modal .modal-tags .tag { font-size: 12px; padding: 4px 12px; border-radius: 14px; color: #fff; }
+.modal .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+.modal .modal-actions button { flex: 1; padding: 12px; border-radius: 8px; border: none; font-size: 15px; cursor: pointer; }
+.modal .btn-cancel { background: var(--brand-bg); color: var(--brand-text); }
+.modal .btn-confirm { background: var(--brand-primary); color: #fff; }
+.theme-toggle { position: fixed; right: 12px; bottom: 90px; z-index: 150; width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--brand-surface); box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="brand-badge">Designed with ByteDance Design Language</div>
+<nav class="nav-bar">
+  <div class="actions">☰</div>
+  <div class="title">今日头条</div>
+  <div class="actions">🔍</div>
+</nav>
+<div class="tag-scroll">
+  <span class="tag active">推荐</span>
+  <span class="tag">关注</span>
+  <span class="tag">热点</span>
+  <span class="tag">科技</span>
+  <span class="tag">财经</span>
+  <span class="tag">娱乐</span>
+  <span class="tag">体育</span>
+  <span class="tag">国际</span>
+  <span class="tag">军事</span>
+</div>
+<div class="search-bar"><input type="text" placeholder="搜索你感兴趣的内容"></div>
+<div class="feed-list">
+  <div class="feed-card" onclick="showModal()">
+    <div class="feed-img" style="background:linear-gradient(135deg,#667eea,#764ba2)">📱</div>
+    <div class="feed-content">
+      <div class="feed-title">AI大模型最新突破：多模态理解能力再创新高，行业格局或将重塑</div>
+      <div class="feed-tags"><span class="tag tag-red">热点</span><span class="tag tag-blue">科技</span><span class="tag tag-purple">AI</span></div>
+      <div class="feed-footer"><div class="author"><div class="avatar"></div><span class="name">科技前沿</span></div><div class="stats"><span>💬 2.3万</span><span>👍 8.7万</span></div></div>
+    </div>
+  </div>
+  <div class="feed-card">
+    <div class="feed-img" style="background:linear-gradient(135deg,#f093fb,#f5576c)">🎬</div>
+    <div class="feed-content">
+      <div class="feed-title">短视频创作新趋势：从内容到商业的完整闭环正在形成</div>
+      <div class="feed-tags"><span class="tag tag-orange">商业</span><span class="tag tag-green">趋势</span></div>
+      <div class="feed-footer"><div class="author"><div class="avatar"></div><span class="name">商业观察</span></div><div class="stats"><span>💬 1.5万</span><span>👍 4.2万</span></div></div>
+    </div>
+  </div>
+  <div class="feed-card">
+    <div class="feed-img" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">🌍</div>
+    <div class="feed-content">
+      <div class="feed-title">全球数字经济报告：亚太地区增速领先，中国贡献突出</div>
+      <div class="feed-tags"><span class="tag tag-blue">国际</span><span class="tag tag-orange">财经</span></div>
+      <div class="feed-footer"><div class="author"><div class="avatar"></div><span class="name">环球财经</span></div><div class="stats"><span>💬 8600</span><span>👍 3.1万</span></div></div>
+    </div>
+  </div>
+</div>
+<nav class="tab-bar">
+  <div class="tab-item active"><span class="icon">🏠</span><span class="label">首页</span></div>
+  <div class="tab-item"><span class="icon">🎬</span><span class="label">视频</span></div>
+  <div class="tab-item center"><span class="icon">➕</span></div>
+  <div class="tab-item"><span class="icon">🔍</span><span class="label">搜索</span></div>
+  <div class="tab-item"><span class="icon">👤</span><span class="label">我的</span></div>
+</nav>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-handle"></div>
+    <div class="modal-title">内容推荐</div>
+    <div class="modal-body">基于您的阅读偏好，我们为您精选了以下兴趣标签，选择后可获得更精准的推荐内容。</div>
+    <div class="modal-tags">
+      <span class="tag" style="background:var(--brand-tag-red)">热点</span>
+      <span class="tag" style="background:var(--brand-tag-blue)">科技</span>
+      <span class="tag" style="background:var(--brand-tag-orange)">财经</span>
+      <span class="tag" style="background:var(--brand-tag-green)">生活</span>
+      <span class="tag" style="background:var(--brand-tag-purple)">AI</span>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">跳过</button>
+      <button class="btn-confirm" onclick="closeModal()">确认选择</button>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+<script>
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme');h.setAttribute('data-theme',d==='dark'?'light':'dark');}
+function showModal(){document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+</script>
+</body>
+</html>

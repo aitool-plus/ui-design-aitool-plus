@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Alibaba Style Demo</title>
+<style>
+:root {
+  --brand-primary: #FF6A00;
+  --brand-primary-light: #FF9240;
+  --brand-bg: #F5F5F5;
+  --brand-surface: #FFFFFF;
+  --brand-text: #1A1A1A;
+  --brand-text-secondary: #999999;
+  --brand-radius: 12px;
+  --brand-border: #E8E8E8;
+  --brand-gradient: linear-gradient(135deg, #FF6A00, #FF9240);
+}
+[data-theme="dark"] {
+  --brand-bg: #0D0D0D;
+  --brand-surface: #1A1A1A;
+  --brand-text: #E5E5E5;
+  --brand-text-secondary: #777777;
+  --brand-border: #2A2A2A;
+  --brand-gradient: linear-gradient(135deg, #FF6A00, #CC5500);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--brand-bg); color: var(--brand-text); min-height: 100vh; padding-bottom: 80px; }
+.brand-badge { background: var(--brand-gradient); color: #fff; text-align: center; padding: 6px 0; font-size: 11px; letter-spacing: 0.5px; }
+.nav-bar { position: sticky; top: 0; z-index: 100; background: var(--brand-primary); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+.nav-bar .title { font-size: 17px; font-weight: 600; color: #fff; }
+.nav-bar .actions { display: flex; gap: 16px; color: #fff; font-size: 20px; }
+.search-bar { padding: 8px 12px; background: var(--brand-primary); }
+.search-bar input { width: 100%; padding: 10px 14px; border: none; border-radius: 20px; background: rgba(255,255,255,0.9); font-size: 14px; color: #333; outline: none; text-align: center; }
+.search-bar input::placeholder { color: #999; text-align: center; }
+.data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; }
+.data-card { background: var(--brand-surface); border-radius: var(--brand-radius); padding: 16px; }
+.data-card .label { font-size: 12px; color: var(--brand-text-secondary); margin-bottom: 6px; }
+.data-card .value { font-size: 24px; font-weight: 700; color: var(--brand-primary); }
+.data-card .change { font-size: 11px; color: #07C160; margin-top: 4px; }
+.data-card .change.down { color: #FF4D4F; }
+.data-card.full { grid-column: 1 / -1; background: var(--brand-gradient); color: #fff; }
+.data-card.full .label { color: rgba(255,255,255,0.8); }
+.data-card.full .value { color: #fff; }
+.data-card.full .change { color: rgba(255,255,255,0.9); }
+.card-section { padding: 0 12px 12px; }
+.section-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; padding: 0 4px; }
+.card { background: var(--brand-surface); border-radius: var(--brand-radius); padding: 14px; margin-bottom: 10px; }
+.card .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.card .card-top .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--brand-gradient); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+.card .card-top .info .name { font-size: 14px; font-weight: 500; }
+.card .card-top .info .desc { font-size: 12px; color: var(--brand-text-secondary); margin-top: 2px; }
+.card .card-body { font-size: 13px; color: var(--brand-text-secondary); line-height: 1.5; }
+.card .card-footer { margin-top: 12px; display: flex; justify-content: flex-end; }
+.btn-primary { background: var(--brand-gradient); color: #fff; border: none; border-radius: 20px; padding: 8px 24px; font-size: 14px; cursor: pointer; }
+.btn-primary:active { opacity: 0.85; }
+.tab-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--brand-surface); border-top: 0.5px solid var(--brand-border); display: flex; padding: 6px 0 20px; }
+.tab-bar .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; }
+.tab-bar .tab-item .icon { font-size: 22px; }
+.tab-bar .tab-item .label { font-size: 10px; color: var(--brand-text-secondary); }
+.tab-bar .tab-item.active .label { color: var(--brand-primary); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: none; align-items: center; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--brand-surface); border-radius: 16px; width: 85%; max-width: 320px; padding: 24px 20px; }
+.modal .modal-title { font-size: 17px; font-weight: 600; text-align: center; margin-bottom: 12px; }
+.modal .modal-body { font-size: 14px; color: var(--brand-text-secondary); text-align: center; line-height: 1.6; margin-bottom: 20px; }
+.modal .modal-stats { display: flex; justify-content: space-around; margin-bottom: 20px; }
+.modal .modal-stats .stat { text-align: center; }
+.modal .modal-stats .stat .val { font-size: 20px; font-weight: 700; color: var(--brand-primary); }
+.modal .modal-stats .stat .lbl { font-size: 11px; color: var(--brand-text-secondary); margin-top: 2px; }
+.modal .modal-actions { display: flex; gap: 10px; }
+.modal .modal-actions button { flex: 1; padding: 12px; border-radius: 24px; border: none; font-size: 15px; cursor: pointer; }
+.modal .btn-cancel { background: var(--brand-bg); color: var(--brand-text); }
+.modal .btn-confirm { background: var(--brand-gradient); color: #fff; }
+.theme-toggle { position: fixed; right: 12px; bottom: 90px; z-index: 150; width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--brand-surface); box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="brand-badge">Designed with Alibaba Design Language</div>
+<nav class="nav-bar">
+  <div class="actions">☰</div>
+  <div class="title">1688</div>
+  <div class="actions">🔔</div>
+</nav>
+<div class="search-bar"><input type="text" placeholder="🔍 搜索商品/店铺"></div>
+<div class="data-grid">
+  <div class="data-card full">
+    <div class="label">今日交易额</div>
+    <div class="value">¥ 2,847,392</div>
+    <div class="change">↑ 12.5% 较昨日</div>
+  </div>
+  <div class="data-card">
+    <div class="label">订单数</div>
+    <div class="value">1,283</div>
+    <div class="change">↑ 8.3%</div>
+  </div>
+  <div class="data-card">
+    <div class="label">退款率</div>
+    <div class="value">2.1%</div>
+    <div class="change down">↓ 0.3%</div>
+  </div>
+</div>
+<div class="card-section">
+  <div class="section-title">商业服务</div>
+  <div class="card" onclick="showModal()">
+    <div class="card-top"><div class="icon">📊</div><div class="info"><div class="name">数据看板</div><div class="desc">实时经营数据分析</div></div></div>
+    <div class="card-body">全方位监控店铺经营数据，智能分析趋势，助力商业决策</div>
+    <div class="card-footer"><button class="btn-primary">查看详情</button></div>
+  </div>
+  <div class="card">
+    <div class="card-top"><div class="icon">🏪</div><div class="info"><div class="name">店铺管理</div><div class="desc">一键管理商品与订单</div></div></div>
+    <div class="card-body">批量上架、智能定价、库存管理，提升运营效率</div>
+    <div class="card-footer"><button class="btn-primary">进入管理</button></div>
+  </div>
+</div>
+<nav class="tab-bar">
+  <div class="tab-item active"><span class="icon">🏠</span><span class="label">首页</span></div>
+  <div class="tab-item"><span class="icon">📦</span><span class="label">进货</span></div>
+  <div class="tab-item"><span class="icon">💬</span><span class="label">消息</span></div>
+  <div class="tab-item"><span class="icon">👤</span><span class="label">我的</span></div>
+</nav>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">数据概览</div>
+    <div class="modal-stats">
+      <div class="stat"><div class="val">98.2%</div><div class="lbl">好评率</div></div>
+      <div class="stat"><div class="val">4.8</div><div class="lbl">店铺评分</div></div>
+      <div class="stat"><div class="val">2.3万</div><div class="lbl">粉丝数</div></div>
+    </div>
+    <div class="modal-body">您的店铺数据表现优秀，继续保持优质服务可提升搜索排名。</div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">关闭</button>
+      <button class="btn-confirm" onclick="closeModal()">查看完整报告</button>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+<script>
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme');h.setAttribute('data-theme',d==='dark'?'light':'dark');}
+function showModal(){document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+</script>
+</body>
+</html>

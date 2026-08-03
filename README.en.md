@@ -2,14 +2,14 @@
 
 **One Person, One Design Company -- The God-Tier Skill That Gives You an Entire Design Department**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/aitool-plus/ui-design-aitool-plus)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/aitool-plus/ui-design-aitool-plus)
 [![Author](https://img.shields.io/badge/author-aitool.plus-orange.svg)](https://aitool.plus)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![中文文档](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-red.svg)](README.md)
 
 ---
 
-> What if a single person could output UI designs that rival an entire design department? What if one command could generate pixel-perfect interfaces matching the official design language of any major platform? What if switching between iOS, Android, HarmonyOS, and eight other platforms took seconds instead of weeks?
+> What if a single person could output UI designs that rival an entire design department? What if one command could generate pixel-perfect interfaces matching not just any major platform's design language, but also the visual DNA of 100 world-class tech companies? What if switching between Apple, Google, Stripe, Vercel, Tesla -- or any of 100 top brands -- took seconds instead of weeks?
 >
 > This is that skill.
 >
@@ -24,15 +24,15 @@
 > - **Exploding multi-platform costs**: Same requirement redesigned repeatedly for different platforms with inconsistent styles, doubling maintenance overhead
 >
 > **How this Skill solves these problems:**
-> - **Official specs, deeply encoded**: Complete internalization of 11 platform design specifications -- colors, type scales, radii, spacing, motion curves sourced directly from Apple HIG, Material Design 3, and other authoritative documents. No "close enough"
+> - **Official specs & brand DNA, deeply encoded**: Complete internalization of 11 platform design specifications + 100 top tech company brand design languages -- colors, type scales, radii, spacing, motion curves sourced directly from Apple HIG, Material Design 3, and other authoritative documents. No "close enough"
 > - **Strict style locking**: Choose iOS and you will never see a Material Design element. 100% style purity guaranteed
 > - **Complete component coverage**: 5 interaction states × 2 themes × 3 sizes per platform. Production-ready out of the box
 > - **Automatic accessibility compliance**: WCAG 2.1 AA standards built-in -- contrast ratios, touch targets, and labels handled automatically
-> - **One-click multi-platform switching**: Same requirement rendered in 11 platform styles in seconds, with side-by-side comparison for informed decisions. Development costs don't multiply
+> - **One-click platform & brand switching**: Same requirement rendered in 11 platform styles or 100 brand styles in seconds, with side-by-side comparison for informed decisions. Development costs don't multiply
 >
-> ui-design-aitool-plus is not a template library. It is not a component kit. It is a **cognitive design system** -- 11 platform design specifications, deeply encoded and ready to execute. You describe what you want; it delivers factory-grade UI with surgical precision. No guessing. No approximations. No "close enough."
+> ui-design-aitool-plus is not a template library. It is not a component kit. It is a **cognitive design system** -- 11 platform design specifications plus 100 top tech company brand design languages, deeply encoded and ready to execute. You describe what you want; it delivers factory-grade UI with surgical precision. No guessing. No approximations. No "close enough."
 >
-> One person. Eleven platforms. Zero compromises.
+> One person. Eleven platforms. One hundred brands. Zero compromises.
 
 ---
 
@@ -56,6 +56,10 @@
 
 8. **Zero Design Background Required** -- No design degree needed. No Figma skills needed. Describe what you want in plain language, and get professional-grade UI output. The skill encodes decades of platform design expertise into every response.
 
+9. **100 Global Tech Brand Design Languages** -- From Apple, Google, and OpenAI to ByteDance, Tencent, and Alibaba; from Stripe and Vercel to Tesla and Spotify. 100 world-class tech companies' design languages deeply encoded. Not limited to OS specs -- directly target the visual DNA of top products. One click to select a brand style, output high-fidelity UI matching that brand's design language.
+
+10. **Multi-Platform Design Tool Export** -- Not just HTML prototypes. Export directly to Figma, MasterGo, JsDesign, MockingBot, Lanhu, Pixso, and more. Generate design platform plugin scripts with one click, import directly into your team's collaboration tools, and deliver designs seamlessly.
+
 ---
 
 ## Supported Platforms
@@ -73,6 +77,23 @@
 | Meizu Flyme | Flyme Design Specification | Minimalist restraint, generous whitespace, elegant refinement, 8px grid | Refined tools, artistic, niche verticals |
 | Windows 11 | Fluent Design System | Acrylic materials, depth & layering, Mica, WinUI 3 components | Desktop applications, enterprise software |
 | WeChat Mini Program | WeUI | WeChat-native components, standardized interaction, mini-program constraints | WeChat ecosystem, lightweight services |
+
+---
+
+## Supported Brand Styles (100 Companies)
+
+Beyond 11 platform design specifications, this Skill also supports 100 global tech company brand design styles. Users can choose to design by platform type OR by brand style -- and even combine both with platform+brand hybrid mode.
+
+| Category | Representative Brands | Core Style Characteristics | Best For |
+|:---|:---|:---|:---|
+| Chinese Internet Giants | Tencent, Alibaba, ByteDance, Huawei, Xiaomi, JD, Meituan, DiDi, NetEase, Bilibili, Douyin, WeChat, Alipay, Taobao, Pinduoduo | Social oasis, business orange, algorithm rainbow, all-scenario red, surging orange, quality red | Chinese market apps, social, e-commerce, local services |
+| Chinese AI & Tech Innovators | Baidu, DeepSeek, Kimi, Zhipu, Qwen, Doubao, Yuanbao, Tiangong, SenseTime, iFlytek, MiniMax | Deep blue-purple, long-context blue, academic blue-green, Tongyi purple, vibrant orange, visual purple | AI products, LLM apps, intelligent assistants |
+| Chinese E-commerce & Local Life | Temu, SHEIN, Vipshop, Ele.me, Dianping, Xiaohongshu, Dewu, Fliggy, Ctrip | Global orange-red, fashion black, planting red, trend black-green, travel orange-yellow | E-commerce, local services, consumer decisions |
+| Chinese Fintech & Payments | Ant Group, WeBank, CITIC, Ping An, UnionPay, JD Finance, CMB | Inclusive blue, steady blue-green, finance blue, micro-bank blue, CITIC red, Ping An orange | Finance apps, payment tools, wealth management |
+| Chinese SaaS & Enterprise | Feishu, DingTalk, Yuque, WPS, Kingdee, Huawei Cloud, Alibaba Cloud | Collaboration purple, efficiency blue, knowledge green, office blue, management blue, cloud red | Enterprise collaboration, SaaS, cloud services |
+| Chinese Media & Content | Weibo, Zhihu, Kuaishou, Toutiao, iQIYI, NetEase Music, CSDN | Hot-search red, knowledge blue, embrace orange, info red, entertainment green, music red | Content platforms, social squares, tech communities |
+| Chinese Mobility & Automotive | NIO, BYD, XPeng, Li Auto, Geely, Baidu Apollo, Amap | User blue, new-energy red, smart-driving blue, family green, vision blue, auto-driving blue | Automotive websites, mobility apps, EV |
+| Global Tech & Brands | Apple, Google, Microsoft, OpenAI, Stripe, Vercel, GitHub, Spotify, Netflix, Tesla, Figma, Notion | Minimalist whitespace, dynamic color, fluent acrylic, academic minimal, purple elegance | International products, developer tools, global market |
 
 ---
 
@@ -118,6 +139,30 @@ Output: Two independent design proposals with a cross-platform comparison table 
 
 Output: Dual-state One UI prototype covering 375dp phone mode and 768dp unfolded mode, with one-handed zone components, split-pane layouts, and foldable adaptation specifications.
 
+**Example 4:**
+
+```
+"Design a beauty recommendation community homepage using Xiaohongshu style"
+```
+
+Output: Beauty community homepage matching Xiaohongshu's brand design language -- signature red #FF2442, waterfall dual-column card layout, recommendation note cards, user avatars and nicknames, like/save interactions. Delivers Xiaohongshu's signature "planting grass" vibe with high visual density, content-driven layout, and young female audience orientation.
+
+**Example 5:**
+
+```
+"Design a payment confirmation page using Stripe style"
+```
+
+Output: Payment confirmation page matching Stripe's design language -- signature purple gradient #635BFF, weight-300 elegant typography, financial data table styling, clear payment info cards. Spacing precise to decimal points, no rounding -- Stripe-level pixel precision.
+
+**Example 6:**
+
+```
+"Design a team collaboration app using iOS platform style + Feishu brand style hybrid"
+```
+
+Output: iOS as platform base (4pt grid, frosted glass navigation, rounded cards) overlaid with Feishu brand style (collaboration purple primary, efficient information architecture, document card components, schedule timeline), with code comments marking each element's source platform/brand.
+
 ---
 
 ## Workflow
@@ -146,9 +191,28 @@ Prototype          Iteration           Delivery             Generation
 
 **Step 6: Review & Iteration** -- Check restoration fidelity against official specs across 7 dimensions, output score and iteration suggestions.
 
-**Step 7: Final Delivery** -- Package design spec document, component library, interactive prototype, and frontend style reference.
+**Step 7: Final Delivery** -- Users choose their output format: HTML interactive prototype (default), Figma design file, MasterGo design file, JsDesign file, MockingBot prototype, Lanhu design annotation, Pixso design file, or pure Markdown design specification. Regardless of format, the delivery package always includes design specification document + component library + frontend style reference.
 
 **Step 8: Demo Generation** -- Generate standalone HTML demo for each platform style with dual-theme switching and responsive layout.
+
+---
+
+## Output Formats
+
+This Skill supports 8 output formats. Users can freely choose based on their team's toolchain:
+
+| Output Format | Description | Best For |
+|:---|:---|:---|
+| **HTML Prototype** | Single-file interactive high-fidelity prototype with dual-theme + responsive | Quick preview, dev reference, product demos |
+| **Figma Design** | Figma Plugin API script, importable into Figma | Professional design collaboration, team delivery |
+| **MasterGo Design** | MasterGo plugin script, importable into MasterGo | Chinese design teams, domestic design tools |
+| **JsDesign** | JsDesign plugin script, importable into JsDesign | Chinese design teams, online design tools |
+| **MockingBot** | MockingBot-importable interactive prototype format | Rapid prototyping, PM collaboration |
+| **Lanhu** | Lanhu-importable design annotation format | Design-to-dev handoff, design annotation |
+| **Pixso Design** | Pixso plugin script, importable into Pixso | Chinese design teams, domestic design tools |
+| **Design Specification** | Pure Markdown document (Design Token + Component specs) | Documentation archival, spec handoff, no-tool scenarios |
+
+> HTML prototype is the default output. To export to a specific design platform, simply specify it in your request, e.g.: "Design a homepage using iOS style, output as Figma design file".
 
 ---
 
@@ -192,6 +256,8 @@ ui-design-aitool-plus/
 │   │   ├── meizu-flyme.md
 │   │   ├── windows-fluent.md
 │   │   └── wechat-miniprogram.md
+│   ├── brands/                 # 100 company brand style registry
+│   │   └── registry.md         # Brand slug + names + style description + primary color + fetch method
 │   ├── components/             # Universal component specifications
 │   │   ├── navigation.md       # Navigation components
 │   │   ├── input-controls.md   # Buttons, inputs, switches, sliders
@@ -262,6 +328,14 @@ This skill is built upon the official design specifications and documentation fr
 
 Special thanks to the open-source community and all contributors who make design knowledge accessible.
 
+### Brand Design Style References
+
+100 brand style data sourced from:
+- [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) -- 73 brand DESIGN.md design system documents
+- [brand-design-md](https://github.com/zephyrwang6/brand-design-md) -- Brand design specification fetch tool
+- [Google Stitch DESIGN.md](https://stitch.withgoogle.com/docs/design-md/specification/) -- DESIGN.md format specification
+- Each brand's official design system and brand guidelines
+
 ---
 
-> *One person. Eleven platforms. Factory-grade UI. No compromises.*
+> *One person. Eleven platforms. One hundred brands. Factory-grade UI. No compromises.*

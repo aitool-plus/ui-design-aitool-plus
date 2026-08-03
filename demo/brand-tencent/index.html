@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tencent Style Demo</title>
+<style>
+:root {
+  --brand-primary: #07C160;
+  --brand-bg: #F6F6F6;
+  --brand-surface: #FFFFFF;
+  --brand-text: #191919;
+  --brand-text-secondary: #999999;
+  --brand-radius: 12px;
+  --brand-border: #E5E5E5;
+  --brand-chat-self: #95EC69;
+  --brand-chat-other: #FFFFFF;
+}
+[data-theme="dark"] {
+  --brand-bg: #111111;
+  --brand-surface: #1E1E1E;
+  --brand-text: #E5E5E5;
+  --brand-text-secondary: #777777;
+  --brand-border: #2C2C2C;
+  --brand-chat-self: #07C160;
+  --brand-chat-other: #2C2C2C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; background: var(--brand-bg); color: var(--brand-text); min-height: 100vh; padding-bottom: 80px; }
+.brand-badge { background: var(--brand-primary); color: #fff; text-align: center; padding: 6px 0; font-size: 11px; letter-spacing: 0.5px; }
+.nav-bar { position: sticky; top: 0; z-index: 100; background: var(--brand-surface); border-bottom: 0.5px solid var(--brand-border); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+.nav-bar .title { font-size: 17px; font-weight: 600; }
+.nav-bar .actions { display: flex; gap: 16px; color: var(--brand-text); }
+.nav-bar .actions svg { width: 22px; height: 22px; }
+.search-bar { padding: 8px 12px; background: var(--brand-surface); }
+.search-bar input { width: 100%; padding: 8px 12px 8px 32px; border: none; border-radius: 6px; background: var(--brand-bg); font-size: 14px; color: var(--brand-text); outline: none; }
+.search-bar .wrap { position: relative; }
+.search-bar .wrap::before { content: "🔍"; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 13px; }
+.chat-list { padding: 0 0 8px; }
+.chat-item { display: flex; align-items: center; padding: 12px 16px; background: var(--brand-surface); border-bottom: 0.5px solid var(--brand-border); cursor: pointer; }
+.chat-item:active { background: var(--brand-bg); }
+.chat-item .avatar { width: 46px; height: 46px; border-radius: 6px; background: var(--brand-primary); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 600; flex-shrink: 0; }
+.chat-item .info { flex: 1; margin-left: 12px; overflow: hidden; }
+.chat-item .info .name { font-size: 16px; font-weight: 500; }
+.chat-item .info .msg { font-size: 13px; color: var(--brand-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 3px; }
+.chat-item .meta { text-align: right; flex-shrink: 0; margin-left: 8px; }
+.chat-item .meta .time { font-size: 11px; color: var(--brand-text-secondary); }
+.chat-item .meta .badge { background: var(--brand-primary); color: #fff; font-size: 10px; border-radius: 10px; padding: 1px 6px; margin-top: 4px; display: inline-block; }
+.card-section { padding: 12px; }
+.card-section .section-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.card { background: var(--brand-surface); border-radius: var(--brand-radius); padding: 14px; margin-bottom: 10px; }
+.card .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.card .card-header .icon { width: 36px; height: 36px; border-radius: 8px; background: var(--brand-primary); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; }
+.card .card-header .label { font-size: 14px; font-weight: 500; }
+.card .card-body { font-size: 13px; color: var(--brand-text-secondary); line-height: 1.5; }
+.card .card-footer { margin-top: 12px; display: flex; justify-content: flex-end; }
+.btn-primary { background: var(--brand-primary); color: #fff; border: none; border-radius: 6px; padding: 8px 20px; font-size: 14px; cursor: pointer; }
+.btn-primary:active { opacity: 0.85; }
+.tab-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--brand-surface); border-top: 0.5px solid var(--brand-border); display: flex; padding: 6px 0 20px; }
+.tab-bar .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; }
+.tab-bar .tab-item .icon { font-size: 22px; }
+.tab-bar .tab-item .label { font-size: 10px; color: var(--brand-text-secondary); }
+.tab-bar .tab-item.active .label { color: var(--brand-primary); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: none; align-items: flex-end; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--brand-surface); border-radius: 14px 14px 0 0; width: 100%; max-height: 60vh; padding: 20px 16px 30px; }
+.modal .modal-handle { width: 36px; height: 4px; background: var(--brand-border); border-radius: 2px; margin:  margin: 0 auto 16px; }
+.modal .modal-title { font-size: 17px; font-weight: 600; text-align: center; margin-bottom: 16px; }
+.modal .chat-bubble { padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; max-width: 75%; font-size: 14px; line-height: 1.5; }
+.modal .bubble-self { background: var(--brand-chat-self); margin-left: auto; border-bottom-right-radius: 2px; }
+.modal .bubble-other { background: var(--brand-chat-other); border: 0.5px solid var(--brand-border); border-bottom-left-radius: 2px; }
+.modal .modal-actions { display: flex; gap: 10px; margin-top: 16px; }
+.modal .modal-actions button { flex: 1; padding: 12px; border-radius: 8px; border: none; font-size: 15px; cursor: pointer; }
+.modal .btn-cancel { background: var(--brand-bg); color: var(--brand-text); }
+.modal .btn-confirm { background: var(--brand-primary); color: #fff; }
+.theme-toggle { position: fixed; right: 12px; bottom: 90px; z-index: 150; width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--brand-surface); box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="brand-badge">Designed with Tencent Design Language</div>
+<nav class="nav-bar">
+  <div class="actions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+  <div class="title">微信</div>
+  <div class="actions">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+  </div>
+</nav>
+<div class="search-bar"><div class="wrap"><input type="text" placeholder="搜索"></div></div>
+<div class="chat-list">
+  <div class="chat-item" onclick="showModal()">
+    <div class="avatar">AI</div>
+    <div class="info"><div class="name">AI助手</div><div class="msg">你好，有什么可以帮你的吗？</div></div>
+    <div class="meta"><div class="time">10:30</div><div class="badge">2</div></div>
+  </div>
+  <div class="chat-item">
+    <div class="avatar" style="background:#576B95">张</div>
+    <div class="info"><div class="name">张三</div><div class="msg">晚上一起吃饭吗？</div></div>
+    <div class="meta"><div class="time">09:15</div></div>
+  </div>
+  <div class="chat-item">
+    <div class="avatar" style="background:#FA9D3B">群</div>
+    <div class="info"><div class="name">项目组</div><div class="msg">李四: 方案已更新，请查看</div></div>
+    <div class="meta"><div class="time">昨天</div><div class="badge">5</div></div>
+  </div>
+</div>
+<div class="card-section">
+  <div class="section-title">服务</div>
+  <div class="card">
+    <div class="card-header"><div class="icon">💳</div><div class="label">微信支付</div></div>
+    <div class="card-body">收付款、钱包、金融服务，一站式管理你的资金</div>
+    <div class="card-footer"><button class="btn-primary">立即使用</button></div>
+  </div>
+  <div class="card">
+    <div class="card-header"><div class="icon">📰</div><div class="label">订阅号消息</div></div>
+    <div class="card-body">已关注3个公众号，2条未读消息</div>
+    <div class="card-footer"><button class="btn-primary">查看全部</button></div>
+  </div>
+</div>
+<nav class="tab-bar">
+  <div class="tab-item active"><span class="icon">💬</span><span class="label">微信</span></div>
+  <div class="tab-item"><span class="icon">📋</span><span class="label">通讯录</span></div>
+  <div class="tab-item"><span class="icon">🧭</span><span class="label">发现</span></div>
+  <div class="tab-item"><span class="icon">👤</span><span class="label">我</span></div>
+</nav>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-handle"></div>
+    <div class="modal-title">AI助手对话</div>
+    <div class="chat-bubble bubble-other">你好，有什么可以帮你的吗？</div>
+    <div class="chat-bubble bubble-self">帮我查一下今天的天气</div>
+    <div class="chat-bubble bubble-other">今天晴，最高温度28°C，适合出行 🌤️</div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">取消</button>
+      <button class="btn-confirm" onclick="closeModal()">发送</button>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+<script>
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme');h.setAttribute('data-theme',d==='dark'?'light':'dark');}
+function showModal(){document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+</script>
+</body>
+</html>

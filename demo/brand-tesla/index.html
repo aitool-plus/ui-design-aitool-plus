@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tesla Style Demo</title>
+<style>
+:root {
+  --brand-primary: #000000;
+  --brand-bg: #FFFFFF;
+  --brand-surface: #F5F5F5;
+  --brand-text: #000000;
+  --brand-text-secondary: #999999;
+  --brand-radius: 4px;
+  --brand-border: #E5E5E5;
+}
+[data-theme="dark"] {
+  --brand-primary: #FFFFFF;
+  --brand-bg: #000000;
+  --brand-surface: #1A1A1A;
+  --brand-text: #FFFFFF;
+  --brand-text-secondary: #666666;
+  --brand-border: #2A2A2A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Universal Sans", Inter, sans-serif; background: var(--brand-bg); color: var(--brand-text); min-height: 100vh; padding-bottom: 80px; }
+.brand-badge { background: var(--brand-primary); color: var(--brand-bg); text-align: center; padding: 6px 0; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.nav-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: transparent; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+.nav-bar .logo { font-size: 18px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--brand-bg); mix-blend-mode: difference; }
+.nav-bar .menu { font-size: 20px; cursor: pointer; color: var(--brand-bg); mix-blend-mode: difference; }
+.hero { position: relative; width: 100%; height: 85vh; background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 24px; overflow: hidden; }
+.hero .hero-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 120px; opacity: 0.15; }
+.hero .hero-content { position: relative; z-index: 1; }
+.hero .hero-title { font-size: 42px; font-weight: 600; letter-spacing: -1px; color: #fff; margin-bottom: 8px; }
+.hero .hero-subtitle { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 24px; letter-spacing: 0.5px; }
+.hero .hero-cta { display: inline-block; padding: 12px 40px; border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; opacity: 0; }
+.hero:hover .hero-cta { opacity: 1; }
+.hero .hero-cta:hover { background: #fff; color: #000; }
+.search-bar { padding: 20px 20px 12px; }
+.search-bar input { width: 100%; padding: 12px 16px; border: none; border-bottom: 1px solid var(--brand-border); background: transparent; font-size: 14px; color: var(--brand-text); outline: none; font-family: inherit; letter-spacing: 0.5px; }
+.search-bar input::placeholder { color: var(--brand-text-secondary); letter-spacing: 0.5px; }
+.section-title { font-size: 11px; font-weight: 500; color: var(--brand-text-secondary); text-transform: uppercase; letter-spacing: 2px; padding: 20px 20px 16px; }
+.vehicle-list { padding: 0 20px 20px; }
+.vehicle-card { position: relative; width: 100%; height: 280px; margin-bottom: 16px; border-radius: var(--brand-radius); overflow: hidden; cursor: pointer; }
+.vehicle-card .card-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+.vehicle-card .card-overlay { position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,0.8)); }
+.vehicle-card .card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; z-index: 1; }
+.vehicle-card .card-content .name { font-size: 24px; font-weight: 600; color: #fff; letter-spacing: -0.5px; margin-bottom: 4px; }
+.vehicle-card .card-content .desc { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+.vehicle-card .card-content .price { font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 8px; }
+.vehicle-card .card-btn { position: absolute; bottom: 24px; right: 24px; padding: 10px 28px; background: #fff; color: #000; border: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; opacity: 0; transition: opacity 0.3s; font-family: inherit; }
+.vehicle-card:hover .card-btn { opacity: 1; }
+.v1 { background: linear-gradient(135deg, #2c3e50, #3498db); }
+.v2 { background: linear-gradient(135deg, #1a1a2e, #e94560); }
+.v3 { background: linear-gradient(135deg, #0f3460, #533483); }
+.tab-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--brand-bg); border-top: 1px solid var(--brand-border); display: flex; padding: 8px 0 22px; }
+.tab-bar .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; }
+.tab-bar .tab-item .icon { font-size: 20px; }
+.tab-bar .tab-item .label { font-size: 9px; color: var(--brand-text-secondary); letter-spacing: 1px; text-transform: uppercase; }
+.tab-bar .tab-item.active .label { color: var(--brand-text); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 200; display: none; align-items: center; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--brand-bg); width: 90%; max-width: 340px; padding: 40px 28px; text-align: center; }
+.modal .modal-title { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 8px; }
+.modal .modal-body { font-size: 14px; color: var(--brand-text-secondary); line-height: 1.6; margin-bottom: 28px; letter-spacing: 0.3px; }
+.modal .modal-specs { display: flex; justify-content: space-around; margin-bottom: 28px; padding: 16px 0; border-top: 1px solid var(--brand-border); border-bottom: 1px solid var(--brand-border); }
+.modal .modal-specs .spec { text-align: center; }
+.modal .modal-specs .spec .val { font-size: 20px; font-weight: 600; }
+.modal .modal-specs .spec .lbl { font-size: 10px; color: var(--brand-text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.modal .modal-actions { display: flex; flex-direction: column; gap: 12px; }
+.modal .modal-actions button { width: 100%; padding: 14px; border: none; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; font-family: inherit; font-weight: 500; }
+.modal .btn-cancel { background: transparent; color: var(--brand-text-secondary); border: 1px solid var(--brand-border); }
+.modal .btn-confirm { background: var(--brand-text); color: var(--brand-bg); }
+.theme-toggle { position: fixed; right: 12px; bottom: 90px; z-index: 150; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--brand-border); background: var(--brand-bg); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="brand-badge">Designed with Tesla Design Language</div>
+<nav class="nav-bar">
+  <div class="logo">T E S L A</div>
+  <div class="menu">☰</div>
+</nav>
+<div class="hero">
+  <div class="hero-bg">🚗</div>
+  <div class="hero-content">
+    <div class="hero-title">Model S</div>
+    <div class="hero-subtitle">The future of driving, today.</div>
+    <div class="hero-cta" onclick="showModal()">Configure</div>
+  </div>
+</div>
+<div class="search-bar"><input type="text" placeholder="Search vehicles, features..."></div>
+<div class="section-title">Vehicles</div>
+<div class="vehicle-list">
+  <div class="vehicle-card v1" onclick="showModal()">
+    <div class="card-bg">🏎️</div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <div class="name">Model 3</div>
+      <div class="desc">Starting at $38,990</div>
+      <div class="price">After est. savings</div>
+    </div>
+    <button class="card-btn">Order</button>
+  </div>
+  <div class="vehicle-card v2">
+    <div class="card-bg">🚙</div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <div class="name">Model Y</div>
+      <div class="desc">Starting at $44,990</div>
+      <div class="price">After est. savings</div>
+    </div>
+    <button class="card-btn">Order</button>
+  </div>
+  <div class="vehicle-card v3">
+    <div class="card-bg">🛻</div>
+    <div class="card-overlay"></div>
+    <div class="card-content">
+      <div class="name">Cybertruck</div>
+      <div class="desc">Starting at $60,990</div>
+      <div class="price">After est. savings</div>
+    </div>
+    <button class="card-btn">Order</button>
+  </div>
+</div>
+<nav class="tab-bar">
+  <div class="tab-item active"><span class="icon">🏠</span><span class="label">Home</span></div>
+  <div class="tab-item"><span class="icon">🚗</span><span class="label">Vehicles</span></div>
+  <div class="tab-item"><span class="icon">⚡</span><span class="label">Energy</span></div>
+  <div class="tab-item"><span class="icon">👤</span><span class="label">Account</span></div>
+</nav>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-title">Model S Plaid</div>
+    <div class="modal-body">Beyond Ludicrous. The quickest production car ever made.</div>
+    <div class="modal-specs">
+      <div class="spec"><div class="val">1.99s</div><div class="lbl">0-60 mph</div></div>
+      <div class="spec"><div class="val">396mi</div><div class="lbl">Range</div></div>
+      <div class="spec"><div class="val">200mph</div><div class="lbl">Top Speed</div></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-confirm" onclick="closeModal()">Order Now</button>
+      <button class="btn-cancel" onclick="closeModal()">Compare Models</button>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+<script>
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme');h.setAttribute('data-theme',d==='dark'?'light':'dark');}
+function showModal(){document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Apple Brand Style Demo</title>
+<style>
+:root {
+  --brand-primary: #007AFF;
+  --brand-bg: #F2F2F7;
+  --brand-surface: #FFFFFF;
+  --brand-text: #1C1C1E;
+  --brand-text-secondary: #8E8E93;
+  --brand-radius: 16px;
+  --brand-border: rgba(0,0,0,0.06);
+  --brand-separator: #C6C6C8;
+  --brand-glass: rgba(255,255,255,0.72);
+}
+[data-theme="dark"] {
+  --brand-bg: #000000;
+  --brand-surface: #1C1C1E;
+  --brand-text: #F2F2F7;
+  --brand-text-secondary: #636366;
+  --brand-border: rgba(255,255,255,0.08);
+  --brand-separator: #38383A;
+  --brand-glass: rgba(28,28,30,0.72);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: SF Pro Display, -apple-system, "PingFang SC", sans-serif; background: var(--brand-bg); color: var(--brand-text); min-height: 100vh; padding-bottom: 80px; -webkit-font-smoothing: antialiased; }
+.brand-badge { background: var(--brand-primary); color: #fff; text-align: center; padding: 6px 0; font-size: 11px; letter-spacing: 0.5px; font-weight: 500; }
+.nav-bar { position: sticky; top: 0; z-index: 100; background: var(--brand-glass); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 0.5px solid var(--brand-border); padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; }
+.nav-bar .back { font-size: 17px; color: var(--brand-primary); cursor: pointer; }
+.nav-bar .title { font-size: 17px; font-weight: 600; }
+.nav-bar .action { font-size: 17px; color: var(--brand-primary); cursor: pointer; }
+.large-title { font-size: 34px; font-weight: 700; letter-spacing: 0.37px; padding: 8px 16px 16px; }
+.search-bar { padding: 0 16px 12px; }
+.search-bar input { width: 100%; padding: 10px 14px 10px 36px; border: none; border-radius: 10px; background: rgba(142,142,147,0.12); font-size: 16px; color: var(--brand-text); outline: none; font-family: inherit; }
+.search-bar input::placeholder { color: var(--brand-text-secondary); }
+.search-bar .wrap { position: relative; }
+.search-bar .wrap::before { content: "🔍"; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 14px; }
+.card-section { padding: 0 16px 16px; }
+.card-group { background: var(--brand-surface); border-radius: var(--brand-radius); overflow: hidden; margin-bottom: 16px; }
+.card-group .card-item { padding: 14px 16px; display: flex; align-items: center; gap: 14px; border-bottom: 0.5px solid var(--brand-separator); cursor: pointer; }
+.card-group .card-item:last-child { border-bottom: none; }
+.card-group .card-item:active { background: rgba(0,0,0,0.04); }
+.card-group .card-item .icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; }
+.card-group .card-item .content { flex: 1; }
+.card-group .card-item .content .title { font-size: 16px; font-weight: 400; }
+.card-group .card-item .content .subtitle { font-size: 13px; color: var(--brand-text-secondary); margin-top: 2px; }
+.card-group .card-item .chevron { color: var(--brand-text-secondary); font-size: 14px; }
+.hero-card { margin: 0 16px 16px; border-radius: var(--brand-radius); overflow: hidden; background: linear-gradient(135deg, #1C1C1E, #3A3A3C); color: #fff; padding: 24px 20px; cursor: pointer; }
+.hero-card .hero-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.hero-card .hero-title { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+.hero-card .hero-subtitle { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+.hero-card .hero-cta { margin-top: 16px; color: var(--brand-primary); font-size: 16px; font-weight: 500; }
+.btn-primary { background: var(--brand-primary); color: #fff; border: none; border-radius: 12px; padding: 14px 28px; font-size: 17px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.tab-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--brand-glass); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-top: 0.5px solid var(--brand-border); display: flex; padding: 6px 0 22px; }
+.tab-bar .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; }
+.tab-bar .tab-item .icon { font-size: 22px; }
+.tab-bar .tab-item .label { font-size: 10px; color: var(--brand-text-secondary); }
+.tab-bar .tab-item.active .icon { color: var(--brand-primary); }
+.tab-bar .tab-item.active .label { color: var(--brand-primary); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; display: none; align-items: flex-end; justify-content: center; }
+.modal-overlay.show { display: flex; }
+.modal { background: var(--brand-surface); border-radius: 14px 14px 0 0; width: 100%; max-height: 55vh; padding: 0; }
+.modal .modal-handle { width: 36px; height: 5px; background: var(--brand-separator); border-radius: 2.5px; margin: 8px auto 0; }
+.modal .modal-content { padding: 20px 16px 30px; }
+.modal .modal-title { font-size: 20px; font-weight: 700; text-align: center; margin-bottom: 8px; }
+.modal .modal-body { font-size: 15px; color: var(--brand-text-secondary); text-align: center; line-height: 1.5; margin-bottom: 20px; }
+.modal .modal-actions { display: flex; flex-direction: column; gap: 10px; }
+.modal .modal-actions button { width: 100%; padding: 14px; border-radius: 12px; border: none; font-size: 17px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.modal .btn-cancel { background: rgba(142,142,147,0.12); color: var(--brand-primary); }
+.modal .btn-confirm { background: var(--brand-primary); color: #fff; }
+.theme-toggle { position: fixed; right: 12px; bottom: 90px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--brand-glass); backdrop-filter: blur(10px); box-shadow: 0 2px 12px rgba(0,0,0,0.1); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+</style>
+</style>
+</head>
+<body>
+<div class="brand-badge">Designed with Apple Design Language</div>
+<nav class="nav-bar">
+  <div class="back">‹ 返回</div>
+  <div class="title">设置</div>
+  <div class="action">编辑</div>
+</nav>
+<div class="large-title">设置</div>
+<div class="search-bar"><div class="wrap"><input type="text" placeholder="搜索"></div></div>
+<div class="hero-card" onclick="showModal()">
+  <div class="hero-label">全新发布</div>
+  <div class="hero-title">Apple Intelligence</div>
+  <div class="hero-subtitle">AI驱动的个性化体验，为你而生。</div>
+  <div class="hero-cta">了解更多 ›</div>
+</div>
+<div class="card-section">
+  <div class="card-group">
+    <div class="card-item">
+      <div class="icon" style="background:#FF9500">✈️</div>
+      <div class="content"><div class="title">飞行模式</div></div>
+      <div class="chevron">›</div>
+    </div>
+    <div class="card-item">
+      <div class="icon" style="background:#007AFF">📶</div>
+      <div class="content"><div class="title">Wi-Fi</div><div class="subtitle">Home_5G</div></div>
+      <div class="chevron">›</div>
+    </div>
+    <div class="card-item">
+      <div class="icon" style="background:#007AFF">📱</div>
+      <div class="content"><div class="title">蓝牙</div><div class="subtitle">已开启</div></div>
+      <div class="chevron">›</div>
+    </div>
+  </div>
+  <div class="card-group">
+    <div class="card-item">
+      <div class="icon" style="background:#34C759">🔔</div>
+      <div class="content"><div class="title">通知</div></div>
+      <div class="chevron">›</div>
+    </div>
+    <div class="card-item">
+      <div class="icon" style="background:#5856D6">🔊</div>
+      <div class="content"><div class="title">声音与触感</div></div>
+      <div class="chevron">›</div>
+    </div>
+    <div class="card-item">
+      <div class="icon" style="background:#007AFF">🌙</div>
+      <div class="content"><div class="title">专注模式</div></div>
+      <div class="chevron">›</div>
+    </div>
+  </div>
+  <div class="card-group">
+    <div class="card-item">
+      <div class="icon" style="background:#007AFF">⚙️</div>
+      <div class="content"><div class="title">通用</div></div>
+      <div class="chevron">›</div>
+    </div>
+    <div class="card-item">
+      <div class="icon" style="background:#007AFF">🎨</div>
+      <div class="content"><div class="title">显示与亮度</div></div>
+      <div class="chevron">›</div>
+    </div>
+  </div>
+</div>
+<nav class="tab-bar">
+  <div class="tab-item active"><span class="icon">⚙️</span><span class="label">设置</span></div>
+  <div class="tab-item"><span class="icon">📱</span><span class="label">App</span></div>
+  <div class="tab-item"><span class="icon">🎵</span><span class="label">媒体</span></div>
+  <div class="tab-item"><span class="icon">👤</span><span class="label">我的</span></div>
+</nav>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-handle"></div>
+    <div class="modal-content">
+      <div class="modal-title">Apple Intelligence</div>
+      <div class="modal-body">Apple Intelligence将你的个人信息与上下文结合，帮助你书写、表达和完成更多事情——同时始终保护你的隐私。</div>
+      <div class="modal-actions">
+        <button class="btn-confirm" onclick="closeModal()">启用 Apple Intelligence</button>
+        <button class="btn-cancel" onclick="closeModal()">稍后设置</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌓</button>
+<script>
+function toggleTheme(){const h=document.documentElement;const d=h.getAttribute('data-theme');h.setAttribute('data-theme',d==='dark'?'light':'dark');}
+function showModal(){document.getElementById('modalOverlay').classList.add('show');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');}
+</script>
+</body>
+</html>

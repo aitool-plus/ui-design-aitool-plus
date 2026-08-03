@@ -1,7 +1,7 @@
 ---
 name: ui-design-father-skill
-display_name: 一人设计公司神级Skill（11大平台UI设计系统）
-version: 1.0.0
+display_name: 一人设计公司神级Skill（11大平台+国内80+国外20大厂品牌UI设计系统）
+version: 2.0.0
 description: 
   一人设计公司神级Skill -- 一个人完成原本需要整支设计团队才能完成的UI设计工作。
   覆盖11大平台设计系统：Apple iOS HIG、Google Material Design 3、Samsung One UI、
@@ -10,6 +10,7 @@ description:
   支持手机App、桌面端、小程序三端，一条指令输出原厂级高保真UI方案。
   适用场景：电商首页、设置页、个人中心、表单页、列表页等多端适配设计，
   多风格横向对比，设计规范文档，组件库，可交互HTML原型。
+  新增国内80+国外20品牌设计风格支持，支持按平台类型或大厂品牌风格两种维度选择设计样式。
 
   【痛点与价值】
   直接让AI做产品设计的常见弊端：
@@ -29,7 +30,8 @@ description:
   触发词：iOS、苹果、Android、Material Design、One UI、三星、鸿蒙、HarmonyOS、
   华为、HyperOS、小米、澎湃、MagicOS、荣耀、ColorOS、OPPO、OriginOS、vivo、
   Flyme、魅族、Windows、Fluent、桌面、微信、WeUI、小程序、UI设计、界面设计、
-  App设计、组件库、设计规范、毛玻璃、服务卡片、多平台适配。
+  App设计、组件库、设计规范、毛玻璃、服务卡片、多平台适配、
+  品牌、大厂、公司风格、Apple风格、Google风格、字节、腾讯、阿里、小红书、DeepSeek、Stripe、Vercel、Tesla、飞书、品牌设计。
 author: aitool.plus
 license: MIT
 category: design
@@ -53,6 +55,10 @@ tags:
   - 多平台适配
   - Design Token
   - 高保真原型
+  - 品牌设计
+  - 大厂风格
+  - DESIGN.md
+  - 品牌混搭
 language: zh-CN
 allowed-tools: Read,Write,Edit,Bash,AskUserQuestion
 disable: false
@@ -88,7 +94,19 @@ disable: false
 
 > **必须使用 AskUserQuestion 工具向用户提问，提供选项让用户选择。**
 
-提问内容："请选择你的目标UI风格："
+**第一阶段：选择风格维度**
+
+提问内容："请选择你的设计风格维度："
+
+| 选项 | 说明 |
+|------|------|
+| 平台类型风格 | 按OS/平台设计规范（iOS、Android、鸿蒙等11大平台） |
+| 大厂品牌风格 | 按国内外知名公司设计语言（腾讯、阿里、字节、DeepSeek、Apple、Stripe等国内80+国外20品牌） |
+| 平台+品牌混搭 | 先选平台基底，再选品牌风格叠加 |
+
+**第二阶段：根据选择展示具体选项**
+
+**选"平台类型风格"**：展示原有11大平台选项表
 
 | 选项 | 说明 |
 |------|------|
@@ -106,6 +124,21 @@ disable: false
 
 **选项过多时分两批展示**：第一批展示前6个（Apple iOS / Google Android / Samsung One UI / 华为 HarmonyOS / 小米 HyperOS / 荣耀 MagicOS），用户选择"其他风格"时展示第二批（OPPO ColorOS / vivo OriginOS / 魅族 Flyme / Windows Fluent / 微信小程序）。
 
+**选"大厂品牌风格"**：展示8大分类，每个分类列举代表性品牌，用户选择后加载完整品牌列表
+
+| 分类 | 代表性品牌 |
+|------|-----------|
+| 国内互联网巨头 | 腾讯、阿里巴巴、字节跳动、华为、小米、京东、美团、滴滴、网易、B站、抖音、微信、支付宝、淘宝、拼多多 |
+| 国内AI与科技新锐 | 百度、DeepSeek、Kimi、智谱、通义千问、豆包、元宝、天工、商汤、科大讯飞、MiniMax、阶跃星辰、百川、Moonshot、零一万物 |
+| 国内电商与本地生活 | Temu、SHEIN、唯品会、苏宁、饿了么、大众点评、小红书、得物、飞猪、携程 |
+| 国内金融与支付 | 蚂蚁、陆金所、微众、中信、平安、银联、京东金融、中国银行、招商银行 |
+| 国内SaaS与企业服务 | 飞书、钉钉、语雀、Teambition、创客贴、WPS、金蝶、宜搭、华为云、阿里云 |
+| 国内媒体与内容 | 微博、知乎、快手、今日头条、爱奇艺、优酷、网易云、QQ音乐、简书、CSDN |
+| 国内出行与汽车 | 蔚来、比亚迪、小鹏、理想、吉利、广汽埃安、长安、上汽、百度Apollo、高德地图 |
+| 全球科技与品牌 | Apple、Google、Microsoft、OpenAI、Meta、NVIDIA、Stripe、Vercel、GitHub、Spotify、Netflix、Tesla、Figma、Notion、Linear、Shopify、Airbnb、Slack、Adobe、SpaceX |
+
+**选"平台+品牌混搭"**：先展示11大平台选项，选完后再展示品牌选项
+
 **用户说"对比多个风格"**：允许用户选择2-3个风格，进入多风格对比模式。
 
 **用户说"随便"/"都行"**：根据用户需求场景推荐最合适的风格。推荐规则：
@@ -116,6 +149,7 @@ disable: false
 - 年轻/生活 → HyperOS
 - 桌面/企业 → Windows Fluent
 - 微信生态 → 微信小程序
+- 品牌调性明确 → 对应大厂品牌风格
 
 #### 第2步确认：配色方向与主题偏好（必问）
 
@@ -244,6 +278,32 @@ Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真�
 - 用户未指定时，根据"设备类型/品牌型号/App目标平台"推断
 - 推断失败时，主动询问用户选择目标风格
 
+### 大厂品牌风格路由
+
+当用户选择"大厂品牌风格"维度时，从品牌注册表匹配品牌并获取设计规范：
+
+| 品牌Slug | 中文名 | 触发关键词 | 规范文件路径 | 核心特征 | 获取方式 |
+|----------|--------|-----------|-------------|---------|---------|
+| tencent | 腾讯 | 腾讯, 腾讯风格, QQ, 微信风格 | references/brands/tencent.md | 社交绿洲·连接万物·生态织网 | npx getdesign@latest add tencent |
+| alibaba | 阿里巴巴 | 阿里, 阿里巴巴, 淘宝, 天猫 | references/brands/alibaba.md | 商业橙光·让天下没有难做的生意 | npx getdesign@latest add alibaba |
+| bytedance | 字节跳动 | 字节, 字节跳动, 抖音, TikTok | references/brands/bytedance.md | 算法彩虹·内容宇宙·激发创造 | npx getdesign@latest add bytedance |
+| xiaohongshu | 小红书 | 小红书, 种草, 红书 | references/brands/xiaohongshu.md | 种草红·标记生活·消费决策 | npx getdesign@latest add xiaohongshu |
+| deepseek | DeepSeek | DeepSeek, 深度求索 | references/brands/deepseek.md | 深度蓝紫·开源先锋·推理之光 | npx getdesign@latest add deepseek |
+| stripe | Stripe | Stripe, 支付, Stripe风格 | references/brands/stripe.md | 紫色优雅·金融数据·weight-300 | npx getdesign@latest add stripe |
+| vercel | Vercel | Vercel, 部署, Vercel风格 | references/brands/vercel.md | 黑白精准·Geist字体·零配置部署 | npx getdesign@latest add vercel |
+| apple | Apple | Apple, 苹果, 苹果风格 | references/brands/apple.md | 极简留白·像素完美·设计即哲学 | npx getdesign@latest add apple |
+| tesla | Tesla | Tesla, 特斯拉, Tesla风格 | references/brands/tesla.md | 减法极致·电影摄影·电动革命 | npx getdesign@latest add tesla |
+| feishu | 飞书 | 飞书, 协作, 飞书风格 | references/brands/feishu.md | 协作紫·先进协作·高效愉悦 | npx getdesign@latest add feishu |
+
+（完整国内80+国外20品牌路由见 references/brands/registry.md）
+
+**品牌路由规则：**
+- 用户输入含品牌名称时，先在品牌注册表（references/brands/registry.md）中查找匹配的slug，然后加载对应品牌设计规范文件（references/brands/{slug}.md）
+- 匹配成功后，执行 `npx getdesign@latest add <slug>` 获取 DESIGN.md 规范
+- 获取失败时，降级使用品牌注册表中的一句话风格描述作为参考
+- 多品牌混搭时，以第一个品牌为主品牌，其余品牌提取指定维度融合
+- 品牌示例：腾讯/阿里/字节/小红书/DeepSeek/Stripe/Vercel/Apple/Tesla/飞书
+
 ---
 
 ## 三、八步工作流
@@ -288,6 +348,13 @@ Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真�
 | 动效 | 时长/缓动曲线/弹性参数 |
 
 输出为CSS自定义属性格式，可直接嵌入HTML原型。
+
+当用户选择大厂品牌风格时，Step 3 的执行方式变更：
+1. 执行 `npx getdesign@latest add <slug>` 获取 DESIGN.md
+2. 从 DESIGN.md 解析6大维度：颜色系统、字体规范、组件样式、间距系统、圆角体系、阴影系统
+3. 将品牌DESIGN.md的Token映射为CSS自定义属性格式
+4. 严格使用品牌规范中的精确数值（如 rgba(0,0,0,0.95) 不用 #000000，-2.125px 不四舍五入），禁止近似替代
+5. 当品牌风格与平台类型混搭时，以平台类型为基底，品牌风格覆盖配色/排版/组件维度
 
 ### Step 4: 组件规范输出
 
@@ -337,14 +404,81 @@ Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真�
 
 ### Step 7: 交付输出
 
-输出完整交付包，包含：
+#### 7.1 输出格式选择（必须询问用户）
+
+在输出交付包前，必须使用 `AskUserQuestion` 询问用户期望的输出格式：
+
+**可选输出格式：**
+
+| 格式 | 说明 | 适用场景 |
+|------|------|---------|
+| **HTML原型** | 单文件可交互高保真原型，含双主题+响应式 | 快速预览、开发参考、产品演示 |
+| **Figma设计稿** | 生成Figma Plugin API脚本，可导入Figma | 专业设计协作、设计团队交付 |
+| **MasterGo设计稿** | 生成MasterGo插件脚本，可导入MasterGo | 国内设计团队、国产设计工具 |
+| **即时设计 JsDesign** | 生成JsDesign插件脚本，可导入即时设计 | 国内设计团队、在线设计工具 |
+| **墨刀 MockingBot** | 生成墨刀可导入的交互原型格式 | 快速原型、产品经理协作 |
+| **蓝湖 Lanhu** | 生成蓝湖可导入的设计标注格式 | 设计交付开发、设计标注 |
+| **Pixso设计稿** | 生成Pixso插件脚本，可导入Pixso | 国内设计团队、国产设计工具 |
+| **设计规范文档** | 纯Markdown文档（Design Token + 组件规范） | 文档归档、规范传递、无工具场景 |
+
+**选择逻辑：**
+- 用户已明确指定格式 → 直接使用指定格式
+- 用户未指定 → 展示上述8种选项供选择，默认推荐 HTML原型
+- 用户选择多种格式 → 按优先级依次输出
+
+#### 7.2 交付物内容
+
+无论选择哪种输出格式，交付包均包含：
 
 | 交付物 | 格式 | 说明 |
 |--------|------|------|
 | 设计规范文档 | Markdown | 完整Design Token + 组件规范 + 页面规范 |
 | 组件库 | HTML/CSS | 可复用的组件代码片段 |
-| 页面原型 | HTML单文件 | 可交互高保真原型，含双主题+响应式 |
+| 页面原型/设计稿 | 取决于7.1选择 | 高保真可交互原型或设计平台文件 |
 | 前端样式参考 | CSS/SCSS | Design Token CSS变量 + 组件样式类 |
+
+#### 7.3 各输出格式的具体要求
+
+**HTML原型：**
+- 单文件HTML，可直接浏览器打开
+- 含浅色/深色主题切换
+- 含响应式断点适配
+- 含可交互组件演示
+
+**Figma设计稿：**
+- 生成Figma Plugin API代码（JavaScript），用户可在Figma中运行Plugins > Development > 插件名称 粘贴执行
+- 包含Frame结构：375dp手机端/768dp平板端/1280dp桌面端
+- 每个组件生成独立的Frame，命名遵循 `Component/类型/状态` 格式
+- 使用Figma Auto Layout实现响应式
+- 颜色使用Figma Variables定义
+- 文字样式使用Figma Text Styles定义
+- 包含浅色/深色两套Page
+
+**MasterGo设计稿：**
+- 生成MasterGo Plugin API代码，用户可在MasterGo中运行插件粘贴执行
+- 输出格式与Figma类似，使用MasterGo API适配
+- 支持MasterGo的组件变体（Variant）功能
+- 支持MasterGo的自动布局
+
+**即时设计 JsDesign：**
+- 生成JsDesign Plugin API代码，用户可在即时设计中运行插件粘贴执行
+- 支持JsDesign的响应式布局
+- 支持JsDesign的组件状态管理
+
+**墨刀 MockingBot：**
+- 生成HTML格式原型，可通过墨刀的"导入HTML"功能导入
+- 包含页面链接和交互热点标注
+- 适合产品经理快速创建可点击原型
+
+**蓝湖 Lanhu：**
+- 生成设计标注格式的JSON + CSS变量文件
+- 包含尺寸标注、间距标注、色值标注
+- 可通过蓝湖的"上传设计稿"功能导入
+
+**Pixso设计稿：**
+- 生成Pixso Plugin API代码，用户可在Pixso中运行插件粘贴执行
+- 输出格式与Figma API高度兼容
+- 支持Pixso的组件库和设计令牌
 
 ### Step 8: Demo生成
 
@@ -357,6 +491,12 @@ Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真�
 - 功能入口网格必须使用拟真原生应用图标（相机/照片/地图/天气/联系人/时钟/备忘录/计算器/设置），禁止字母或 emoji 占位，图标 SVG 规范见 `references/components/app-icons.md`
 - 每个 Demo 的弹窗（Dialog/Alert）**必须包含右上角独立 X 关闭按钮**，并支持点击遮罩关闭与 `Esc` 键关闭、打开时自动聚焦关闭按钮（硬规范见 `references/components/feedback.md` 第 2.5 节，禁止仅用"取消/确认"按钮关闭）
 - 每个 Demo 应额外演示高保真交互组件：动作面板(Action Sheet)、菜单(Menu)、分段控件(Segmented)、滑块(Slider)、步进器(Stepper)、提示气泡(Tooltip)、实时搜索(Live Search)，具体清单见 `references/components/feedback.md` 第 2.6 节
+
+当用户选择大厂品牌风格时，Demo 的额外要求：
+- Demo 顶部必须标注品牌来源（如 "Designed with Apple Design Language"）
+- 品牌色必须作为CSS变量 --brand-primary 使用，禁止硬编码
+- 品牌字体必须声明开源替代字体（如 SF Pro → Inter, Apple SD Gothic Neo → Noto Sans SC）
+- 品牌设计中的 Do's and Don'ts 必须在 Demo 中体现
 
 ---
 
@@ -377,6 +517,14 @@ Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真�
 | references/styles/meizu-flyme.md | 魅族Flyme设计规范 | Step 3，匹配Flyme时加载 |
 | references/styles/windows-fluent.md | Windows 11 Fluent Design规范 | Step 3，匹配Windows时加载 |
 | references/styles/wechat-miniprogram.md | 微信小程序WeUI规范 | Step 3，匹配微信小程序时加载 |
+
+### 4.1b 品牌风格规范
+
+| 文件路径 | 用途 | 加载时机 |
+|----------|------|---------|
+| references/brands/registry.md | 国内80+国外20品牌注册表（slug+中英文名+风格描述+主色+获取方式） | Step 2，用户选择大厂品牌风格时加载 |
+| references/brands/{slug}.md | 各品牌独立设计规范文件（9大章节完整约束） | Step 3，生成品牌Design Token时加载 |
+| /tmp/design-md-tmp/DESIGN.md | 运行时获取的品牌设计规范（npx getdesign@latest add <slug>） | Step 3，生成品牌Design Token时加载 |
 
 ### 4.2 设计Token架构
 
@@ -491,5 +639,47 @@ Demo 与原型中的「功能入口网格 / 应用图标」必须使用**拟真�
 6. 审查: 对照WeUI规范检查还原度
 7. 交付: 完整设计规范 + 组件库 + 可交互原型
 8. Demo: 生成 `demo/wechat-miniprogram/index.html`
+
+### 示例4: 小红书风格美妆种草社区
+
+用户输入: "用小红书风格设计一个美妆种草社区首页"
+
+执行流程:
+1. 风格判定: 大厂品牌风格 -> 路由匹配小红书 -> 加载 `references/brands/registry.md` 中xiaohongshu条目
+2. 获取设计规范: 执行 `npx getdesign@latest add xiaohongshu` 获取DESIGN.md，解析种草红#FF2442配色、瀑布流双列布局、笔记卡片样式
+3. 生成Design Token: 小红书品牌色、圆角图片排版、双列瀑布流网格
+4. 输出组件: 瀑布流笔记卡片(图片+标题+用户头像+点赞数)、红色发布按钮、搜索框、分类标签
+5. 生成原型: 单HTML文件，375dp视口，双列瀑布流布局，浅/深色切换
+6. 审查: 对照小红书视觉风格检查还原度
+7. 交付: 完整设计规范 + 组件库 + 可交互原型
+8. Demo: 生成 `demo/brand-xiaohongshu/index.html`
+
+### 示例5: Stripe风格支付确认页
+
+用户输入: "用Stripe风格设计一个支付确认页面"
+
+执行流程:
+1. 风格判定: 大厂品牌风格 -> 路由匹配Stripe -> 加载 `references/brands/registry.md` 中stripe条目
+2. 获取设计规范: 执行 `npx getdesign@latest add stripe` 获取DESIGN.md，解析紫色优雅#635BFF、weight-300轻量排版、金融数据表格样式
+3. 生成Design Token: Stripe紫色渐变、Inter字体weight-300、精确到小数的间距
+4. 输出组件: 支付信息卡片、金额展示、确认按钮(紫色渐变)、安全徽章
+5. 生成原型: 单HTML文件，金融级精准排版，浅/深色切换
+6. 审查: 对照Stripe设计语言检查还原度
+7. 交付: 完整设计规范 + 组件库 + 可交互原型
+8. Demo: 生成 `demo/brand-stripe/index.html`
+
+### 示例6: iOS平台风格+飞书品牌风格混搭团队协作App
+
+用户输入: "用iOS平台风格+飞书品牌风格混搭设计一个团队协作App"
+
+执行流程:
+1. 风格判定: 平台+品牌混搭 -> 平台基底iOS + 品牌风格飞书
+2. 加载双规范: `references/styles/apple-ios.md`(平台基底) + `npx getdesign@latest add feishu`(品牌风格)
+3. 混搭规则: iOS提供布局系统(4pt网格/毛玻璃导航/圆角卡片) + 飞书提供配色方案(协作紫#7B67EE)和组件风格(频道列表/消息气泡)
+4. 生成Design Token: iOS布局+飞书配色混合Token
+5. 输出组件: iOS风格导航栏+飞书紫色频道列表+混合消息气泡
+6. 生成原型: 代码注释标注每个元素的来源平台/品牌
+7. 交付: 混搭设计方案 + 双来源Token文档
+8. Demo: 生成混合风格原型
 
 ---
